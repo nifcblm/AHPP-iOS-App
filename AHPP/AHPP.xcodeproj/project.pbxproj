@@ -15,6 +15,7 @@
 		49E652B61AB602BC001E061D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E652B41AB602BC001E061D /* LaunchScreen.xib */; };
 		49E652C21AB602BC001E061D /* AHPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E652C11AB602BC001E061D /* AHPPTests.swift */; };
 		794AFDDC1AB6177700513ADC /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794AFDDB1AB6177700513ADC /* Parsing.swift */; };
+		A7BEDA751AB621EB00DD245B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BEDA741AB621EB00DD245B /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		49E652C01AB602BC001E061D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49E652C11AB602BC001E061D /* AHPPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHPPTests.swift; sourceTree = "<group>"; };
 		794AFDDB1AB6177700513ADC /* Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parsing.swift; path = "../../../../School/AHPP-iOS-App/AHPP/AHPP/Parsing.swift"; sourceTree = "<group>"; };
+		A7BEDA741AB621EB00DD245B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7BEDA751AB621EB00DD245B /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +66,7 @@
 		49E6529A1AB602BC001E061D = {
 			isa = PBXGroup;
 			children = (
+				A7BEDA741AB621EB00DD245B /* libsqlite3.dylib */,
 				49E652A51AB602BC001E061D /* AHPP */,
 				49E652BE1AB602BC001E061D /* AHPPTests */,
 				49E652A41AB602BC001E061D /* Products */,
