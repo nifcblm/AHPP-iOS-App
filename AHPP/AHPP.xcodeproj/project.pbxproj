@@ -81,6 +81,7 @@
 		49E652A51AB602BC001E061D /* AHPP */ = {
 			isa = PBXGroup;
 			children = (
+				794AFDDB1AB6177700513ADC /* Parsing.swift */,
 				49E652A81AB602BC001E061D /* AppDelegate.swift */,
 				49E652AD1AB602BC001E061D /* ViewController.swift */,
 				49E652AF1AB602BC001E061D /* Main.storyboard */,
@@ -88,7 +89,6 @@
 				49E652B41AB602BC001E061D /* LaunchScreen.xib */,
 				49E652AA1AB602BC001E061D /* AHPP.xcdatamodeld */,
 				49E652A61AB602BC001E061D /* Supporting Files */,
-				794AFDDB1AB6177700513ADC /* Parsing.swift */,
 			);
 			path = AHPP;
 			sourceTree = "<group>";
