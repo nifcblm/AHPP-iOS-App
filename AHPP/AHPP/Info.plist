@@ -35,12 +35,12 @@
 		<dict>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string></string>
+				<string>public.data</string>
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>CFBundleTypeName</key>
-			<string>DataTable File</string>
+			<string>Lookup Table File</string>
 			<key>LSHandlerRank</key>
 			<string>Owner</string>
 		</dict>
@@ -48,16 +48,18 @@
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
+			<key>UTTypeDescription</key>
+			<string>Lookup Table File</string>
 			<key>UTTypeConformsTo</key>
 			<array>
-				<string></string>
+				<string>public.data</string>
 			</array>
 			<key>UTTypeIdentifier</key>
 			<string></string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.mime-type</key>
-				<string>application/helo</string>
+				<string>application/AHPP</string>
 				<key>public.filename-extension</key>
 				<string>csv</string>
 			</dict>
