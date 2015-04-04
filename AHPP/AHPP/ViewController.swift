@@ -57,16 +57,11 @@ class ViewController: UIViewController {
         newDataCell.temperature = temperature
         newDataCell.weight = weight
         newDataCell.lookUpTable = lookUpTable
-        
-        let fetchRequest = NSFetchRequest(entityName: "DataCell")
-        if let fetchResults = context.executeFetchRequest(fetchRequest, error: nil) as? [DataCell] {
             
-            println(fetchResults.count)
-            println(fetchResults[0].pressure)
-            println(fetchResults[0].temperature)
-            println(fetchResults[0].weight)
-            println(fetchResults[0].lookUpTable)
-        }
+//        let fetchRequest2 = NSFetchRequest(entityName: "DataCell")
+//        if let fetchResults = context.executeFetchRequest(fetchRequest2, error: nil) as? [DataCell] {
+//            println(fetchResults[0].lookUpTable.company_name)
+//        }
         
     }
     
