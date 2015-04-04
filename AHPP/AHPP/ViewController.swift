@@ -14,25 +14,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var savedLUT = ViewController.saveLookUpTable(
-            "ACME INC",
-            contact_number: "208-999-9999",
-            designated_base: "Podunk ID",
-            fixed_weight_reduduction: 400,
-            flight_crew_weight: 200,
-            gross_weight_limitation_hige: 300,
-            gross_weight_limitation_hoge: 100,
-            gross_weight_limitation_hoge_j: 200,
-            helicopter_equipped_weight: 100,
-            is_hoge: 50,
-            make_model: "Apache",
-            n_number: "4",
-            performance_reference_hige: "Great",
-            performance_reference_hoge: "So Great",
-            pilot_name: "John Smith")
-        
-        
-        ViewController.saveDataCell(40, temperature: 80, weight: 50, lookUpTable: savedLUT)
+//        var savedLUT = ViewController.saveLookUpTable(
+//            "ACME INC",
+//            contact_number: "208-999-9999",
+//            designated_base: "Podunk ID",
+//            fixed_weight_reduduction: 400,
+//            flight_crew_weight: 200,
+//            gross_weight_limitation_hige: 300,
+//            gross_weight_limitation_hoge: 100,
+//            gross_weight_limitation_hoge_j: 200,
+//            helicopter_equipped_weight: 100,
+//            is_hoge: 50,
+//            make_model: "Apache",
+//            n_number: "4",
+//            performance_reference_hige: "Great",
+//            performance_reference_hoge: "So Great",
+//            pilot_name: "John Smith")
+//        
+//        
+//        ViewController.saveDataCell(40, temperature: 80, weight: 50, lookUpTable: savedLUT)
 
     }
 
