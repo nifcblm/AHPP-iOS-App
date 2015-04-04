@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(DataCell)
 class DataCell: NSManagedObject {
 
     @NSManaged var pressure: NSNumber

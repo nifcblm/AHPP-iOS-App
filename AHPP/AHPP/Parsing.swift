@@ -9,15 +9,14 @@
 import Foundation
 
 
-
 func parse(path: NSURL) -> Bool {
     var i = 0
     var table_gen = LookupTableGenerator(path: path)
     var table: Array2D
     
-    
+
     table = table_gen.nextTable()
-    println("col:\(table.colCount()) rows\(table.rowCount())")
+//    println("col:\(table.colCount()) rows\(table.rowCount())")
     
     for col in 0..<table.colCount()
     {
@@ -25,21 +24,21 @@ func parse(path: NSURL) -> Bool {
         {
             if(row == 0 && col == 0)
             {
-                print("cnr ")
+//                print("cnr ")
             }
             else if(table[col,row] != nil && table[col,row]>=0)
             {
-                print("\(table[col,row]!) ")
+//                print("\(table[col,row]!) ")
             } else if(table[col,row] == nil)
             {
-                print("nil ")
+//                print("nil ")
             }
         }
-        println()
+//        println()
     }
     
     table = table_gen.nextTable()
-    println("col:\(table.colCount()) rows\(table.rowCount())")
+//    println("col:\(table.colCount()) rows\(table.rowCount())")
     
     for col in 0..<table.colCount()
     {
@@ -47,21 +46,21 @@ func parse(path: NSURL) -> Bool {
         {
             if(row == 0 && col == 0)
             {
-                print("cnr ")
+//                print("cnr ")
             }
             else if(table[col,row] != nil && table[col,row]>=0)
             {
-                print("\(table[col,row]!) ")
+//                print("\(table[col,row]!) ")
             } else if(table[col,row] == nil)
             {
-                print("nil ")
+//                print("nil ")
             }
         }
-        println()
+//        println()
     }
     
     table = table_gen.nextTable()
-    println("col:\(table.colCount()) rows\(table.rowCount())")
+//    println("col:\(table.colCount()) rows\(table.rowCount())")
     
     for col in 0..<table.colCount()
     {
@@ -69,17 +68,17 @@ func parse(path: NSURL) -> Bool {
         {
             if(row == 0 && col == 0)
             {
-                print("cnr ")
+//                print("cnr ")
             }
             else if(table[col,row] != nil && table[col,row]>=0)
             {
-                print("\(table[col,row]!) ")
+//                print("\(table[col,row]!) ")
             } else if(table[col,row] == nil)
             {
-                print("nil ")
+//                print("nil ")
             }
         }
-        println()
+//        println()
     }
     return true
 }
@@ -94,7 +93,7 @@ class LookupTableGenerator
     {
         self.path = path
         self.aStreamReader = StreamReader(path: self.path.path!)!
-        println("created table generator and StreamReader")
+//        println("created table generator and StreamReader")
     }
     
     func nextTable() -> Array2D
@@ -129,7 +128,7 @@ class LookupTableGenerator
             if line.rangeOfString("Lookup Table") != nil
             {
                 table_found = true
-                println(line)
+//                println(line)
             }
             if(table_found)
             {
