@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Prints the csv file url
         print(url)
+        parse(url)
         
         return true
     }
