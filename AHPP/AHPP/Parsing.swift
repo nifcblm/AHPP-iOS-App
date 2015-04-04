@@ -9,13 +9,15 @@
 import Foundation
 
 
-
 func parse(path: NSURL) -> Bool {
     var i = 0
     var table_gen = LookupTableGenerator(path: path)
     var table: Array2D
     
-    
+
+    ViewController.saveLookUpTable("AAAAA")
+
+
     table = table_gen.nextTable()
     println("col:\(table.colCount()) rows\(table.rowCount())")
     

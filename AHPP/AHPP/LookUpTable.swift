@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(LookUpTable)
 class LookUpTable: NSManagedObject {
 
     @NSManaged var company_name: String
