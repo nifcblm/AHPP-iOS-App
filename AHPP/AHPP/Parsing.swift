@@ -12,34 +12,32 @@ import Foundation
 
 func parse(path: NSURL) -> Bool {
     var i = 0
+    var processing: Bool = true
     var table_gen = LookupTableGenerator(path: path)
     var table: LookUpTable
     var table1: Array2D
     var table2: Array2D
     
     table = table_gen.loadMetaData()
-    
-//    table1 = table_gen.nextTable()
+
+    table1 = table_gen.nextTable()
 //    println("col:\(table1.colCount()) rows\(table1.rowCount())")
 //
-//    for col in 0..<table1.colCount()
-//    {
-//        for row in 0..<table1.rowCount()
-//        {
-//            if(row == 0 && col == 0)
-//            {
-//                print("cnr ")
-//            }
-//            else if(table1[col,row] != nil && table1[col,row]>=0)
-//            {
-//                print("\(table1[col,row]!) ")
-//            } else if(table1[col,row] == nil)
-//            {
-//                print("nil ")
-//            }
-//        }
-//        println()
-//    }
+    for col in 1..<table1.colCount()
+    {
+        for row in 1..<table1.rowCount()
+        {
+            if(table1[col,row] != nil && table1[col,row]>=0)
+            {
+               ViewController.saveDataCell(
+                table1[col,0]!,
+                temperature: table1[0,row]!,
+                weight: table1[col,row]!,
+                lookUpTable: table)
+            }
+        }
+        println()
+    }
     
 //    table = table_gen.nextTable()
 //    println("col:\(table.colCount()) rows\(table.rowCount())")
@@ -109,7 +107,6 @@ class LookupTableGenerator
     var path: NSURL
     var atTable: Bool = false
     var aStreamReader: StreamReader
-    var lookUpTable = LookUpTable()
     init(path: NSURL)
     {
         self.path = path
