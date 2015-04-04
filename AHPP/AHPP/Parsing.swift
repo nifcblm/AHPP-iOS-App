@@ -9,91 +9,189 @@
 import Foundation
 
 
+
 func parse(path: NSURL) -> Bool {
     var i = 0
     var table_gen = LookupTableGenerator(path: path)
-    var table: Array2D
+    var table: LookUpTable
+    var table1: Array2D
+    var table2: Array2D
     
-
-    table = table_gen.nextTable()
-//    println("col:\(table.colCount()) rows\(table.rowCount())")
+    table = table_gen.loadMetaData()
     
-    for col in 0..<table.colCount()
-    {
-        for row in 0..<table.rowCount()
-        {
-            if(row == 0 && col == 0)
-            {
+//    table1 = table_gen.nextTable()
+//    println("col:\(table1.colCount()) rows\(table1.rowCount())")
+//
+//    for col in 0..<table1.colCount()
+//    {
+//        for row in 0..<table1.rowCount()
+//        {
+//            if(row == 0 && col == 0)
+//            {
 //                print("cnr ")
-            }
-            else if(table[col,row] != nil && table[col,row]>=0)
-            {
-//                print("\(table[col,row]!) ")
-            } else if(table[col,row] == nil)
-            {
+//            }
+//            else if(table1[col,row] != nil && table1[col,row]>=0)
+//            {
+//                print("\(table1[col,row]!) ")
+//            } else if(table1[col,row] == nil)
+//            {
 //                print("nil ")
-            }
-        }
+//            }
+//        }
 //        println()
-    }
+//    }
     
-    table = table_gen.nextTable()
+//    table = table_gen.nextTable()
 //    println("col:\(table.colCount()) rows\(table.rowCount())")
-    
-    for col in 0..<table.colCount()
-    {
-        for row in 0..<table.rowCount()
-        {
-            if(row == 0 && col == 0)
-            {
+//
+//    for col in 0..<table.colCount()
+//    {
+//        for row in 0..<table.rowCount()
+//        {
+//            if(row == 0 && col == 0)
+//            {
 //                print("cnr ")
-            }
-            else if(table[col,row] != nil && table[col,row]>=0)
-            {
+//            }
+//            else if(table[col,row] != nil && table[col,row]>=0)
+//            {
 //                print("\(table[col,row]!) ")
-            } else if(table[col,row] == nil)
-            {
+//            } else if(table[col,row] == nil)
+//            {
 //                print("nil ")
-            }
-        }
+//            }
+//        }
 //        println()
-    }
+//    }
     
-    table = table_gen.nextTable()
+//    table = table_gen.nextTable()
 //    println("col:\(table.colCount()) rows\(table.rowCount())")
-    
-    for col in 0..<table.colCount()
-    {
-        for row in 0..<table.rowCount()
-        {
-            if(row == 0 && col == 0)
-            {
+//
+//    for col in 0..<table.colCount()
+//    {
+//        for row in 0..<table.rowCount()
+//        {
+//            if(row == 0 && col == 0)
+//            {
 //                print("cnr ")
-            }
-            else if(table[col,row] != nil && table[col,row]>=0)
-            {
+//            }
+//            else if(table[col,row] != nil && table[col,row]>=0)
+//            {
 //                print("\(table[col,row]!) ")
-            } else if(table[col,row] == nil)
-            {
+//            } else if(table[col,row] == nil)
+//            {
 //                print("nil ")
-            }
-        }
+//            }
+//        }
 //        println()
-    }
+//    }
     return true
 }
 
 class LookupTableGenerator
 {
+    var company_name: String = ""
+    var contact_number: String = ""
+    var designated_base: String = ""
+    var fixed_weight_reduduction: NSNumber = 0
+    var flight_crew_weight: NSNumber = 0
+    var gross_weight_limitation_hige: NSNumber = 0
+    var gross_weight_limitation_hoge: NSNumber = 0
+    var gross_weight_limitation_hoge_j: NSNumber = 0
+    var helicopter_equipped_weight: NSNumber = 0
+    var is_hoge: NSNumber = 0
+    var make_model: String = ""
+    var n_number: String = ""
+    var performance_reference_hige: String = ""
+    var performance_reference_hoge: String = ""
+    var pilot_name: String = ""
+
     var table_num: Int = 0
     var path: NSURL
     var atTable: Bool = false
     var aStreamReader: StreamReader
+    var lookUpTable = LookUpTable()
     init(path: NSURL)
     {
         self.path = path
         self.aStreamReader = StreamReader(path: self.path.path!)!
-//        println("created table generator and StreamReader")
+        println("created table generator and StreamReader")
+    }
+    
+    func loadMetaData() -> LookUpTable
+    {
+        var processing: Bool = true
+        var strings: [String]
+        
+        strings = getMetaStrings()
+        for var i = 0; i<strings.count; i++
+        {
+            var temp = strings[i]
+            switch temp
+            {
+                case "Designated Base":
+                    self.designated_base = strings[i+1]
+                    i++
+                case "Contract #":
+                    self.contact_number = strings[i+1]
+                    i++
+                case "Company Name":
+                    self.company_name = strings[i+1]
+                    i++
+                case "Fixed Weight Reduction":
+                    self.fixed_weight_reduduction = strings[i+1].toInt()!
+                    i++
+                case "Make/Model":
+                    self.make_model = strings[i+1]
+                    i++
+                case "Performance Reference HIGE":
+                    self.performance_reference_hige = strings[i+1]
+                    i++
+                case "N#":
+                    self.n_number = strings[i+1]
+                    i++
+                case "Gross Weight Limitation HIGE":
+                    self.gross_weight_limitation_hige = strings[i+1].toInt()!
+                    i++
+                case "Helicopter Equipped Weight":
+                    self.helicopter_equipped_weight = strings[i+1].toInt()!
+                    i++
+                case "Performance Reference HOGE":
+                    self.performance_reference_hoge = strings[i+1]
+                    i++
+                case "Pilot Name":
+                    self.pilot_name = strings[i+1]
+                    i++
+                case "Gross Weight Limitation HOGE":
+                    self.gross_weight_limitation_hoge = strings[i+1].toInt()!
+                    i++
+                case "Flight Crew Weight":
+                    self.flight_crew_weight = strings[i+1].toInt()!
+                    i++
+                case "Gross Weight Limitation HOGE-J":
+                    self.gross_weight_limitation_hoge_j = strings[i+1].toInt()!
+                    i++
+                default:
+                    println()
+            }
+            
+        }
+        return ViewController.saveLookUpTable(
+            self.company_name,
+            contact_number: self.contact_number,
+            designated_base: self.designated_base,
+            fixed_weight_reduduction: self.fixed_weight_reduduction,
+            flight_crew_weight: self.flight_crew_weight,
+            gross_weight_limitation_hige: self.gross_weight_limitation_hige,
+            gross_weight_limitation_hoge: self.gross_weight_limitation_hoge,
+            gross_weight_limitation_hoge_j: self.gross_weight_limitation_hoge_j,
+            helicopter_equipped_weight: self.helicopter_equipped_weight,
+            is_hoge: self.is_hoge,
+            make_model: self.make_model,
+            n_number: self.n_number,
+            performance_reference_hige: self.performance_reference_hige,
+            performance_reference_hoge: self.performance_reference_hoge,
+            pilot_name: self.pilot_name)
+        
     }
     
     func nextTable() -> Array2D
@@ -120,6 +218,8 @@ class LookupTableGenerator
         return table
     }
     
+    
+    
     private func findTable() -> Bool
     {
         var table_found = false
@@ -128,7 +228,7 @@ class LookupTableGenerator
             if line.rangeOfString("Lookup Table") != nil
             {
                 table_found = true
-//                println(line)
+                println(line)
             }
             if(table_found)
             {
@@ -171,6 +271,30 @@ class LookupTableGenerator
             findTable()
         }
         return colsrows
+    }
+    
+    private func getMetaStrings() -> [String]
+    {
+        var processing: Bool = true
+        var line: String
+        var cells: [String] = Array<String>()
+        while(processing)
+        {
+            line = aStreamReader.nextLine()!
+            for cell in line.componentsSeparatedByString(",")
+            {
+                if (!cell.isEmpty)
+                {
+                    cells.append(cell)
+                }
+            }
+            if line.rangeOfString("Flight Crew Weight") != nil
+            {//found last line of meta data stop consuming more
+                processing = false
+            }
+        }
+        return cells
+    
     }
     
     private func getNextLine() -> [Int]
