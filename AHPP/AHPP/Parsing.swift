@@ -10,9 +10,9 @@ import Foundation
 
 
 
-func parse() -> Bool {
+func parse(path: NSURL) -> Bool {
     var i = 0
-    var table_gen = LookupTableGenerator(path: "/Users/benneely/Desktop/test.csv")
+    var table_gen = LookupTableGenerator(path: path)
     var table: Array2D
     
     
@@ -87,13 +87,13 @@ func parse() -> Bool {
 class LookupTableGenerator
 {
     var table_num: Int = 0
-    var path: String
+    var path: NSURL
     var atTable: Bool = false
     var aStreamReader: StreamReader
-    init(path: String)
+    init(path: NSURL)
     {
         self.path = path
-        self.aStreamReader = StreamReader(path: self.path)!
+        self.aStreamReader = StreamReader(path: self.path.path!)!
         println("created table generator and StreamReader")
     }
     
