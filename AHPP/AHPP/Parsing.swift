@@ -8,9 +8,8 @@
 
 import Foundation
 
-
-
 func parse(path: NSURL) -> Bool {
+    var absolute: String = "/Users/rovery/Downloads/"
     var i = 0
     var processing: Bool = true
     var table_gen = LookupTableGenerator(path: path)
@@ -21,8 +20,7 @@ func parse(path: NSURL) -> Bool {
     table = table_gen.loadMetaData()
 
     table1 = table_gen.nextTable()
-//    println("col:\(table1.colCount()) rows\(table1.rowCount())")
-//
+
     for col in 1..<table1.colCount()
     {
         for row in 1..<table1.rowCount()
@@ -36,52 +34,8 @@ func parse(path: NSURL) -> Bool {
                 lookUpTable: table)
             }
         }
-        println()
     }
-    
-//    table = table_gen.nextTable()
-//    println("col:\(table.colCount()) rows\(table.rowCount())")
-//
-//    for col in 0..<table.colCount()
-//    {
-//        for row in 0..<table.rowCount()
-//        {
-//            if(row == 0 && col == 0)
-//            {
-//                print("cnr ")
-//            }
-//            else if(table[col,row] != nil && table[col,row]>=0)
-//            {
-//                print("\(table[col,row]!) ")
-//            } else if(table[col,row] == nil)
-//            {
-//                print("nil ")
-//            }
-//        }
-//        println()
-//    }
-    
-//    table = table_gen.nextTable()
-//    println("col:\(table.colCount()) rows\(table.rowCount())")
-//
-//    for col in 0..<table.colCount()
-//    {
-//        for row in 0..<table.rowCount()
-//        {
-//            if(row == 0 && col == 0)
-//            {
-//                print("cnr ")
-//            }
-//            else if(table[col,row] != nil && table[col,row]>=0)
-//            {
-//                print("\(table[col,row]!) ")
-//            } else if(table[col,row] == nil)
-//            {
-//                print("nil ")
-//            }
-//        }
-//        println()
-//    }
+
     return true
 }
 
@@ -107,6 +61,7 @@ class LookupTableGenerator
     var path: NSURL
     var atTable: Bool = false
     var aStreamReader: StreamReader
+    
     init(path: NSURL)
     {
         self.path = path
