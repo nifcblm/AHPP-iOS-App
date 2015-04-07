@@ -65,20 +65,15 @@ class ViewController: UIViewController {
         
         let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("DataCell", inManagedObjectContext: context) as DataCell
             
-            println(pressure)
-            println(temperature)
-            println(weight)
-            println()
-        
         newDataCell.pressure = pressure
         newDataCell.temperature = temperature
         newDataCell.weight = weight
         newDataCell.lookUpTable = lookUpTable
             
-        let fetchRequest2 = NSFetchRequest(entityName: "DataCell")
-        if let fetchResults = context.executeFetchRequest(fetchRequest2, error: nil) as? [DataCell] {
-//            println(fetchResults.count)
-        }
+//        let fetchRequest2 = NSFetchRequest(entityName: "DataCell")
+//        if let fetchResults = context.executeFetchRequest(fetchRequest2, error: nil) as? [DataCell] {
+////            println(fetchResults.count)
+//        }
         
     }
     
