@@ -40,6 +40,18 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
+    func getMyHelo() -> LookUpTable {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let context = appDelegate.managedObjectContext!
+
+        
+        let fetchRequest2 = NSFetchRequest(entityName: "LookUpTable")
+        let fetchResults = context.executeFetchRequest(fetchRequest2, error: nil) as [LookUpTable]
+        return fetchResults.first!
+    }
+
 
     class func saveDataCell(
         pressure: NSNumber,
@@ -52,16 +64,21 @@ class ViewController: UIViewController {
         let context = appDelegate.managedObjectContext!
         
         let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("DataCell", inManagedObjectContext: context) as DataCell
+            
+            println(pressure)
+            println(temperature)
+            println(weight)
+            println()
         
         newDataCell.pressure = pressure
         newDataCell.temperature = temperature
         newDataCell.weight = weight
         newDataCell.lookUpTable = lookUpTable
             
-//        let fetchRequest2 = NSFetchRequest(entityName: "DataCell")
-//        if let fetchResults = context.executeFetchRequest(fetchRequest2, error: nil) as? [DataCell] {
-//            println(fetchResults[0].lookUpTable.company_name)
-//        }
+        let fetchRequest2 = NSFetchRequest(entityName: "DataCell")
+        if let fetchResults = context.executeFetchRequest(fetchRequest2, error: nil) as? [DataCell] {
+//            println(fetchResults.count)
+        }
         
     }
     
