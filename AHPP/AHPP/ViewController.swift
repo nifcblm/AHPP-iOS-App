@@ -11,11 +11,97 @@ import CoreData
 
 class ViewController: UIViewController {
 
-    // control click label to code, will generate this
+    /* --------------------- BEGINNING OF LABELS --------------------- */
+    
+    /*--------------- misc labels on top -----------------*/
     @IBOutlet weak var pilotName: UILabel!
     @IBOutlet weak var helicopterModel: UILabel!
     @IBOutlet weak var helicopterNumber: UILabel!
-    @IBOutlet weak var helicopterEquipedWeight: UILabel!
+    @IBOutlet weak var missionDate: UITextField!
+    @IBOutlet weak var missionTime: UITextField!
+    @IBOutlet weak var mission: UITextField!
+    
+    /*--------------- row 1 & 2 -----------------*/
+    @IBOutlet weak var departureLocation: UITextField!
+    @IBOutlet weak var destinationLocation: UITextField!
+    
+    @IBOutlet weak var depsrtureAltitude: UITextField!
+    @IBOutlet weak var departureAirTemperature: UITextField!
+    @IBOutlet weak var destinationAltitude: UITextField!
+    @IBOutlet weak var destinationAirTemperature: UITextField!
+    
+    /*----------------- row 3 & 4 ---------------*/
+    @IBOutlet weak var helicopterEquiptWeight: UILabel!
+    @IBOutlet weak var flightCrewWeight: UILabel!
+    
+    /*------------- row 5 --------------*/
+    @IBOutlet weak var fuelWeightPoundsPerGallon: UILabel!
+    @IBOutlet weak var fuelWeightDestination: UILabel!
+    @IBOutlet weak var fuelWeightDeparture: UILabel!
+    @IBOutlet weak var departurePounds: UILabel!
+    @IBOutlet weak var destinationPounds: UILabel!
+    
+    /*------------------ row 6 ----------------*/
+    @IBOutlet weak var operatingWeightDeparture: UILabel!
+    @IBOutlet weak var operatingWeightDestination: UILabel!
+    
+    
+    /*-------------------- rows 7a - 13 --------------------*/
+    //departure labels
+    @IBOutlet weak var computerGrossWeightHIGE: UILabel!
+    @IBOutlet weak var computerGrossWeightHOGE: UILabel!
+    @IBOutlet weak var computedGrossWeightHOGEJ: UILabel!
+    @IBOutlet weak var weightReductionHIGE: UILabel!
+    @IBOutlet weak var weightReductionHOGE: UILabel!
+    @IBOutlet weak var weightReductionHOGEJ: UILabel!
+    @IBOutlet weak var adjustedWeightHIGE: UILabel!
+    @IBOutlet weak var adjustedWeightHOGE: UILabel!
+    @IBOutlet weak var adjustedWeightHOGEJ: UILabel!
+    @IBOutlet weak var grossWeightLimitationHIGE: UILabel!
+    @IBOutlet weak var grossWeightLimitationHOGE: UILabel!
+    @IBOutlet weak var grossWeightLimitationHOGEJ: UILabel!
+    @IBOutlet weak var selectedWeightHIGE: UILabel!
+    @IBOutlet weak var selectedWeightHOGE: UILabel!
+    @IBOutlet weak var selectedWeightHOGEJ: UILabel!
+    @IBOutlet weak var operatingWeightHIGE: UILabel!
+    @IBOutlet weak var operatingWeightHOGE: UILabel!
+    @IBOutlet weak var operatingWeightHOGEJ: UILabel!
+    @IBOutlet weak var allowablePayloadHIGE: UILabel!
+    @IBOutlet weak var allowablePayloadHOGE: UILabel!
+    @IBOutlet weak var allowablePayloadHOGEJ: UILabel!
+    @IBOutlet weak var exceedsHIGE: UILabel!
+    @IBOutlet weak var exceedsHOGE: UILabel!
+    @IBOutlet weak var exceedsHOGEJ: UILabel!
+    
+    //destination labels
+    @IBOutlet weak var destinationComputedGrossWeightHIGE: UILabel!
+    @IBOutlet weak var destinationComputedGrossWeightHOGE: UILabel!
+    @IBOutlet weak var destinationComputedGrossWeightHOGEJ: UILabel!
+    @IBOutlet weak var destinationWeightReductionHIGE: UILabel!
+    @IBOutlet weak var destinationWeightReductionHOGE: UILabel!
+    @IBOutlet weak var destinationWeightReductionHOGEJ: UILabel!
+    @IBOutlet weak var destinationadjustedWeightHIGE: UILabel!
+    @IBOutlet weak var destinationAdjustedWeightHOGE: UILabel!
+    @IBOutlet weak var destinationAdjustedWeightHOGEJ: UILabel!
+    @IBOutlet weak var destinationGrossWeightLimitationHIGE: UILabel!
+    @IBOutlet weak var destinationGrossWeightLimitationHOGE: UILabel!
+    @IBOutlet weak var destinationGrossWeightLimitationHOGEJ: UILabel!
+    @IBOutlet weak var destinationSelectedWeightHIGE: UILabel!
+    @IBOutlet weak var destinationSelectedWeightHOGE: UILabel!
+    @IBOutlet weak var destinationSelectedWeightHOGEJ: UILabel!
+    @IBOutlet weak var destinationOperatingWeightHIGE: UILabel!
+    @IBOutlet weak var destinationOperatingWeightHOGE: UILabel!
+    @IBOutlet weak var destinationOperatingWeightHOGEJ: UILabel!
+    @IBOutlet weak var destinationAllowablePayloadHIGE: UILabel!
+    @IBOutlet weak var destinationAllowablePayloadHOGE: UILabel!
+    @IBOutlet weak var destinationAllowablePayloadHOGEJ: UILabel!
+    @IBOutlet weak var destinationExceedsHIGE: UILabel!
+    @IBOutlet weak var destinationExceedsHOGE: UILabel!
+    @IBOutlet weak var destinationExceedsHOGEJ: UILabel!
+    
+    /* --------------------- END OF LABELS --------------------- */
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
