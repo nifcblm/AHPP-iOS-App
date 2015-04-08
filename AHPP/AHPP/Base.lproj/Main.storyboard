@@ -1466,7 +1466,6 @@
                         <outlet property="destinationComputedGrossWeightHIGE" destination="9jS-Bl-zpz" id="XDO-5A-EkA"/>
                         <outlet property="destinationComputedGrossWeightHOGE" destination="3IH-wA-F3B" id="rJ3-Mk-kqW"/>
                         <outlet property="destinationComputedGrossWeightHOGEJ" destination="XgJ-XS-tBL" id="DuC-Ts-4dP"/>
-                        <outlet property="destinationComputedWeightReductionHIGE" destination="oQa-Pb-f0Y" id="dvF-sQ-unG"/>
                         <outlet property="destinationExceedsHIGE" destination="aDp-G6-vYL" id="Hsh-R7-Hyq"/>
                         <outlet property="destinationExceedsHOGE" destination="Ucl-bj-25B" id="71m-x2-gTZ"/>
                         <outlet property="destinationExceedsHOGEJ" destination="Vj9-Jc-aJB" id="l6G-SY-WkK"/>
@@ -1477,7 +1476,7 @@
                         <outlet property="destinationPounds" destination="Rhf-ix-9eS" id="2cn-Fh-kpx"/>
                         <outlet property="destinationSelectedWeightHOGE" destination="zah-fp-Tej" id="LZN-ZC-ePU"/>
                         <outlet property="destinationSelectedWeightHOGEJ" destination="cyG-Ww-xxO" id="xPG-sT-h5H"/>
-                        <outlet property="destinationWeightReductionHIGE" destination="oQa-Pb-f0Y" id="XBs-En-d3l"/>
+                        <outlet property="destinationWeightReductionHIGE" destination="oQa-Pb-f0Y" id="cDe-VJ-PMe"/>
                         <outlet property="destinationWeightReductionHOGE" destination="pHV-a9-SFZ" id="keD-1B-vLo"/>
                         <outlet property="destinationWeightReductionHOGEJ" destination="NEd-MS-FbA" id="Blv-OR-qwz"/>
                         <outlet property="destinationadjustedWeightHIGE" destination="T2W-Yk-vVg" id="yii-lu-aD1"/>
@@ -1491,7 +1490,6 @@
                         <outlet property="grossWeightLimitationHIGE" destination="Mjc-1P-mBz" id="fDT-gw-JFk"/>
                         <outlet property="grossWeightLimitationHOGE" destination="WBr-sF-rZg" id="E6N-bD-JW6"/>
                         <outlet property="grossWeightLimitationHOGEJ" destination="BGC-Jb-MkD" id="4Vv-QX-CCu"/>
-                        <outlet property="helicopterEquipedWeight" destination="SK0-D3-6hJ" id="R1I-Xa-o75"/>
                         <outlet property="helicopterEquiptWeight" destination="SK0-D3-6hJ" id="b4D-7J-ozE"/>
                         <outlet property="helicopterModel" destination="Vyg-6d-L4R" id="fDm-ob-m3z"/>
                         <outlet property="helicopterNumber" destination="Sh3-YE-l2O" id="P11-a0-VSf"/>

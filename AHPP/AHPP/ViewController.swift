@@ -136,7 +136,7 @@ class ViewController: UIViewController {
         helicopterNumber.text = helicopter.n_number
         
         // NSInt to NSString example
-        helicopterEquipedWeight.text = helicopter.helicopter_equipped_weight.stringValue
+        helicopterEquiptWeight.text = helicopter.helicopter_equipped_weight.stringValue
 
     }
 
