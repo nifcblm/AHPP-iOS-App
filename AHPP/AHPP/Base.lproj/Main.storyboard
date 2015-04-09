@@ -832,16 +832,6 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ud-5e-jrr">
-                                <rect key="frame" x="596" y="642" width="82" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2W-Yk-vVg">
                                 <rect key="frame" x="514" y="602" width="82" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -1437,6 +1427,16 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ud-5e-jrr">
+                                <rect key="frame" x="596" y="642" width="82" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1470,6 +1470,8 @@
                         <outlet property="destinationExceedsHOGE" destination="Ucl-bj-25B" id="71m-x2-gTZ"/>
                         <outlet property="destinationExceedsHOGEJ" destination="Vj9-Jc-aJB" id="l6G-SY-WkK"/>
                         <outlet property="destinationGrossWeightLimitationHIGE" destination="oKx-ki-1MM" id="4d2-6V-Mgj"/>
+                        <outlet property="destinationGrossWeightLimitiationHOGE" destination="6Ud-5e-jrr" id="1pY-dQ-pTO"/>
+                        <outlet property="destinationGrossWeightLimitiationHOGEJ" destination="ilR-Yt-xlv" id="R5b-gg-SIg"/>
                         <outlet property="destinationOperatingWeightHIGE" destination="sR7-Z9-hNX" id="JAD-6e-61r"/>
                         <outlet property="destinationOperatingWeightHOGE" destination="BMo-IE-2hD" id="faU-ov-mvY"/>
                         <outlet property="destinationOperatingWeightHOGEJ" destination="s1Q-0W-T6X" id="Xum-M3-GHL"/>

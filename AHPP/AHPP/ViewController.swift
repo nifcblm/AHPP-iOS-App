@@ -84,8 +84,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var destinationAdjustedWeightHOGE: UILabel!
     @IBOutlet weak var destinationAdjustedWeightHOGEJ: UILabel!
     @IBOutlet weak var destinationGrossWeightLimitationHIGE: UILabel!
-    @IBOutlet weak var destinationGrossWeightLimitationHOGE: UILabel!
-    @IBOutlet weak var destinationGrossWeightLimitationHOGEJ: UILabel!
+    @IBOutlet weak var destinationGrossWeightLimitiationHOGE: UILabel!
+   
+    @IBOutlet weak var destinationGrossWeightLimitiationHOGEJ: UILabel!
+    
+    
     @IBOutlet weak var destinationSelectedWeightHIGE: UILabel!
     @IBOutlet weak var destinationSelectedWeightHOGE: UILabel!
     @IBOutlet weak var destinationSelectedWeightHOGEJ: UILabel!
@@ -136,8 +139,20 @@ class ViewController: UIViewController {
         helicopterNumber.text = helicopter.n_number
         
         // NSInt to NSString example
+        //line 3
         helicopterEquiptWeight.text = helicopter.helicopter_equipped_weight.stringValue
-
+        //line 4
+        flightCrewWeight.text = helicopter.flight_crew_weight.stringValue
+        
+        //line 10
+        grossWeightLimitationHIGE.text = helicopter.gross_weight_limitation_hige.stringValue
+        grossWeightLimitationHOGE.text = helicopter.gross_weight_limitation_hoge.stringValue
+        grossWeightLimitationHOGEJ.text = helicopter.gross_weight_limitation_hoge_j.stringValue
+        
+        destinationGrossWeightLimitationHIGE.text = helicopter.gross_weight_limitation_hige.stringValue
+        destinationGrossWeightLimitiationHOGE.text = helicopter.gross_weight_limitation_hoge.stringValue
+        destinationGrossWeightLimitiationHOGEJ.text = helicopter.gross_weight_limitation_hoge_j.stringValue
+                
     }
 
     override func didReceiveMemoryWarning() {
