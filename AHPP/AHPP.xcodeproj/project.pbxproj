@@ -91,14 +91,14 @@
 			children = (
 				49E652A81AB602BC001E061D /* AppDelegate.swift */,
 				49E652AD1AB602BC001E061D /* ViewController.swift */,
+				79F02F9B1AD0567E00492705 /* LookUpTable.swift */,
+				79F02F991AD0567D00492705 /* DataCell.swift */,
+				794AFDF11AB6228300513ADC /* Parsing.swift */,
 				49E652AF1AB602BC001E061D /* Main.storyboard */,
 				49E652B21AB602BC001E061D /* Images.xcassets */,
 				49E652B41AB602BC001E061D /* LaunchScreen.xib */,
 				49E652AA1AB602BC001E061D /* AHPP.xcdatamodeld */,
-				79F02F9B1AD0567E00492705 /* LookUpTable.swift */,
-				79F02F991AD0567D00492705 /* DataCell.swift */,
 				49E652A61AB602BC001E061D /* Supporting Files */,
-				794AFDF11AB6228300513ADC /* Parsing.swift */,
 			);
 			path = AHPP;
 			sourceTree = "<group>";
