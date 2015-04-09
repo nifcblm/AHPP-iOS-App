@@ -41,6 +41,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //func getHigeWeight(pressure: NSNumber,
 
     func getMyHelo() -> LookUpTable {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
