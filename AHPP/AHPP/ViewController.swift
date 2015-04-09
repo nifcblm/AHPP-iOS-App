@@ -128,7 +128,7 @@ class ViewController: UIViewController {
             pilot_name: "John Smith")
         
         // Save the test pilot
-        ViewController.saveDataCell(40, temperature: 80, weight: 50, lookUpTable: savedLUT, isHige: true, isHoge: false)
+        ViewController.saveDataCell(40, temperature: 80, weight: 50, lookUpTable: savedLUT, isHige: false, isHoge: true)
         
         // Helicopter object
         var helicopter = getMyHelo();

@@ -96,6 +96,7 @@
 				49E652A81AB602BC001E061D /* AppDelegate.swift */,
 				49E652AD1AB602BC001E061D /* ViewController.swift */,
 				79F02F9B1AD0567E00492705 /* LookUpTable.swift */,
+				7940955C1AD727F1002A6F70 /* HigeDataCell.swift */,
 				79F02F991AD0567D00492705 /* HogeDataCell.swift */,
 				7940955E1AD7288A002A6F70 /* WatDataCell.swift */,
 				794AFDF11AB6228300513ADC /* Parsing.swift */,
@@ -103,7 +104,6 @@
 				49E652B21AB602BC001E061D /* Images.xcassets */,
 				49E652B41AB602BC001E061D /* LaunchScreen.xib */,
 				49E652AA1AB602BC001E061D /* AHPP.xcdatamodeld */,
-				7940955C1AD727F1002A6F70 /* HigeDataCell.swift */,
 				49E652A61AB602BC001E061D /* Supporting Files */,
 			);
 			path = AHPP;

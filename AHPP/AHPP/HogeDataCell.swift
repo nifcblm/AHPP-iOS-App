@@ -1,5 +1,5 @@
 //
-//  DataCell.swift
+//  HogeDataCell.swift
 //  AHPP
 //
 //  Created by Ben Neely on 4/4/15.
