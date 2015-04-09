@@ -58,24 +58,25 @@ func parse(path: NSURL) -> Bool {
     }
     
     table1 = table_gen.nextTable()
-    
-    for col in 1..<table1.colCount()
+    if(table1.colCount()>0 && table1.rowCount()>0)
     {
-        for row in 1..<table1.rowCount()
+        for col in 1..<table1.colCount()
         {
-            if(table1[col,row] != nil && table1[col,row]>=0)
+            for row in 1..<table1.rowCount()
             {
-                ViewController.saveDataCell(
-                    table1[col,0]!,
-                    temperature: table1[0,row]!,
-                    weight: table1[col,row]!,
-                    lookUpTable: table,
-                    isHige: false,
-                    isHoge: false)
+                if(table1[col,row] != nil && table1[col,row]>=0)
+                {
+                    ViewController.saveDataCell(
+                        table1[col,0]!,
+                        temperature: table1[0,row]!,
+                        weight: table1[col,row]!,
+                        lookUpTable: table,
+                        isHige: false,
+                        isHoge: false)
+                }
             }
         }
     }
-
     return true
 }
 
