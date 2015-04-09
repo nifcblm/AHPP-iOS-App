@@ -128,7 +128,7 @@ class ViewController: UIViewController {
             pilot_name: "John Smith")
         
         // Save the test pilot
-        ViewController.saveDataCell(40, temperature: 80, weight: 50, lookUpTable: savedLUT)
+        ViewController.saveDataCell(40, temperature: 80, weight: 50, lookUpTable: savedLUT, isHige: true, isHoge: false)
         
         // Helicopter object
         var helicopter = getMyHelo();
@@ -160,6 +160,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //func getHigeWeight(pressure: NSNumber,
 
     func getMyHelo() -> LookUpTable {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -176,19 +178,35 @@ class ViewController: UIViewController {
         pressure: NSNumber,
         temperature: NSNumber,
         weight: NSNumber,
-        lookUpTable: LookUpTable
+        lookUpTable: LookUpTable,
+        isHige: Bool,
+        isHoge: Bool
         ) {
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let context = appDelegate.managedObjectContext!
         
-        let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("DataCell", inManagedObjectContext: context) as DataCell
             
-        newDataCell.pressure = pressure
-        newDataCell.temperature = temperature
-        newDataCell.weight = weight
-        newDataCell.lookUpTable = lookUpTable
-            
+            if isHige {
+                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HigeDataCell", inManagedObjectContext: context) as HigeDataCell
+                newDataCell.pressure = pressure
+                newDataCell.temperature = temperature
+                newDataCell.weight = weight
+                newDataCell.lookUpTable = lookUpTable
+            } else if isHoge {
+                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HogeDataCell", inManagedObjectContext: context) as HogeDataCell
+                newDataCell.pressure = pressure
+                newDataCell.temperature = temperature
+                newDataCell.weight = weight
+                newDataCell.lookUpTable = lookUpTable
+            } else {
+                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("WatDataCell", inManagedObjectContext: context) as WatDataCell
+                newDataCell.pressure = pressure
+                newDataCell.temperature = temperature
+                newDataCell.weight = weight
+                newDataCell.lookUpTable = lookUpTable
+            }
+                        
 //        let fetchRequest2 = NSFetchRequest(entityName: "DataCell")
 //        if let fetchResults = context.executeFetchRequest(fetchRequest2, error: nil) as? [DataCell] {
 ////            println(fetchResults.count)
