@@ -9,6 +9,8 @@
 import Foundation
 import CoreData
 
+@objc(WatDataCell)
+
 class WatDataCell: NSManagedObject {
 
     @NSManaged var pressure: NSNumber

@@ -9,6 +9,8 @@
 import Foundation
 import CoreData
 
+@objc(HigeDataCell)
+
 class HigeDataCell: NSManagedObject {
 
     @NSManaged var pressure: NSNumber
