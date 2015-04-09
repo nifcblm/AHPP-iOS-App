@@ -9,6 +9,8 @@
 import Foundation
 import CoreData
 
+@objc(LookUpTable)
+
 class LookUpTable: NSManagedObject {
 
     @NSManaged var company_name: String
@@ -26,8 +28,8 @@ class LookUpTable: NSManagedObject {
     @NSManaged var performance_reference_hige: String
     @NSManaged var performance_reference_hoge: String
     @NSManaged var pilot_name: String
-    @NSManaged var higeDataCells: DataCell
-    @NSManaged var hogeDataCells: DataCell
-    @NSManaged var watDataCells: DataCell
+    @NSManaged var higeDataCells: HigeDataCells
+    @NSManaged var hogeDataCells: HogeDataCells
+    @NSManaged var watDataCells: WatDataCells
 
 }

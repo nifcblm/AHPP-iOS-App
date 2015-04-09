@@ -188,25 +188,25 @@ class ViewController: UIViewController {
         
             
             if isHige {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HigeDataCell", inManagedObjectContext: context) as HigeDataCell
+                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HigeDataCell", inManagedObjectContext: context) as HigeDataCells
                 newDataCell.pressure = pressure
                 newDataCell.temperature = temperature
                 newDataCell.weight = weight
                 newDataCell.lookUpTable = lookUpTable
             } else if isHoge {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HogeDataCell", inManagedObjectContext: context) as HogeDataCell
+                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HogeDataCells", inManagedObjectContext: context) as HogeDataCells
                 newDataCell.pressure = pressure
                 newDataCell.temperature = temperature
                 newDataCell.weight = weight
                 newDataCell.lookUpTable = lookUpTable
             } else {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("WatDataCell", inManagedObjectContext: context) as WatDataCell
+                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("WatDataCells", inManagedObjectContext: context) as WatDataCells
                 newDataCell.pressure = pressure
                 newDataCell.temperature = temperature
                 newDataCell.weight = weight
                 newDataCell.lookUpTable = lookUpTable
             }
-                        
+            
 //        let fetchRequest2 = NSFetchRequest(entityName: "DataCell")
 //        if let fetchResults = context.executeFetchRequest(fetchRequest2, error: nil) as? [DataCell] {
 ////            println(fetchResults.count)

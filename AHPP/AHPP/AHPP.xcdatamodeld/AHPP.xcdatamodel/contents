@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C109" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="HigeDataCell" representedClassName="DataCell" syncable="YES">
+    <entity name="HigeDataCells" representedClassName="HigeDataCells" syncable="YES">
         <attribute name="pressure" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="temperature" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="lookUpTable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LookUpTable" inverseName="higeDataCells" inverseEntity="LookUpTable" syncable="YES"/>
     </entity>
-    <entity name="HogeDataCell" representedClassName="DataCell" syncable="YES">
+    <entity name="HogeDataCells" representedClassName="HogeDataCells" syncable="YES">
         <attribute name="pressure" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="temperature" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="lookUpTable" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="LookUpTable" inverseName="hoteDataCells" inverseEntity="LookUpTable" syncable="YES"/>
+        <relationship name="lookUpTable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LookUpTable" inverseName="hogeDataCells" inverseEntity="LookUpTable" syncable="YES"/>
     </entity>
     <entity name="LookUpTable" representedClassName="LookUpTable" syncable="YES">
         <attribute name="company_name" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,20 +28,20 @@
         <attribute name="performance_reference_hige" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="performance_reference_hoge" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pilot_name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="higeDataCells" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HigeDataCell" inverseName="lookUpTable" inverseEntity="HigeDataCell" syncable="YES"/>
-        <relationship name="hoteDataCells" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HogeDataCell" inverseName="lookUpTable" inverseEntity="HogeDataCell" syncable="YES"/>
-        <relationship name="watDataCells" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WatDataCell" inverseName="lookUpTable" inverseEntity="WatDataCell" syncable="YES"/>
+        <relationship name="higeDataCells" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HigeDataCells" inverseName="lookUpTable" inverseEntity="HigeDataCells" syncable="YES"/>
+        <relationship name="hogeDataCells" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HogeDataCells" inverseName="lookUpTable" inverseEntity="HogeDataCells" syncable="YES"/>
+        <relationship name="watDataCells" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WatDataCells" inverseName="lookUpTable" inverseEntity="WatDataCells" syncable="YES"/>
     </entity>
-    <entity name="WatDataCell" representedClassName="DataCell" syncable="YES">
+    <entity name="WatDataCells" representedClassName="WatDataCells" syncable="YES">
         <attribute name="pressure" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="temperature" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="lookUpTable" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="LookUpTable" inverseName="watDataCells" inverseEntity="LookUpTable" syncable="YES"/>
+        <relationship name="lookUpTable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LookUpTable" inverseName="watDataCells" inverseEntity="LookUpTable" syncable="YES"/>
     </entity>
     <elements>
-        <element name="HigeDataCell" positionX="169" positionY="144" width="128" height="103"/>
         <element name="LookUpTable" positionX="-162" positionY="-36" width="126" height="313"/>
-        <element name="WatDataCell" positionX="-180" positionY="419" width="128" height="103"/>
-        <element name="HogeDataCell" positionX="79" positionY="315" width="128" height="103"/>
+        <element name="HigeDataCells" positionX="-153" positionY="81" width="128" height="103"/>
+        <element name="WatDataCells" positionX="-144" positionY="108" width="128" height="103"/>
+        <element name="HogeDataCells" positionX="-135" positionY="117" width="128" height="103"/>
     </elements>
 </model>
