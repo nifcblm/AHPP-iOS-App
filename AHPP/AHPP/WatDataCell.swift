@@ -1,5 +1,5 @@
 //
-//  WatDataCells.swift
+//  WatDataCell.swift
 //  AHPP
 //
 //  Created by Ben Neely on 4/9/15.
@@ -9,13 +9,11 @@
 import Foundation
 import CoreData
 
-@objc(WatDataCells)
+class WatDataCell: NSManagedObject {
 
-class WatDataCells: NSManagedObject {
-
-    @NSManaged var weight: NSNumber
     @NSManaged var pressure: NSNumber
     @NSManaged var temperature: NSNumber
+    @NSManaged var weight: NSNumber
     @NSManaged var lookUpTable: LookUpTable
 
 }

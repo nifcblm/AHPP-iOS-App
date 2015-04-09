@@ -161,7 +161,41 @@ class ViewController: UIViewController {
     }
     
     
-    //func getHigeWeight(pressure: NSNumber,
+    func getHigeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let context = appDelegate.managedObjectContext!
+        
+        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+        let lookUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+        let lookUpTable = lookUpTables.first
+        
+        var cell : HigeDataCell
+        
+        for item in lookUpTable.higeDataCells {
+            if (item.pressure == pressure && item.temperature == temperature) {
+                cell = item
+            }
+        }
+        return cell.weight
+    }
+    
+    func getHogeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let context = appDelegate.managedObjectContext!
+        
+        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+        let lookUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+        let lookUpTable = lookUpTables.first
+        
+        var cell : HogeDataCell
+        
+        for item in lookUpTable.hogeDataCells {
+            if (item.pressure == pressure && item.temperature == temperature) {
+                cell = item
+            }
+        }
+        return cell.weight
+    }
 
     func getMyHelo() -> LookUpTable {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -188,19 +222,19 @@ class ViewController: UIViewController {
         
             
             if isHige {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HigeDataCell", inManagedObjectContext: context) as HigeDataCells
+                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HigeDataCell", inManagedObjectContext: context) as HigeDataCell
                 newDataCell.pressure = pressure
                 newDataCell.temperature = temperature
                 newDataCell.weight = weight
                 newDataCell.lookUpTable = lookUpTable
             } else if isHoge {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HogeDataCells", inManagedObjectContext: context) as HogeDataCells
+                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HogeDataCell", inManagedObjectContext: context) as HogeDataCell
                 newDataCell.pressure = pressure
                 newDataCell.temperature = temperature
                 newDataCell.weight = weight
                 newDataCell.lookUpTable = lookUpTable
             } else {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("WatDataCells", inManagedObjectContext: context) as WatDataCells
+                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("WatDataCell", inManagedObjectContext: context) as WatDataCell
                 newDataCell.pressure = pressure
                 newDataCell.temperature = temperature
                 newDataCell.weight = weight

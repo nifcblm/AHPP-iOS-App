@@ -1,5 +1,5 @@
 //
-//  HigeDataCells.swift
+//  HigeDataCell.swift
 //  AHPP
 //
 //  Created by Ben Neely on 4/9/15.
@@ -9,12 +9,10 @@
 import Foundation
 import CoreData
 
-@objc(HigeDataCells)
+class HigeDataCell: NSManagedObject {
 
-class HigeDataCells: NSManagedObject {
-
-    @NSManaged var temperature: NSNumber
     @NSManaged var pressure: NSNumber
+    @NSManaged var temperature: NSNumber
     @NSManaged var weight: NSNumber
     @NSManaged var lookUpTable: LookUpTable
 

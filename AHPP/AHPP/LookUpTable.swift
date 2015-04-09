@@ -26,8 +26,8 @@ class LookUpTable: NSManagedObject {
     @NSManaged var performance_reference_hige: String
     @NSManaged var performance_reference_hoge: String
     @NSManaged var pilot_name: String
-    @NSManaged var higeDataCells: DataCell
-    @NSManaged var hogeDataCells: DataCell
-    @NSManaged var watDataCells: DataCell
+    @NSManaged var higeDataCells: HigeDataCell
+    @NSManaged var hogeDataCells: HogeDataCell
+    @NSManaged var watDataCells: WatDataCell
 
 }
