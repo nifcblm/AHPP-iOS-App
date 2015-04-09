@@ -167,11 +167,13 @@ class ViewController: UIViewController {
         
         let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
         let lookUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
-        let lookUpTable = lookUpTables.first
+        let lookUpTable : LookUpTable = lookUpTables.first!
         
         var cell : HigeDataCell
         
-        for item in lookUpTable.higeDataCells {
+        var higeDataCells : NSSet = lookUpTable.higeDataCells
+        
+        for item in higeDataCells {
             if (item.pressure == pressure && item.temperature == temperature) {
                 cell = item
             }

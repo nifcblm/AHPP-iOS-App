@@ -28,9 +28,9 @@
         <attribute name="performance_reference_hige" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="performance_reference_hoge" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pilot_name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="higeDataCells" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HigeDataCell" inverseName="lookUpTable" inverseEntity="HigeDataCell" syncable="YES"/>
-        <relationship name="hogeDataCells" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HogeDataCell" inverseName="lookUpTable" inverseEntity="HogeDataCell" syncable="YES"/>
-        <relationship name="watDataCells" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WatDataCell" inverseName="lookUpTable" inverseEntity="WatDataCell" syncable="YES"/>
+        <relationship name="higeDataCells" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HigeDataCell" inverseName="lookUpTable" inverseEntity="HigeDataCell" syncable="YES"/>
+        <relationship name="hogeDataCells" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HogeDataCell" inverseName="lookUpTable" inverseEntity="HogeDataCell" syncable="YES"/>
+        <relationship name="watDataCells" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WatDataCell" inverseName="lookUpTable" inverseEntity="WatDataCell" syncable="YES"/>
     </entity>
     <entity name="WatDataCell" representedClassName="WatDataCell" syncable="YES">
         <attribute name="pressure" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -41,7 +41,7 @@
     <elements>
         <element name="HigeDataCell" positionX="54" positionY="-171" width="126" height="103"/>
         <element name="HogeDataCell" positionX="-54" positionY="288" width="128" height="103"/>
-        <element name="LookUpTable" positionX="-279" positionY="-133" width="135" height="313"/>
-        <element name="WatDataCell" positionX="315" positionY="158" width="128" height="103"/>
+        <element name="LookUpTable" positionX="-279" positionY="-133" width="135" height="315"/>
+        <element name="WatDataCell" positionX="315" positionY="158" width="128" height="105"/>
     </elements>
 </model>
