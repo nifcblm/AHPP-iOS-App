@@ -201,6 +201,12 @@ class ViewController: UIViewController {
 //        }
 //        return cell.weight
 //    }
+    
+    
+    func operatingWeight(fuelWeight: NSInteger) -> NSInteger {
+        var myHelo = getMyHelo()
+        return (myHelo.helicopter_equipped_weight as NSInteger) + (myHelo.flight_crew_weight as NSInteger) + fuelWeight
+    }
 
     func getMyHelo() -> LookUpTable {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
