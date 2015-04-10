@@ -164,52 +164,52 @@ class ViewController: UIViewController {
     }
     
     
-    func getHigeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let context = appDelegate.managedObjectContext!
-        
-        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
-        let lookUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
-        let lookUpTable : LookUpTable = lookUpTables.first!
-        
-        var cell : HigeDataCell
-        
-        var higeDataCells : NSSet = lookUpTable.higeDataCells
-        
-        for item in higeDataCells {
-            if (item.pressure == pressure && item.temperature == temperature) {
-                cell = item
-            }
-        }
-        return cell.weight
-    }
+//    func getHigeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
+//        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+//        let context = appDelegate.managedObjectContext!
+//        
+//        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+//        let lookUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+//        let lookUpTable : LookUpTable = lookUpTables.first!
+//        
+//        var cell : HigeDataCell
+//        
+//        var higeDataCells : NSSet = lookUpTable.higeDataCells
+//        
+//        for item in higeDataCells {
+//            if (item.pressure == pressure && item.temperature == temperature) {
+//                cell = item
+//            }
+//        }
+//        return cell.weight
+//    }
     
-    func getHogeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let context = appDelegate.managedObjectContext!
-        
-        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
-        let lookUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
-        let lookUpTable = lookUpTables.first
-        
-        var cell : HogeDataCell
-        
-        for item in lookUpTable.hogeDataCells {
-            if (item.pressure == pressure && item.temperature == temperature) {
-                cell = item
-            }
-        }
-        return cell.weight
-    }
+//    func getHogeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
+//        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+//        let context = appDelegate.managedObjectContext!
+//        
+//        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+//        let lookUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+//        let lookUpTable = lookUpTables.first
+//        
+//        var cell : HogeDataCell
+//        
+//        for item in lookUpTable.hogeDataCells {
+//            if (item.pressure == pressure && item.temperature == temperature) {
+//                cell = item
+//            }
+//        }
+//        return cell.weight
+//    }
 
     func getMyHelo() -> LookUpTable {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let context = appDelegate.managedObjectContext!
 
         
-        let fetchRequest2 = NSFetchRequest(entityName: "LookUpTable")
-        let fetchResults = context.executeFetchRequest(fetchRequest2, error: nil) as [LookUpTable]
-        return fetchResults.first!
+        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+        let allLoopUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+        return allLoopUpTables.first!
     }
 
 
@@ -232,6 +232,12 @@ class ViewController: UIViewController {
                 newDataCell.temperature = temperature
                 newDataCell.weight = weight
                 newDataCell.lookUpTable = lookUpTable
+                
+                println("Pressure:")
+                println(pressure)
+                println("Temperature:")
+                println(temperature)
+                
             } else if isHoge {
                 let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HogeDataCell", inManagedObjectContext: context) as HogeDataCell
                 newDataCell.pressure = pressure
@@ -245,12 +251,6 @@ class ViewController: UIViewController {
                 newDataCell.weight = weight
                 newDataCell.lookUpTable = lookUpTable
             }
-            
-//        let fetchRequest2 = NSFetchRequest(entityName: "DataCell")
-//        if let fetchResults = context.executeFetchRequest(fetchRequest2, error: nil) as? [DataCell] {
-////            println(fetchResults.count)
-//        }
-        
     }
     
     

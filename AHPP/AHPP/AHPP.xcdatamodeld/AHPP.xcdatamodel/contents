@@ -7,6 +7,7 @@
         <relationship name="lookUpTable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LookUpTable" inverseName="higeDataCells" inverseEntity="LookUpTable" syncable="YES"/>
     </entity>
     <entity name="HogeDataCell" representedClassName="HogeDataCell" syncable="YES">
+        <attribute name="has_wat" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="pressure" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="temperature" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -41,9 +42,9 @@
     </entity>
     <configuration name="Configuration"/>
     <elements>
-        <element name="HigeDataCell" positionX="54" positionY="-171" width="126" height="103"/>
-        <element name="HogeDataCell" positionX="-54" positionY="288" width="128" height="103"/>
-        <element name="LookUpTable" positionX="-279" positionY="-133" width="135" height="315"/>
+        <element name="HigeDataCell" positionX="54" positionY="-171" width="126" height="105"/>
+        <element name="HogeDataCell" positionX="-54" positionY="288" width="128" height="120"/>
+        <element name="LookUpTable" positionX="-279" positionY="-133" width="135" height="330"/>
         <element name="WatDataCell" positionX="315" positionY="158" width="128" height="105"/>
     </elements>
 </model>
