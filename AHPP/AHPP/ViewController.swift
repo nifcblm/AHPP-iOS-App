@@ -242,6 +242,29 @@ class ViewController: UIViewController {
             return getHigeWeight(pressure, temperature: temperature).integerValue - myHelo.fixed_weight_reduduction.integerValue
         }
     }
+    
+    
+    func grossWeightLimitation() -> NSInteger {
+        // ROBBY REPLACE ME WITH SOMETHING NOT CRAZY
+        return -9999999
+    }
+    
+    
+    func selectedWeight(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSNumber, temperature: NSNumber) -> NSInteger {
+        let adjustedWeightValue = adjustedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ, pressure: pressure, temperature: temperature)
+        let grossWeightLimitationValue = grossWeightLimitation()
+        
+        if adjustedWeightValue < grossWeightLimitationValue {
+              return adjustedWeightValue
+        } else {
+            return grossWeightLimitationValue
+        }
+    }
+    
+    
+    func allowablePayload(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSNumber, temperature:   NSNumber, fuelWeight: NSInteger){
+        operatingWeight(fuelWeight) - selectedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ,  pressure: pressure, temperature: temperature)
+    }
 
     func getMyHelo() -> LookUpTable {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
