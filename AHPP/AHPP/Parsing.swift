@@ -33,11 +33,11 @@ func parse(path: NSURL) -> Bool {
             {
 //                print("table1[\(col),\(row)]    ")
 //                print("weight\( table1[col,row]!)    ")
-//                print("pressure\( table1[col,0]!)    ")
-//                println("temperature\(table1[0,row-1]!)\t")
+//                print("pressure\( table1[0,row-1]!)    ")
+//                println("temperature\(table1[col,0]!)\t")
                ViewController.saveDataCell(
-                table1[col,0]!,
-                temperature: table1[0,row-1]!,
+                table1[0,row-1]!,
+                temperature: table1[col, 0]!,
                 weight: table1[col,row]!,
                 lookUpTable: table,
                 isHige: true,
@@ -54,13 +54,13 @@ func parse(path: NSURL) -> Bool {
         {
             if(table1[col,row] != nil && table1[col,row]>=0)
             {
-//                print("table1[\(col),\(row)]    ")
-//                print("weight\( table1[col,row]!)    ")
-//                print("pressure\( table1[col,0]!)    ")
-//                println("temperature\(table1[0,row-1]!)\t")
+//                print("table1[\(col),\(row)]  ")
+//                print("weight\( table1[col,row]!)  ")
+//                print("pressure\( table1[0,row-1]!)  ")
+//                println("temperature\(table1[col,0]!)")
                 ViewController.saveDataCell(
-                    table1[col,0]!,
-                    temperature: table1[0,row-1]!,
+                    table1[0,row-1]!,
+                    temperature: table1[col, 0]!,
                     weight: table1[col,row]!,
                     lookUpTable: table,
                     isHige: false,
@@ -80,11 +80,11 @@ func parse(path: NSURL) -> Bool {
                 {
 //                    print("table1[\(col),\(row)]    ")
 //                    print("weight\( table1[col,row]!)    ")
-//                    print("pressure\( table1[col,0]!)    ")
-//                    println("temperature\(table1[0,row-1]!)\t")
+//                    print("pressure\( table1[0,row-1]!)    ")
+//                    println("temperature\(table1[col,0]!)\t")
                     ViewController.saveDataCell(
-                        table1[col,0]!,
-                        temperature: table1[0,row-1]!,
+                        table1[0,row-1]!,
+                        temperature: table1[col, 0]!,
                         weight: table1[col,row]!,
                         lookUpTable: table,
                         isHige: false,
@@ -120,18 +120,14 @@ class LookupTableGenerator
 //    var path: String
     var atTable: Bool = false
     var aStreamReader: StreamReader
-    
+//    
     init(path: NSURL)
+//  init(path: String)
     {
         self.path = path
         self.aStreamReader = StreamReader(path: self.path.path!)!
     }
-//    init(path: String)
-//    {
-//        self.path = path
-//        self.aStreamReader = StreamReader(path: self.path)!
-//        println("created table generator and StreamReader")
-//    }
+
     
     func loadMetaData() -> LookUpTable
     {

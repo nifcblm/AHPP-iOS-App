@@ -233,10 +233,10 @@ class ViewController: UIViewController {
                 newDataCell.weight = weight
                 newDataCell.lookUpTable = lookUpTable
                 
-                println("Pressure:")
-                println(pressure)
-                println("Temperature:")
-                println(temperature)
+//                println("Pressure:")
+//                println(pressure)
+//                println("Temperature:")
+//                println(temperature)
                 
             } else if isHoge {
                 let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HogeDataCell", inManagedObjectContext: context) as HogeDataCell
