@@ -31,10 +31,10 @@ func parse(path: NSURL) -> Bool {
         {
             if(table1[col,row] != nil && table1[col,row]>=0)
             {
-                print("table1[\(col),\(row)]    ")
-                print("weight\( table1[col,row]!)    ")
-                print("pressure\( table1[0,row-1]!)    ")
-                println("temperature\(table1[col,0]!)\t")
+//                print("table1[\(col),\(row)]    ")
+//                print("weight\( table1[col,row]!)    ")
+//                print("pressure\( table1[0,row-1]!)    ")
+//                println("temperature\(table1[col,0]!)\t")
                ViewController.saveDataCell(
                 table1[0,row-1]!,
                 temperature: table1[col, 0]!,
@@ -54,10 +54,10 @@ func parse(path: NSURL) -> Bool {
         {
             if(table1[col,row] != nil && table1[col,row]>=0)
             {
-                print("table1[\(col),\(row)]  ")
-                print("weight\( table1[col,row]!)  ")
-                print("pressure\( table1[0,row-1]!)  ")
-                println("temperature\(table1[col,0]!)")
+//                print("table1[\(col),\(row)]  ")
+//                print("weight\( table1[col,row]!)  ")
+//                print("pressure\( table1[0,row-1]!)  ")
+//                println("temperature\(table1[col,0]!)")
                 ViewController.saveDataCell(
                     table1[0,row-1]!,
                     temperature: table1[col, 0]!,
@@ -78,10 +78,10 @@ func parse(path: NSURL) -> Bool {
             {
                 if(table1[col,row] != nil && table1[col,row]>=0)
                 {
-                    print("table1[\(col),\(row)]    ")
-                    print("weight\( table1[col,row]!)    ")
-                    print("pressure\( table1[0,row-1]!)    ")
-                    println("temperature\(table1[col,0]!)\t")
+//                    print("table1[\(col),\(row)]    ")
+//                    print("weight\( table1[col,row]!)    ")
+//                    print("pressure\( table1[0,row-1]!)    ")
+//                    println("temperature\(table1[col,0]!)\t")
                     ViewController.saveDataCell(
                         table1[0,row-1]!,
                         temperature: table1[col, 0]!,
