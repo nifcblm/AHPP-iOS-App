@@ -287,9 +287,46 @@ class ViewController: UIViewController {
         }
     }
     
-    
     func allowablePayload(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSNumber, temperature:   NSNumber, fuelWeight: NSInteger){
         operatingWeight(fuelWeight) - selectedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ,  pressure: pressure, temperature: temperature)
+    }
+    
+    func getPressures() -> NSArray {
+        let myHelo = getMyHelo()
+
+        
+        var pressures = [Int]()
+        
+        var higeDataCells : NSSet = myHelo.higeDataCells
+        
+        for item in higeDataCells.allObjects as [WatDataCell] {
+            let pressure = item.pressure as NSInteger
+            if !contains(pressures, pressure) {
+                pressures.append(pressure)
+            }
+        }
+        
+        pressures = sorted(pressures)
+        return pressures
+    }
+    
+    func getTemperatures() -> NSArray {
+        let myHelo = getMyHelo()
+        
+        
+        var temperatures = [Int]()
+        
+        var higeDataCells : NSSet = myHelo.higeDataCells
+        
+        for item in higeDataCells.allObjects as [WatDataCell] {
+            let temperature = item.temperature as NSInteger
+            if !contains(temperatures, temperature) {
+                temperatures.append(temperature)
+            }
+        }
+        
+        temperatures = sorted(temperatures)
+        return temperatures
     }
 
     func getMyHelo() -> LookUpTable {
@@ -302,6 +339,7 @@ class ViewController: UIViewController {
         return allLoopUpTables.first!
     }
 
+    
 
     class func saveDataCell(
         pressure: NSNumber,
