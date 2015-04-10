@@ -9,10 +9,15 @@
 import Foundation
 
 func parse(path: NSURL) -> Bool {
+//func parse() -> Bool {
+
     var absolute: String = "/Users/rovery/Downloads/"
+    var a: String = "LakeviewAHPP.csv"
+    var b: String = "LasVegasAHPP.csv"
     var i = 0
     var processing: Bool = true
     var table_gen = LookupTableGenerator(path: path)
+//    var table_gen = LookupTableGenerator(path: absolute + a)
     var table: LookUpTable
     var table1: Array2D
     var table2: Array2D
@@ -20,16 +25,19 @@ func parse(path: NSURL) -> Bool {
     table = table_gen.loadMetaData()
 
     table1 = table_gen.nextTable()
-
     for col in 1..<table1.colCount()
     {
         for row in 1..<table1.rowCount()
         {
             if(table1[col,row] != nil && table1[col,row]>=0)
             {
+//                print("table1[\(col),\(row)]    ")
+//                print("weight\( table1[col,row]!)    ")
+//                print("pressure\( table1[col,0]!)    ")
+//                println("temperature\(table1[0,row-1]!)\t")
                ViewController.saveDataCell(
                 table1[col,0]!,
-                temperature: table1[0,row]!,
+                temperature: table1[0,row-1]!,
                 weight: table1[col,row]!,
                 lookUpTable: table,
                 isHige: true,
@@ -46,9 +54,13 @@ func parse(path: NSURL) -> Bool {
         {
             if(table1[col,row] != nil && table1[col,row]>=0)
             {
+//                print("table1[\(col),\(row)]    ")
+//                print("weight\( table1[col,row]!)    ")
+//                print("pressure\( table1[col,0]!)    ")
+//                println("temperature\(table1[0,row-1]!)\t")
                 ViewController.saveDataCell(
                     table1[col,0]!,
-                    temperature: table1[0,row]!,
+                    temperature: table1[0,row-1]!,
                     weight: table1[col,row]!,
                     lookUpTable: table,
                     isHige: false,
@@ -58,24 +70,29 @@ func parse(path: NSURL) -> Bool {
     }
     
     table1 = table_gen.nextTable()
-    
-    for col in 1..<table1.colCount()
+    if(table1.colCount()>0 && table1.rowCount()>0)
     {
-        for row in 1..<table1.rowCount()
+        for col in 1..<table1.colCount()
         {
-            if(table1[col,row] != nil && table1[col,row]>=0)
+            for row in 1..<table1.rowCount()
             {
-                ViewController.saveDataCell(
-                    table1[col,0]!,
-                    temperature: table1[0,row]!,
-                    weight: table1[col,row]!,
-                    lookUpTable: table,
-                    isHige: false,
-                    isHoge: false)
+                if(table1[col,row] != nil && table1[col,row]>=0)
+                {
+//                    print("table1[\(col),\(row)]    ")
+//                    print("weight\( table1[col,row]!)    ")
+//                    print("pressure\( table1[col,0]!)    ")
+//                    println("temperature\(table1[0,row-1]!)\t")
+                    ViewController.saveDataCell(
+                        table1[col,0]!,
+                        temperature: table1[0,row-1]!,
+                        weight: table1[col,row]!,
+                        lookUpTable: table,
+                        isHige: false,
+                        isHoge: false)
+                }
             }
         }
     }
-
     return true
 }
 
@@ -96,9 +113,11 @@ class LookupTableGenerator
     var performance_reference_hige: String = ""
     var performance_reference_hoge: String = ""
     var pilot_name: String = ""
+    var has_wat: Bool = false
 
     var table_num: Int = 0
     var path: NSURL
+//    var path: String
     var atTable: Bool = false
     var aStreamReader: StreamReader
     
@@ -106,8 +125,13 @@ class LookupTableGenerator
     {
         self.path = path
         self.aStreamReader = StreamReader(path: self.path.path!)!
-        println("created table generator and StreamReader")
     }
+//    init(path: String)
+//    {
+//        self.path = path
+//        self.aStreamReader = StreamReader(path: self.path)!
+//        println("created table generator and StreamReader")
+//    }
     
     func loadMetaData() -> LookUpTable
     {
@@ -182,7 +206,8 @@ class LookupTableGenerator
             n_number: self.n_number,
             performance_reference_hige: self.performance_reference_hige,
             performance_reference_hoge: self.performance_reference_hoge,
-            pilot_name: self.pilot_name)
+            pilot_name: self.pilot_name,
+            has_wat: hasWatTable())
         
     }
     
@@ -210,6 +235,21 @@ class LookupTableGenerator
         return table
     }
     
+    func hasWatTable() -> Bool
+    {
+        var has_wat = false
+        var i = 0;
+        while(findTable())
+        {
+            i++
+        }
+        if i == 3
+        {
+            has_wat = true
+        }
+        self.aStreamReader.rewind()
+        return has_wat
+    }
     
     
     private func findTable() -> Bool
@@ -220,7 +260,6 @@ class LookupTableGenerator
             if line.rangeOfString("Lookup Table") != nil
             {
                 table_found = true
-                println(line)
             }
             if(table_found)
             {

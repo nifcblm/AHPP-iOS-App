@@ -21,6 +21,7 @@
         <attribute name="gross_weight_limitation_hige" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="gross_weight_limitation_hoge" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="gross_weight_limitation_hoge_j" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="has_wat" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="helicopter_equipped_weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="is_hoge" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="make_model" optional="YES" attributeType="String" syncable="YES"/>
@@ -38,6 +39,7 @@
         <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="lookUpTable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LookUpTable" inverseName="watDataCells" inverseEntity="LookUpTable" syncable="YES"/>
     </entity>
+    <configuration name="Configuration"/>
     <elements>
         <element name="HigeDataCell" positionX="54" positionY="-171" width="126" height="103"/>
         <element name="HogeDataCell" positionX="-54" positionY="288" width="128" height="103"/>
