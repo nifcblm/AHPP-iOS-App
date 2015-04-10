@@ -18,7 +18,7 @@
 		79E6BA3B1AD72FAD002C6D13 /* HigeDataCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E6BA3A1AD72FAD002C6D13 /* HigeDataCells.swift */; };
 		79E6BA3D1AD72FFE002C6D13 /* WatDataCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E6BA3C1AD72FFE002C6D13 /* WatDataCells.swift */; };
 		79E6BA3F1AD72FFF002C6D13 /* HogeDataCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E6BA3E1AD72FFF002C6D13 /* HogeDataCells.swift */; };
-		79E6BA411AD73075002C6D13 /* LookUpTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E6BA401AD73075002C6D13 /* LookUpTable.swift */; };
+		A74782031AD75FED00CD4B54 /* LookUpTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74782021AD75FED00CD4B54 /* LookUpTable.swift */; };
 		A7BEDA751AB621EB00DD245B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BEDA741AB621EB00DD245B /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +48,7 @@
 		79E6BA3A1AD72FAD002C6D13 /* HigeDataCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HigeDataCells.swift; sourceTree = "<group>"; };
 		79E6BA3C1AD72FFE002C6D13 /* WatDataCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatDataCells.swift; sourceTree = "<group>"; };
 		79E6BA3E1AD72FFF002C6D13 /* HogeDataCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HogeDataCells.swift; sourceTree = "<group>"; };
-		79E6BA401AD73075002C6D13 /* LookUpTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LookUpTable.swift; path = ../LookUpTable.swift; sourceTree = "<group>"; };
+		A74782021AD75FED00CD4B54 /* LookUpTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookUpTable.swift; sourceTree = "<group>"; };
 		A7BEDA741AB621EB00DD245B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -93,7 +93,7 @@
 		49E652A51AB602BC001E061D /* AHPP */ = {
 			isa = PBXGroup;
 			children = (
-				79E6BA401AD73075002C6D13 /* LookUpTable.swift */,
+				A74782021AD75FED00CD4B54 /* LookUpTable.swift */,
 				49E652A81AB602BC001E061D /* AppDelegate.swift */,
 				49E652AD1AB602BC001E061D /* ViewController.swift */,
 				794AFDF11AB6228300513ADC /* Parsing.swift */,
@@ -241,7 +241,7 @@
 				49E652AC1AB602BC001E061D /* AHPP.xcdatamodeld in Sources */,
 				79E6BA3B1AD72FAD002C6D13 /* HigeDataCells.swift in Sources */,
 				49E652A91AB602BC001E061D /* AppDelegate.swift in Sources */,
-				79E6BA411AD73075002C6D13 /* LookUpTable.swift in Sources */,
+				A74782031AD75FED00CD4B54 /* LookUpTable.swift in Sources */,
 				79E6BA3F1AD72FFF002C6D13 /* HogeDataCells.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

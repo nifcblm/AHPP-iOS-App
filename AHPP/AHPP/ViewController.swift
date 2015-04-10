@@ -109,6 +109,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        parse()
+        
         // Test pilot information
         var savedLUT = ViewController.saveLookUpTable(
             "ACME INC",
@@ -125,7 +127,8 @@ class ViewController: UIViewController {
             n_number: "4",
             performance_reference_hige: "Great",
             performance_reference_hoge: "So Great",
-            pilot_name: "John Smith")
+            pilot_name: "John Smith",
+            has_wat: false)
         
         // Save the test pilot
         ViewController.saveDataCell(40, temperature: 80, weight: 50, lookUpTable: savedLUT, isHige: false, isHoge: true)
@@ -188,7 +191,7 @@ class ViewController: UIViewController {
         
             
             if isHige {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HigeDataCell", inManagedObjectContext: context) as HigeDataCells
+                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HigeDataCells", inManagedObjectContext: context) as HigeDataCells
                 newDataCell.pressure = pressure
                 newDataCell.temperature = temperature
                 newDataCell.weight = weight
@@ -230,7 +233,8 @@ class ViewController: UIViewController {
         n_number: String,
         performance_reference_hige: String,
         performance_reference_hoge: String,
-        pilot_name: String) -> LookUpTable {
+        pilot_name: String,
+        has_wat: Bool) -> LookUpTable {
             
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let context = appDelegate.managedObjectContext!
@@ -252,6 +256,7 @@ class ViewController: UIViewController {
         newLookUpTable.performance_reference_hige = performance_reference_hige
         newLookUpTable.performance_reference_hoge = performance_reference_hoge
         newLookUpTable.pilot_name = pilot_name
+        newLookUpTable.has_wat = has_wat
         
         return newLookUpTable
     }

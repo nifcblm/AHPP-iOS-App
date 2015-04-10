@@ -2,12 +2,14 @@
 //  LookUpTable.swift
 //  AHPP
 //
-//  Created by Ben Neely on 4/9/15.
+//  Created by Robby Overy on 4/9/15.
 //  Copyright (c) 2015 boisestate. All rights reserved.
 //
 
 import Foundation
 import CoreData
+
+@objc(LookUpTable)
 
 class LookUpTable: NSManagedObject {
 
@@ -26,8 +28,9 @@ class LookUpTable: NSManagedObject {
     @NSManaged var performance_reference_hige: String
     @NSManaged var performance_reference_hoge: String
     @NSManaged var pilot_name: String
-    @NSManaged var higeDataCells: DataCell
-    @NSManaged var hogeDataCells: DataCell
-    @NSManaged var watDataCells: DataCell
+    @NSManaged var has_wat: Bool
+    @NSManaged var higeDataCells: HigeDataCells
+    @NSManaged var hogeDataCells: HogeDataCells
+    @NSManaged var watDataCells: WatDataCells
 
 }
