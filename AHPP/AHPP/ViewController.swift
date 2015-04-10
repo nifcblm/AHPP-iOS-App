@@ -227,7 +227,20 @@ class ViewController: UIViewController {
     
     func operatingWeight(fuelWeight: NSInteger) -> NSInteger {
         var myHelo = getMyHelo()
-        return (myHelo.helicopter_equipped_weight as NSInteger) + (myHelo.flight_crew_weight as NSInteger) + fuelWeight
+        return myHelo.helicopter_equipped_weight.integerValue + myHelo.flight_crew_weight.integerValue + fuelWeight
+    }
+    
+    func adjustedWeight(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSNumber, temperature: NSNumber) -> NSInteger {
+        var myHelo = getMyHelo()
+
+        if isHogeJ {
+            return getHogeWeight(pressure, temperature: temperature) as NSInteger
+        } else if isHoge {
+            return getHogeWeight(pressure, temperature: temperature).integerValue - myHelo.fixed_weight_reduduction.integerValue
+        }
+        else {
+            return getHigeWeight(pressure, temperature: temperature).integerValue - myHelo.fixed_weight_reduduction.integerValue
+        }
     }
 
     func getMyHelo() -> LookUpTable {
