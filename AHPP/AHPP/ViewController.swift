@@ -164,43 +164,68 @@ class ViewController: UIViewController {
     }
     
     
-//    func getHigeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
-//        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-//        let context = appDelegate.managedObjectContext!
-//        
-//        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
-//        let lookUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
-//        let lookUpTable : LookUpTable = lookUpTables.first!
-//        
-//        var cell : HigeDataCell
-//        
-//        var higeDataCells : NSSet = lookUpTable.higeDataCells
-//        
-//        for item in higeDataCells {
-//            if (item.pressure == pressure && item.temperature == temperature) {
-//                cell = item
-//            }
-//        }
-//        return cell.weight
-//    }
+    func getHigeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let context = appDelegate.managedObjectContext!
+        
+        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+        let lookUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+        let lookUpTable : LookUpTable = lookUpTables.first!
+        
+        var weight: NSNumber = 0
+        
+        var higeDataCells : NSSet = lookUpTable.higeDataCells
+        
+        for item in higeDataCells.allObjects as [HigeDataCell] {
+            
+            if (item.pressure == pressure && item.temperature == temperature) {
+                weight = item.weight
+            }
+        }
+        return weight
+    }
     
-//    func getHogeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
-//        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-//        let context = appDelegate.managedObjectContext!
-//        
-//        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
-//        let lookUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
-//        let lookUpTable = lookUpTables.first
-//        
-//        var cell : HogeDataCell
-//        
-//        for item in lookUpTable.hogeDataCells {
-//            if (item.pressure == pressure && item.temperature == temperature) {
-//                cell = item
-//            }
-//        }
-//        return cell.weight
-//    }
+    func getHogeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let context = appDelegate.managedObjectContext!
+        
+        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+        let lookUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+        let lookUpTable = lookUpTables.first!
+        
+        var weight : NSNumber = 0
+        
+        var hogeDataCells : NSSet = lookUpTable.hogeDataCells
+        
+        for item in hogeDataCells.allObjects as [HogeDataCell] {
+            if (item.pressure == pressure && item.temperature == temperature) {
+                weight = item.weight
+            }
+        }
+        return weight
+    }
+    
+    func getWatWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let context = appDelegate.managedObjectContext!
+        
+        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+        let lookUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+        let lookUpTable = lookUpTables.first!
+        
+        var weight : NSNumber = 0
+        
+        var watDataCells : NSSet = lookUpTable.watDataCells
+        
+        for item in watDataCells.allObjects as [WatDataCell] {
+            if (item.pressure == pressure && item.temperature == temperature) {
+                weight = item.weight
+            }
+        }
+        return weight
+    }
+    
+    
 
     func getMyHelo() -> LookUpTable {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
