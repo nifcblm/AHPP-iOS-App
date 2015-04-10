@@ -244,15 +244,41 @@ class ViewController: UIViewController {
     }
     
     
-    func grossWeightLimitation() -> NSInteger {
-        // ROBBY REPLACE ME WITH SOMETHING NOT CRAZY
-        return -9999999
+    func grossWeightLimitation(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSNumber, temperature:NSNumber) -> NSInteger {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let context = appDelegate.managedObjectContext!
+        
+        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+        let lookUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+        let lookUpTable = lookUpTables.first!
+        var myhelo = getMyHelo()
+        
+        var weight : NSInteger = 0
+        if isHige {
+            weight = lookUpTable.gross_weight_limitation_hige as NSInteger
+        } else if isHoge{
+            weight = lookUpTable.gross_weight_limitation_hoge as NSInteger
+
+        }else if isHogeJ{
+            weight = lookUpTable.gross_weight_limitation_hoge_j as NSInteger
+        }
+        
+        if lookUpTable.has_wat {
+            var x : NSInteger = 0
+            var y : NSInteger = 0
+            if isHige || isHoge {
+                x = weight
+                y = self.getWatWeight(pressure, temperature: temperature) as NSInteger
+                weight = (x < y) ? x : y
+            }
+  
+        }
+        return weight
     }
-    
     
     func selectedWeight(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSNumber, temperature: NSNumber) -> NSInteger {
         let adjustedWeightValue = adjustedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ, pressure: pressure, temperature: temperature)
-        let grossWeightLimitationValue = grossWeightLimitation()
+        let grossWeightLimitationValue = grossWeightLimitation(isHige, isHoge: isHoge, isHogeJ: isHogeJ, pressure: pressure, temperature: temperature)
         
         if adjustedWeightValue < grossWeightLimitationValue {
               return adjustedWeightValue
