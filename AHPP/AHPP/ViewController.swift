@@ -109,6 +109,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        parse()
+        
         // Test pilot information
         var savedLUT = ViewController.saveLookUpTable(
             "ACME INC",
@@ -125,7 +127,8 @@ class ViewController: UIViewController {
             n_number: "4",
             performance_reference_hige: "Great",
             performance_reference_hoge: "So Great",
-            pilot_name: "John Smith")
+            pilot_name: "John Smith",
+            has_wat: false)
         
         // Save the test pilot
         ViewController.saveDataCell(40, temperature: 80, weight: 50, lookUpTable: savedLUT, isHige: false, isHoge: true)
@@ -161,16 +164,52 @@ class ViewController: UIViewController {
     }
     
     
-    //func getHigeWeight(pressure: NSNumber,
+//    func getHigeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
+//        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+//        let context = appDelegate.managedObjectContext!
+//        
+//        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+//        let lookUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+//        let lookUpTable : LookUpTable = lookUpTables.first!
+//        
+//        var cell : HigeDataCell
+//        
+//        var higeDataCells : NSSet = lookUpTable.higeDataCells
+//        
+//        for item in higeDataCells {
+//            if (item.pressure == pressure && item.temperature == temperature) {
+//                cell = item
+//            }
+//        }
+//        return cell.weight
+//    }
+    
+//    func getHogeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
+//        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+//        let context = appDelegate.managedObjectContext!
+//        
+//        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+//        let lookUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+//        let lookUpTable = lookUpTables.first
+//        
+//        var cell : HogeDataCell
+//        
+//        for item in lookUpTable.hogeDataCells {
+//            if (item.pressure == pressure && item.temperature == temperature) {
+//                cell = item
+//            }
+//        }
+//        return cell.weight
+//    }
 
     func getMyHelo() -> LookUpTable {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let context = appDelegate.managedObjectContext!
 
         
-        let fetchRequest2 = NSFetchRequest(entityName: "LookUpTable")
-        let fetchResults = context.executeFetchRequest(fetchRequest2, error: nil) as [LookUpTable]
-        return fetchResults.first!
+        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+        let allLoopUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+        return allLoopUpTables.first!
     }
 
 
@@ -188,30 +227,30 @@ class ViewController: UIViewController {
         
             
             if isHige {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HigeDataCell", inManagedObjectContext: context) as HigeDataCells
+                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HigeDataCell", inManagedObjectContext: context) as HigeDataCell
                 newDataCell.pressure = pressure
                 newDataCell.temperature = temperature
                 newDataCell.weight = weight
                 newDataCell.lookUpTable = lookUpTable
+                
+                println("Pressure:")
+                println(pressure)
+                println("Temperature:")
+                println(temperature)
+                
             } else if isHoge {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HogeDataCells", inManagedObjectContext: context) as HogeDataCells
+                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HogeDataCell", inManagedObjectContext: context) as HogeDataCell
                 newDataCell.pressure = pressure
                 newDataCell.temperature = temperature
                 newDataCell.weight = weight
                 newDataCell.lookUpTable = lookUpTable
             } else {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("WatDataCells", inManagedObjectContext: context) as WatDataCells
+                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("WatDataCell", inManagedObjectContext: context) as WatDataCell
                 newDataCell.pressure = pressure
                 newDataCell.temperature = temperature
                 newDataCell.weight = weight
                 newDataCell.lookUpTable = lookUpTable
             }
-            
-//        let fetchRequest2 = NSFetchRequest(entityName: "DataCell")
-//        if let fetchResults = context.executeFetchRequest(fetchRequest2, error: nil) as? [DataCell] {
-////            println(fetchResults.count)
-//        }
-        
     }
     
     
@@ -230,7 +269,8 @@ class ViewController: UIViewController {
         n_number: String,
         performance_reference_hige: String,
         performance_reference_hoge: String,
-        pilot_name: String) -> LookUpTable {
+        pilot_name: String,
+        has_wat: Bool) -> LookUpTable {
             
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let context = appDelegate.managedObjectContext!
@@ -252,6 +292,7 @@ class ViewController: UIViewController {
         newLookUpTable.performance_reference_hige = performance_reference_hige
         newLookUpTable.performance_reference_hoge = performance_reference_hoge
         newLookUpTable.pilot_name = pilot_name
+        newLookUpTable.has_wat = has_wat
         
         return newLookUpTable
     }

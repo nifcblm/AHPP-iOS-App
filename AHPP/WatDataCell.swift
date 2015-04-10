@@ -1,5 +1,5 @@
 //
-//  HigeDataCells.swift
+//  WatDataCell.swift
 //  AHPP
 //
 //  Created by Ben Neely on 4/9/15.
@@ -9,12 +9,12 @@
 import Foundation
 import CoreData
 
-@objc(HigeDataCells)
+@objc(WatDataCell)
 
-class HigeDataCells: NSManagedObject {
+class WatDataCell: NSManagedObject {
 
-    @NSManaged var temperature: NSNumber
     @NSManaged var pressure: NSNumber
+    @NSManaged var temperature: NSNumber
     @NSManaged var weight: NSNumber
     @NSManaged var lookUpTable: LookUpTable
 
