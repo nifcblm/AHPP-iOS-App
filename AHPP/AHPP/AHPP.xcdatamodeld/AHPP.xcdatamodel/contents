@@ -21,6 +21,7 @@
         <attribute name="gross_weight_limitation_hige" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="gross_weight_limitation_hoge" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="gross_weight_limitation_hoge_j" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="has_wat" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="helicopter_equipped_weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="is_hoge" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="make_model" optional="YES" attributeType="String" syncable="YES"/>
@@ -38,10 +39,11 @@
         <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="lookUpTable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LookUpTable" inverseName="watDataCells" inverseEntity="LookUpTable" syncable="YES"/>
     </entity>
+    <configuration name="Configuration"/>
     <elements>
-        <element name="LookUpTable" positionX="-162" positionY="-36" width="126" height="313"/>
-        <element name="HigeDataCells" positionX="-153" positionY="81" width="128" height="103"/>
-        <element name="WatDataCells" positionX="-144" positionY="108" width="128" height="103"/>
-        <element name="HogeDataCells" positionX="-135" positionY="117" width="128" height="103"/>
+        <element name="HigeDataCells" positionX="286" positionY="9" width="128" height="103"/>
+        <element name="HogeDataCells" positionX="259" positionY="162" width="128" height="103"/>
+        <element name="LookUpTable" positionX="-162" positionY="-36" width="126" height="328"/>
+        <element name="WatDataCells" positionX="358" positionY="257" width="128" height="103"/>
     </elements>
 </model>
