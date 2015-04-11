@@ -175,8 +175,18 @@ class ViewController: UIViewController{
     }
     
     func setOperatingWeight(){
-        operatingWeightDeparture.text = String(operatingWeight(departureFuelWeightTotalInt))
-        operatingWeightDestination.text = String(operatingWeight(destinationFuelWeightTotalInt))
+        var departureOperatingWeight = String(operatingWeight(departureFuelWeightTotalInt))
+        var destinationOperatingWeight = String(operatingWeight(destinationFuelWeightTotalInt))
+        
+        operatingWeightDeparture.text = departureOperatingWeight
+        operatingWeightDestination.text = destinationOperatingWeight
+        
+        operatingWeightHIGE.text = departureOperatingWeight
+        operatingWeightHOGE.text = departureOperatingWeight
+        operatingWeightHOGEJ.text = departureOperatingWeight
+        destinationOperatingWeightHIGE.text = destinationOperatingWeight
+        destinationOperatingWeightHOGE.text = destinationOperatingWeight
+        destinationOperatingWeightHOGEJ.text = destinationOperatingWeight
     }
     
     func setWeightReduction(){
