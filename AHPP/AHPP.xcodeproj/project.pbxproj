@@ -23,6 +23,8 @@
 		A7BEDA751AB621EB00DD245B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BEDA741AB621EB00DD245B /* libsqlite3.dylib */; };
 		A7D1AE7A1AD999E600C3A1F0 /* CoreDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D1AE791AD999E600C3A1F0 /* CoreDataTestCase.swift */; };
 		A7D1AE7C1AD99AF100C3A1F0 /* LookUpTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D1AE7B1AD99AF100C3A1F0 /* LookUpTestCase.swift */; };
+		A7D1AE841AD9B8AD00C3A1F0 /* LakeviewAHPP.csv in Resources */ = {isa = PBXBuildFile; fileRef = A7D1AE821AD9B8AD00C3A1F0 /* LakeviewAHPP.csv */; };
+		A7D1AE851AD9B8AD00C3A1F0 /* LasVegasAHPP.csv in Resources */ = {isa = PBXBuildFile; fileRef = A7D1AE831AD9B8AD00C3A1F0 /* LasVegasAHPP.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		A7BEDA741AB621EB00DD245B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A7D1AE791AD999E600C3A1F0 /* CoreDataTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTestCase.swift; sourceTree = "<group>"; };
 		A7D1AE7B1AD99AF100C3A1F0 /* LookUpTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookUpTestCase.swift; sourceTree = "<group>"; };
+		A7D1AE821AD9B8AD00C3A1F0 /* LakeviewAHPP.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LakeviewAHPP.csv; sourceTree = "<group>"; };
+		A7D1AE831AD9B8AD00C3A1F0 /* LasVegasAHPP.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LasVegasAHPP.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,8 @@
 		49E652BF1AB602BC001E061D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A7D1AE821AD9B8AD00C3A1F0 /* LakeviewAHPP.csv */,
+				A7D1AE831AD9B8AD00C3A1F0 /* LasVegasAHPP.csv */,
 				49E652C01AB602BC001E061D /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -234,6 +240,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7D1AE841AD9B8AD00C3A1F0 /* LakeviewAHPP.csv in Resources */,
+				A7D1AE851AD9B8AD00C3A1F0 /* LasVegasAHPP.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
