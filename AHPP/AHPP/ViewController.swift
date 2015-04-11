@@ -17,8 +17,9 @@ class ViewController: UIViewController{
     var currentInputValues = ["0","1","2","3"]
     var newDepartureAltitudeValue = ""
     var newDepartureTemperatureValue = ""
-    var newDestinationAltitudeValue = ""
-    var newDestinationTemperatureValue = ""
+    var departureFuelWeightTotalInt = 1400 as Int
+    var destinationFuelWeightTotalInt = 1400 as Int
+
 
     /* --------------------- BEGINNING OF LABELS --------------------- */
     
@@ -46,13 +47,13 @@ class ViewController: UIViewController{
     @IBOutlet weak var fuelWeightPoundsPerGallon: UILabel!
     @IBOutlet weak var fuelWeightDestination: UILabel!
     @IBOutlet weak var fuelWeightDeparture: UILabel!
-    @IBOutlet weak var departurePounds: UILabel!
-    @IBOutlet weak var destinationPounds: UILabel!
+    @IBOutlet weak var departureFuelTotal: UIButton!
+    @IBOutlet weak var destinationFuelTotal: UIButton!
+
     
     /*------------------ row 6 ----------------*/
     @IBOutlet weak var operatingWeightDeparture: UILabel!
     @IBOutlet weak var operatingWeightDestination: UILabel!
-    
     
     /*-------------------- rows 7a - 13 --------------------*/
     //departure labels
@@ -109,7 +110,6 @@ class ViewController: UIViewController{
     /* --------------------- END OF LABELS --------------------- */
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -119,6 +119,9 @@ class ViewController: UIViewController{
         departureTemperature.setTitle(currentInputValues[1], forState: UIControlState.Normal)
         destinationPA.setTitle(currentInputValues[2], forState: UIControlState.Normal)
         destinationTemperature.setTitle(currentInputValues[3], forState: UIControlState.Normal)
+        departureFuelTotal.setTitle(String(departureFuelWeightTotalInt) , forState: UIControlState.Normal)
+        destinationFuelTotal.setTitle(String(destinationFuelWeightTotalInt) , forState: UIControlState.Normal)
+        fuelWeightPoundsPerGallon.text = "7"
         
         // Test pilot information
         var savedLUT = ViewController.saveLookUpTable(
@@ -164,7 +167,18 @@ class ViewController: UIViewController{
         destinationGrossWeightLimitationHIGE.text = helicopter.gross_weight_limitation_hige.stringValue
         destinationGrossWeightLimitiationHOGE.text = helicopter.gross_weight_limitation_hoge.stringValue
         destinationGrossWeightLimitiationHOGEJ.text = helicopter.gross_weight_limitation_hoge_j.stringValue
-                
+        
+        fuelWeightDeparture.text = String(format:"%.1f", Double(departureFuelWeightTotalInt) / 7.0)
+        fuelWeightDestination.text = String(format:"%.1f", Double(destinationFuelWeightTotalInt) / 7.0)
+        
+        setOperatingWeight()
+        
+        
+    }
+    
+    func setOperatingWeight(){
+        operatingWeightDeparture.text = String(operatingWeight(departureFuelWeightTotalInt))
+        operatingWeightDestination.text = String(operatingWeight(destinationFuelWeightTotalInt))
     }
 
     override func didReceiveMemoryWarning() {
@@ -379,12 +393,26 @@ class ViewController: UIViewController{
         calculateType = "Destination Temperature"
         myArray = getTemperatures()
     }
+    
+    @IBAction func departureFuelTotalClick(sender: AnyObject) {
+        calculateType = "Departure Fuel Weight"
+        myArray = ["1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900","2000"]
+        
+    }
+    
+    @IBAction func destinationFuelTotalClick(sender: AnyObject) {
+        calculateType = "Destination Fuel Weight"
+        myArray = ["1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900","2000"]
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var DestViewController : ScrollViewController = segue.destinationViewController as ScrollViewController
         
         DestViewController.labelText = calculateType
         DestViewController.secondCurrentInputValues = currentInputValues
         DestViewController.myArray = myArray
+        DestViewController.destinationFuelWeightTotal = String(destinationFuelWeightTotalInt)
+        DestViewController.departureFuelWeightTotal = String(departureFuelWeightTotalInt)
     }
 
     class func saveDataCell(
