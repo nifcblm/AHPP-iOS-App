@@ -150,7 +150,7 @@ class ViewController: UIViewController{
             fuelWeightDestination.text = String(format:"%.1f", Double(destinationFuelWeightTotalInt) / 7.0)
   
             setOperatingWeight()
-            
+            setComputedGrossWeight()
             setWeightReduction()
         }
         
@@ -167,6 +167,24 @@ class ViewController: UIViewController{
         weightReductionHOGE.text = helo.fixed_weight_reduduction.stringValue
         destinationWeightReductionHIGE.text = helo.fixed_weight_reduduction.stringValue
         destinationWeightReductionHOGE.text = helo.fixed_weight_reduduction.stringValue
+    }
+
+    func setComputedGrossWeight(){
+        
+        var currentDeparturePressure = currentInputValues[0]
+        var currentDepartureTemperature = currentInputValues[1]
+        
+        computerGrossWeightHIGE.text = String(getHigeWeight(currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!).integerValue)
+        computerGrossWeightHOGE.text = String(getHogeWeight(currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!).integerValue)
+        computedGrossWeightHOGEJ.text = String(getHogeWeight(currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!).integerValue)
+        
+        var currentDestinationPressure = currentInputValues[2]
+        var currentDestinationTemperature = currentInputValues[3]
+        
+        destinationComputedGrossWeightHIGE.text = String(getHigeWeight(currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!).integerValue)
+        destinationComputedGrossWeightHOGE.text = String(getHogeWeight(currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!).integerValue)
+        destinationComputedGrossWeightHOGEJ.text = String(getHogeWeight(currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!).integerValue)
+ 
     }
 
     override func didReceiveMemoryWarning() {
