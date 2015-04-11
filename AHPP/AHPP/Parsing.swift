@@ -10,79 +10,18 @@ import Foundation
 
 public class Parsing{
     class func parse(path: NSURL) -> Bool {
-    //func parse() -> Bool {
 
-        var absolute: String = "/Users/rovery/Downloads/"
-        var a: String = "LakeviewAHPP.csv"
-        var b: String = "LasVegasAHPP.csv"
-        var i = 0
         var processing: Bool = true
         var table_gen = LookupTableGenerator(path: path)
-    //    var table_gen = LookupTableGenerator(path: absolute + a)
-        var table: LookUpTable
+        var lookUpTable: LookUpTable
         var table1: Array2D
         var table2: Array2D
         
-        table = table_gen.loadMetaData()
+        lookUpTable = table_gen.loadMetaData()
+        saveDataCells(table_gen.nextTable(), lookUpTable: lookUpTable, isHige: true, isHoge: false)
+        saveDataCells(table_gen.nextTable(), lookUpTable: lookUpTable, isHige: false, isHoge: true)
+        saveDataCells(table_gen.nextTable(), lookUpTable: lookUpTable, isHige: false, isHoge: false)
 
-        table1 = table_gen.nextTable()
-        for col in 1..<table1.colCount()
-        {
-            for row in 1..<table1.rowCount()
-            {
-                if(table1[col,row] != nil && table1[col,row]>=0)
-                {
-                   ViewController.saveDataCell(
-                    table1[0,row-1]!,
-                    temperature: table1[col, 0]!,
-                    weight: table1[col,row]!,
-                    lookUpTable: table,
-                    isHige: true,
-                    isHoge: false)
-                }
-            }
-        }
-        
-        table1 = table_gen.nextTable()
-        
-        for col in 1..<table1.colCount()
-        {
-            for row in 1..<table1.rowCount()
-            {
-                if(table1[col,row] != nil && table1[col,row]>=0)
-                {
-
-                    ViewController.saveDataCell(
-                        table1[0,row-1]!,
-                        temperature: table1[col, 0]!,
-                        weight: table1[col,row]!,
-                        lookUpTable: table,
-                        isHige: false,
-                        isHoge: true)
-                }
-            }
-        }
-        
-        table1 = table_gen.nextTable()
-        if(table1.colCount()>0 && table1.rowCount()>0)
-        {
-            for col in 1..<table1.colCount()
-            {
-                for row in 1..<table1.rowCount()
-                {
-                    if(table1[col,row] != nil && table1[col,row]>=0)
-                    {
-                        ViewController.saveDataCell(
-                            table1[0,row-1]!,
-                            temperature: table1[col, 0]!,
-                            weight: table1[col,row]!,
-                            lookUpTable: table,
-                            isHige: false,
-                            isHoge: false)
-                    }
-                }
-            }
-        }
         return true
     }
 
@@ -96,67 +35,34 @@ public class Parsing{
         let table_gen = LookupTableGeneratorTester(path: absolute + a)
 
         
-        let table = table_gen.loadMetaData()
-        
-        let table1 = table_gen.nextTable()
-        for col in 1..<table1.colCount()
+        let lookUpTable = table_gen.loadMetaData()
+        saveDataCells(table_gen.nextTable(), lookUpTable: lookUpTable, isHige: true, isHoge: false)
+        saveDataCells(table_gen.nextTable(), lookUpTable: lookUpTable, isHige: false, isHoge: true)
+        saveDataCells(table_gen.nextTable(), lookUpTable: lookUpTable, isHige: false, isHoge: false)
+        return true
+    }
+    
+    private class func saveDataCells(table: Array2D, lookUpTable: LookUpTable, isHige: Bool, isHoge: Bool)
+    {
+        if(table.colCount()>0 && table.rowCount()>0)
         {
-            for row in 1..<table1.rowCount()
+            for col in 1..<table.colCount()
             {
-                if(table1[col,row] != nil && table1[col,row]>=0)
+                for row in 1..<table.rowCount()
                 {
-                    ViewController.saveDataCell(
-                        table1[0,row-1]!,
-                        temperature: table1[col, 0]!,
-                        weight: table1[col,row]!,
-                        lookUpTable: table,
-                        isHige: true,
-                        isHoge: false)
-                }
-            }
-        }
-        
-        let table2 = table_gen.nextTable()
-        
-        for col in 1..<table2.colCount()
-        {
-            for row in 1..<table2.rowCount()
-            {
-                if(table2[col,row] != nil && table2[col,row]>=0)
-                {
-                    
-                    ViewController.saveDataCell(
-                        table2[0,row-1]!,
-                        temperature: table2[col, 0]!,
-                        weight: table2[col,row]!,
-                        lookUpTable: table,
-                        isHige: false,
-                        isHoge: true)
-                }
-            }
-        }
-        
-        let table3 = table_gen.nextTable()
-        if(table3.colCount()>0 && table3.rowCount()>0)
-        {
-            for col in 1..<table3.colCount()
-            {
-                for row in 1..<table3.rowCount()
-                {
-                    if(table3[col,row] != nil && table3[col,row]>=0)
+                    if(table[col,row] != nil && table[col,row]>=0)
                     {
                         ViewController.saveDataCell(
-                            table3[0,row-1]!,
-                            temperature: table3[col, 0]!,
-                            weight: table3[col,row]!,
-                            lookUpTable: table,
-                            isHige: false,
-                            isHoge: false)
+                            table[0,row-1]!,
+                            temperature: table[col, 0]!,
+                            weight: table[col,row]!,
+                            lookUpTable: lookUpTable,
+                            isHige: isHige,
+                            isHoge: isHoge)
                     }
                 }
             }
         }
-        return true
     }
 }
 
