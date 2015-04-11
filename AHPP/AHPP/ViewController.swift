@@ -137,27 +137,41 @@ class ViewController: UIViewController{
             //line 4
             flightCrewWeight.text = realHelicopter.flight_crew_weight.stringValue
             
-            //line 10
-            grossWeightLimitationHIGE.text = realHelicopter.gross_weight_limitation_hige.stringValue
-            grossWeightLimitationHOGE.text = realHelicopter.gross_weight_limitation_hoge.stringValue
-            grossWeightLimitationHOGEJ.text = realHelicopter.gross_weight_limitation_hoge_j.stringValue
-            
-            destinationGrossWeightLimitationHIGE.text = realHelicopter.gross_weight_limitation_hige.stringValue
-            destinationGrossWeightLimitiationHOGE.text = realHelicopter.gross_weight_limitation_hoge.stringValue
-            destinationGrossWeightLimitiationHOGEJ.text = realHelicopter.gross_weight_limitation_hoge_j.stringValue
-            
             fuelWeightDeparture.text = String(format:"%.1f", Double(departureFuelWeightTotalInt) / 7.0)
             fuelWeightDestination.text = String(format:"%.1f", Double(destinationFuelWeightTotalInt) / 7.0)
   
             setOperatingWeight()
             setComputedGrossWeight()
             setWeightReduction()
+            setGrossWeightLimitation()
             setAdjustedWeight()
           //  setSelectedWeight()
             setAllowablePayload()
             
         }
         
+    }
+
+    func setGrossWeightLimitation(){
+        var currentDeparturePressure = currentInputValues[0]
+        var currentDepartureTemperature = currentInputValues[1]
+        var currentDestinationPressure = currentInputValues[2]
+        var currentDestinationTemperature = currentInputValues[3]
+        
+
+        grossWeightLimitationHIGE.text = String(grossWeightLimitation(true, isHoge: false, isHogeJ: false, pressure: currentDeparturePressure.toInt()!, temperature: currentDepartureTemperature.toInt()!))
+
+        grossWeightLimitationHOGE.text = String(grossWeightLimitation(false, isHoge: true, isHogeJ: false, pressure: currentDeparturePressure.toInt()!, temperature: currentDepartureTemperature.toInt()!))
+        
+        grossWeightLimitationHOGEJ.text = String(grossWeightLimitation(false, isHoge: false, isHogeJ: true, pressure: currentDeparturePressure.toInt()!, temperature: currentDepartureTemperature.toInt()!))
+            
+        destinationGrossWeightLimitationHIGE.text = String(grossWeightLimitation(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!, temperature: currentDestinationTemperature.toInt()!))
+        
+        destinationGrossWeightLimitiationHOGE.text = String(grossWeightLimitation(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!, temperature: currentDestinationTemperature.toInt()!))
+        
+        destinationGrossWeightLimitiationHOGEJ.text = String(grossWeightLimitation(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!, temperature: currentDestinationTemperature.toInt()!))
+
+            
     }
     
     func setOperatingWeight(){
@@ -329,7 +343,7 @@ class ViewController: UIViewController{
     }
     
     
-    func grossWeightLimitation(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSNumber, temperature:NSNumber) -> NSInteger {
+    func grossWeightLimitation(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature:NSInteger) -> NSInteger {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let context = appDelegate.managedObjectContext!
         
@@ -361,7 +375,7 @@ class ViewController: UIViewController{
         return weight
     }
     
-    func selectedWeight(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSNumber, temperature: NSNumber) -> NSInteger {
+    func selectedWeight(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature: NSInteger) -> NSInteger {
         let adjustedWeightValue = adjustedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ, pressure: pressure, temperature: temperature)
         let grossWeightLimitationValue = grossWeightLimitation(isHige, isHoge: isHoge, isHogeJ: isHogeJ, pressure: pressure, temperature: temperature)
         
@@ -372,7 +386,7 @@ class ViewController: UIViewController{
         }
     }
     
-    func allowablePayload(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSNumber, temperature:   NSNumber, fuelWeight: NSInteger){
+    func allowablePayload(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature:   NSInteger, fuelWeight: NSInteger){
         operatingWeight(fuelWeight) - selectedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ,  pressure: pressure, temperature: temperature)
     }
     
