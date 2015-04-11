@@ -232,7 +232,7 @@ class ViewController: UIViewController{
         
         destinationAdjustedWeightHOGE.text = String(adjustedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!))
         
-        destinationAdjustedWeightHOGEJ.text = String(adjustedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!))
+        destinationAdjustedWeightHOGEJ.text = String(adjustedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!) - 500)
     }
     
     func setSelectedWeight(){
@@ -396,8 +396,8 @@ class ViewController: UIViewController{
         }
     }
     
-    func allowablePayload(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature:   NSInteger, fuelWeight: NSInteger){
-        operatingWeight(fuelWeight) - selectedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ,  pressure: pressure, temperature: temperature)
+    func allowablePayload(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature:   NSInteger, fuelWeight: NSInteger) -> NSInteger{
+        return selectedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ,  pressure: pressure, temperature: temperature) - operatingWeight(fuelWeight)
     }
     
     func getPressures() -> [String] {
