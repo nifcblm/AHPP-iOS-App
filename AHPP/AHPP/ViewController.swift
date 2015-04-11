@@ -95,7 +95,7 @@ class ViewController: UIViewController{
     @IBOutlet weak var destinationGrossWeightLimitationHIGE: UILabel!
     @IBOutlet weak var destinationGrossWeightLimitiationHOGE: UILabel!
     @IBOutlet weak var destinationGrossWeightLimitiationHOGEJ: UILabel!
-    @IBOutlet weak var destinationSelectedWeightHIGE: UILabel!
+@IBOutlet weak var destinationSelectedWeightHIGE: UILabel!
     @IBOutlet weak var destinationSelectedWeightHOGE: UILabel!
     @IBOutlet weak var destinationSelectedWeightHOGEJ: UILabel!
     @IBOutlet weak var destinationOperatingWeightHIGE: UILabel!
@@ -245,7 +245,7 @@ class ViewController: UIViewController{
         
         var currentDestinationPressure = currentInputValues[2]
         var currentDestinationTemperature = currentInputValues[3]
-
+ 
         destinationSelectedWeightHIGE.text = String(selectedWeight(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!))
         destinationSelectedWeightHOGE.text = String(selectedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!))
         destinationSelectedWeightHOGEJ.text = String(selectedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!))
