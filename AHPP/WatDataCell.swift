@@ -11,7 +11,7 @@ import CoreData
 
 @objc(WatDataCell)
 
-class WatDataCell: NSManagedObject {
+public class WatDataCell: NSManagedObject {
 
     @NSManaged var pressure: NSNumber
     @NSManaged var temperature: NSNumber
