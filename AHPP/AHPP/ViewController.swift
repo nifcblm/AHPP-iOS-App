@@ -9,7 +9,16 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
+    
+    var myArray = [String]()
+    var newCalculateValue = ""
+    var calculateType = ""
+    var currentInputValues = ["0","1","2","3"]
+    var newDepartureAltitudeValue = ""
+    var newDepartureTemperatureValue = ""
+    var newDestinationAltitudeValue = ""
+    var newDestinationTemperatureValue = ""
 
     /* --------------------- BEGINNING OF LABELS --------------------- */
     
@@ -24,11 +33,10 @@ class ViewController: UIViewController {
     /*--------------- row 1 & 2 -----------------*/
     @IBOutlet weak var departureLocation: UITextField!
     @IBOutlet weak var destinationLocation: UITextField!
-    
-    @IBOutlet weak var depsrtureAltitude: UITextField!
-    @IBOutlet weak var departureAirTemperature: UITextField!
-    @IBOutlet weak var destinationAltitude: UITextField!
-    @IBOutlet weak var destinationAirTemperature: UITextField!
+    @IBOutlet weak var departurePA: UIButton!
+    @IBOutlet weak var departureTemperature: UIButton!
+    @IBOutlet weak var destinationPA: UIButton!
+    @IBOutlet weak var destinationTemperature: UIButton!
     
     /*----------------- row 3 & 4 ---------------*/
     @IBOutlet weak var helicopterEquiptWeight: UILabel!
@@ -85,10 +93,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var destinationAdjustedWeightHOGEJ: UILabel!
     @IBOutlet weak var destinationGrossWeightLimitationHIGE: UILabel!
     @IBOutlet weak var destinationGrossWeightLimitiationHOGE: UILabel!
-   
     @IBOutlet weak var destinationGrossWeightLimitiationHOGEJ: UILabel!
-    
-    
     @IBOutlet weak var destinationSelectedWeightHIGE: UILabel!
     @IBOutlet weak var destinationSelectedWeightHOGE: UILabel!
     @IBOutlet weak var destinationSelectedWeightHOGEJ: UILabel!
@@ -101,7 +106,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var destinationExceedsHIGE: UILabel!
     @IBOutlet weak var destinationExceedsHOGE: UILabel!
     @IBOutlet weak var destinationExceedsHOGEJ: UILabel!
-    
     /* --------------------- END OF LABELS --------------------- */
     
     
@@ -110,6 +114,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
 //        parse()
+        
+        departurePA.setTitle(currentInputValues[0], forState: UIControlState.Normal)
+        departureTemperature.setTitle(currentInputValues[1], forState: UIControlState.Normal)
+        destinationPA.setTitle(currentInputValues[2], forState: UIControlState.Normal)
+        destinationTemperature.setTitle(currentInputValues[3], forState: UIControlState.Normal)
         
         // Test pilot information
         var savedLUT = ViewController.saveLookUpTable(
@@ -307,7 +316,11 @@ class ViewController: UIViewController {
         }
         
         pressures = sorted(pressures)
-        return pressures
+        
+        //testing
+        var testPressures = [1,2,3,4,5]
+        
+        return testPressures
     }
     
     func getTemperatures() -> NSArray {
@@ -338,8 +351,33 @@ class ViewController: UIViewController {
         let allLoopUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
         return allLoopUpTables.first!
     }
-
+ 
+    @IBAction func departureAltitudeButtonClick(sender: AnyObject) {
+        calculateType = "Departure Altitude"
+        myArray = ["departure altitude", "1", "2", "3", "4", "5"]
+    }
     
+    @IBAction func departureTemperatureClick(sender: AnyObject) {
+        calculateType = "Departure Temperature"
+        myArray = ["departure temp", "1", "2", "3", "4", "5"]
+    }
+    
+    @IBAction func destinationAltitudeClick(sender: AnyObject) {
+        calculateType = "Destination Altitude"
+        myArray = ["destination altitude", "1", "2", "3", "4", "5"]
+    }
+    
+    @IBAction func destinationTemperatureClick(sender: AnyObject) {
+        calculateType = "Destination Temperature"
+        myArray = ["destination temperature", "1", "2", "3", "4", "5"]
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var DestViewController : ScrollViewController = segue.destinationViewController as ScrollViewController
+        
+        DestViewController.labelText = calculateType
+        DestViewController.secondCurrentInputValues = currentInputValues
+        DestViewController.myArray = myArray
+    }
 
     class func saveDataCell(
         pressure: NSNumber,
