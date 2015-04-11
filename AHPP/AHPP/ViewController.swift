@@ -123,30 +123,31 @@ class ViewController: UIViewController{
         destinationFuelTotal.setTitle(String(destinationFuelWeightTotalInt) , forState: UIControlState.Normal)
         fuelWeightPoundsPerGallon.text = "7"
         
-        // Test pilot information
-        var savedLUT = ViewController.saveLookUpTable(
-            "ACME INC",
-            contact_number: "208-999-9999",
-            designated_base: "Podunk ID",
-            fixed_weight_reduduction: 400,
-            flight_crew_weight: 200,
-            gross_weight_limitation_hige: 300,
-            gross_weight_limitation_hoge: 100,
-            gross_weight_limitation_hoge_j: 200,
-            helicopter_equipped_weight: 100,
-            is_hoge: 50,
-            make_model: "Apache",
-            n_number: "4",
-            performance_reference_hige: "Great",
-            performance_reference_hoge: "So Great",
-            pilot_name: "John Smith",
-            has_wat: false)
-        
-        // Save the test pilot
-        ViewController.saveDataCell(40, temperature: 80, weight: 50, lookUpTable: savedLUT, isHige: false, isHoge: true)
+//        // Test pilot information
+//        var savedLUT = ViewController.saveLookUpTable(
+//            "ACME INC",
+//            contact_number: "208-999-9999",
+//            designated_base: "Podunk ID",
+//            fixed_weight_reduduction: 400,
+//            flight_crew_weight: 200,
+//            gross_weight_limitation_hige: 300,
+//            gross_weight_limitation_hoge: 100,
+//            gross_weight_limitation_hoge_j: 200,
+//            helicopter_equipped_weight: 100,
+//            is_hoge: 50,
+//            make_model: "Apache",
+//            n_number: "4",
+//            performance_reference_hige: "Great",
+//            performance_reference_hoge: "So Great",
+//            pilot_name: "John Smith",
+//            has_wat: false)
+//        
+//        // Save the test pilot
+//        ViewController.saveDataCell(40, temperature: 80, weight: 50, lookUpTable: savedLUT, isHige: false, isHoge: true)
         
         // Helicopter object
         var helicopter = getMyHelo();
+        
         
         // Will set name to "John Smith"
         pilotName.text = helicopter.pilot_name
@@ -171,9 +172,7 @@ class ViewController: UIViewController{
         fuelWeightDeparture.text = String(format:"%.1f", Double(departureFuelWeightTotalInt) / 7.0)
         fuelWeightDestination.text = String(format:"%.1f", Double(destinationFuelWeightTotalInt) / 7.0)
         
-        setOperatingWeight()
-        
-        
+//        setOperatingWeight()
     }
     
     func setOperatingWeight(){
@@ -320,9 +319,9 @@ class ViewController: UIViewController{
         
         var pressures = [Int]()
         
-        var higeDataCells : NSSet = myHelo.higeDataCells
+        var higeDataCells = myHelo.higeDataCells
         
-        for item in higeDataCells.allObjects as [WatDataCell] {
+        for item in higeDataCells.allObjects {
             let pressure = item.pressure as NSInteger
             if !contains(pressures, pressure) {
                 pressures.append(pressure)
@@ -336,6 +335,9 @@ class ViewController: UIViewController{
           pressureStrings.append(String(num))
         }
         
+        println(pressureStrings.count)
+
+        
         return pressureStrings
     }
     
@@ -345,9 +347,9 @@ class ViewController: UIViewController{
         
         var temperatures = [Int]()
         
-        var higeDataCells : NSSet = myHelo.higeDataCells
+        var higeDataCells = myHelo.higeDataCells
         
-        for item in higeDataCells.allObjects as [WatDataCell] {
+        for item in higeDataCells.allObjects {
             let temperature = item.temperature as NSInteger
             if !contains(temperatures, temperature) {
                 temperatures.append(temperature)
@@ -358,6 +360,7 @@ class ViewController: UIViewController{
         
         var temperatureStrings = [String]()
         for num in temperatures {
+            println(num)
             temperatureStrings.append(String(num))
         }
         
@@ -371,6 +374,7 @@ class ViewController: UIViewController{
         
         let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
         let allLoopUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+        
         return allLoopUpTables.first!
     }
  
