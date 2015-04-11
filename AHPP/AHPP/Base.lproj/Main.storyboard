@@ -620,7 +620,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fa5-kT-dqV">
                                 <rect key="frame" x="432" y="562" width="82" height="40"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -850,7 +850,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEd-MS-FbA">
                                 <rect key="frame" x="678" y="562" width="82" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1022,26 +1022,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7M-UV-eyl">
                                 <rect key="frame" x="587" y="389" width="173" height="35"/>
                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3x-Ub-Otf">
-                                <rect key="frame" x="422" y="355" width="166" height="35"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhf-ix-9eS">
-                                <rect key="frame" x="587" y="355" width="173" height="35"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1473,6 +1453,38 @@
                                     <segue destination="uhl-3X-q6d" kind="show" id="ddb-OI-WNs"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b71-Mn-PDi">
+                                <rect key="frame" x="422" y="355" width="166" height="35"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="NA">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="departureFuelTotalClick:" destination="7ME-ma-Luj" eventType="touchUpInside" id="Cf9-Q1-qia"/>
+                                    <segue destination="uhl-3X-q6d" kind="show" id="pAg-ev-6YK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pjn-cv-jRX">
+                                <rect key="frame" x="587" y="355" width="173" height="35"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="NA">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="destinationFuelTotalClick:" destination="7ME-ma-Luj" eventType="touchUpInside" id="pKz-pg-C0q"/>
+                                    <segue destination="uhl-3X-q6d" kind="show" id="Vzn-pF-Vh4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1488,9 +1500,9 @@
                         <outlet property="computedGrossWeightHOGEJ" destination="tzk-Fn-Rbb" id="dvI-8W-Mjv"/>
                         <outlet property="computerGrossWeightHIGE" destination="J44-RJ-bc6" id="ayx-Pu-aNc"/>
                         <outlet property="computerGrossWeightHOGE" destination="ajg-Xa-EzR" id="0RI-Y2-TOj"/>
+                        <outlet property="departureFuelTotal" destination="b71-Mn-PDi" id="nWK-Lp-qP8"/>
                         <outlet property="departureLocation" destination="SgQ-Js-4yG" id="hEn-5p-SaH"/>
                         <outlet property="departurePA" destination="qS7-dt-NR1" id="cGf-uf-pYs"/>
-                        <outlet property="departurePounds" destination="y3x-Ub-Otf" id="PLF-zB-cHH"/>
                         <outlet property="departureTemperature" destination="UgY-AK-U5t" id="1kX-cx-Wek"/>
                         <outlet property="destinationAdjustedWeightHOGE" destination="mcJ-PU-AZK" id="kds-64-2az"/>
                         <outlet property="destinationAdjustedWeightHOGEJ" destination="v95-9k-xvO" id="rbx-Nd-Uqr"/>
@@ -1503,6 +1515,7 @@
                         <outlet property="destinationExceedsHIGE" destination="aDp-G6-vYL" id="Hsh-R7-Hyq"/>
                         <outlet property="destinationExceedsHOGE" destination="Ucl-bj-25B" id="71m-x2-gTZ"/>
                         <outlet property="destinationExceedsHOGEJ" destination="Vj9-Jc-aJB" id="l6G-SY-WkK"/>
+                        <outlet property="destinationFuelTotal" destination="Pjn-cv-jRX" id="ans-06-IDK"/>
                         <outlet property="destinationGrossWeightLimitationHIGE" destination="oKx-ki-1MM" id="4d2-6V-Mgj"/>
                         <outlet property="destinationGrossWeightLimitiationHOGE" destination="6Ud-5e-jrr" id="1pY-dQ-pTO"/>
                         <outlet property="destinationGrossWeightLimitiationHOGEJ" destination="ilR-Yt-xlv" id="R5b-gg-SIg"/>
@@ -1510,7 +1523,6 @@
                         <outlet property="destinationOperatingWeightHOGE" destination="BMo-IE-2hD" id="faU-ov-mvY"/>
                         <outlet property="destinationOperatingWeightHOGEJ" destination="s1Q-0W-T6X" id="Xum-M3-GHL"/>
                         <outlet property="destinationPA" destination="X2P-CG-PWN" id="NPg-vJ-cVh"/>
-                        <outlet property="destinationPounds" destination="Rhf-ix-9eS" id="2cn-Fh-kpx"/>
                         <outlet property="destinationSelectedWeightHOGE" destination="zah-fp-Tej" id="LZN-ZC-ePU"/>
                         <outlet property="destinationSelectedWeightHOGEJ" destination="cyG-Ww-xxO" id="xPG-sT-h5H"/>
                         <outlet property="destinationTemperature" destination="ke2-zR-esr" id="Y3O-7q-k9R"/>
@@ -1574,7 +1586,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sU-cw-Lkj">
                                 <rect key="frame" x="184" y="190" width="400" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEC-f5-6j6">

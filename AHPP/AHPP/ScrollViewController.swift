@@ -17,12 +17,13 @@ class ScrollViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     var myArray = [String]()
     var secondCurrentInputValues = [String]()
     var selectedValue = ""
+    var departureFuelWeightTotal = ""
+    var destinationFuelWeightTotal = ""
     var labelText = ""
     
     override func viewDidLoad() {
         calculateType.text = labelText
     }
-    
     
     // returns the number of 'columns' to display.
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
@@ -52,6 +53,8 @@ class ScrollViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             GoBackDestViewController.currentInputValues[1] = secondCurrentInputValues[1]
             GoBackDestViewController.currentInputValues[2] = secondCurrentInputValues[2]
             GoBackDestViewController.currentInputValues[3] = secondCurrentInputValues[3]
+            GoBackDestViewController.departureFuelWeightTotalInt = departureFuelWeightTotal.toInt()!
+            GoBackDestViewController.destinationFuelWeightTotalInt = destinationFuelWeightTotal.toInt()!
         }
         
         else if labelText == "Departure Temperature"{
@@ -59,19 +62,38 @@ class ScrollViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             GoBackDestViewController.currentInputValues[1] = selectedValue
             GoBackDestViewController.currentInputValues[2] = secondCurrentInputValues[2]
             GoBackDestViewController.currentInputValues[3] = secondCurrentInputValues[3]
+            GoBackDestViewController.departureFuelWeightTotalInt = departureFuelWeightTotal.toInt()!
+            GoBackDestViewController.destinationFuelWeightTotalInt = destinationFuelWeightTotal.toInt()!
         }
             
         else if labelText == "Destination Altitude"{
             GoBackDestViewController.currentInputValues[0] = secondCurrentInputValues[0]
             GoBackDestViewController.currentInputValues[1] = secondCurrentInputValues[1]
             GoBackDestViewController.currentInputValues[2] = selectedValue
-            GoBackDestViewController.currentInputValues[3] = secondCurrentInputValues[3]        }
+            GoBackDestViewController.currentInputValues[3] = secondCurrentInputValues[3]
+            GoBackDestViewController.departureFuelWeightTotalInt = departureFuelWeightTotal.toInt()!
+            GoBackDestViewController.destinationFuelWeightTotalInt = destinationFuelWeightTotal.toInt()!
+        }
         
         else if labelText == "Destination Temperature"{
             GoBackDestViewController.currentInputValues[0] = secondCurrentInputValues[0]
             GoBackDestViewController.currentInputValues[1] = secondCurrentInputValues[1]
             GoBackDestViewController.currentInputValues[2] = secondCurrentInputValues[2]
             GoBackDestViewController.currentInputValues[3] = selectedValue
+            GoBackDestViewController.departureFuelWeightTotalInt = departureFuelWeightTotal.toInt()!
+            GoBackDestViewController.destinationFuelWeightTotalInt = destinationFuelWeightTotal.toInt()!
+        }
+        
+        else if labelText == "Departure Fuel Weight"{
+            GoBackDestViewController.currentInputValues = secondCurrentInputValues
+            GoBackDestViewController.departureFuelWeightTotalInt = selectedValue.toInt()!
+            GoBackDestViewController.destinationFuelWeightTotalInt = destinationFuelWeightTotal.toInt()!
+        }
+        
+        else if labelText == "Destination Fuel Weight"{
+            GoBackDestViewController.currentInputValues = secondCurrentInputValues
+            GoBackDestViewController.departureFuelWeightTotalInt = departureFuelWeightTotal.toInt()!
+            GoBackDestViewController.destinationFuelWeightTotalInt = selectedValue.toInt()!
         }
     }
 }
