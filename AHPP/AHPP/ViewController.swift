@@ -464,32 +464,7 @@ class ViewController: UIViewController{
         return temperatureStrings
     }
 
-    func getMyHelo() -> LookUpTable? {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let context = appDelegate.managedObjectContext!
-
-        
-        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
-        let allHelos = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
-        
-        if allHelos.count > 0 {
-            return allHelos.first!
-        } else {
-            return nil
-        }
-    }
-    @IBAction func weightReductionTextChanged(sender: AnyObject) {
-        setAdjustedWeight()
-        setSelectedWeight()
-        setAllowablePayload()
-    }
-    @IBAction func destinationWeightReductionTextChanged(sender: AnyObject) {
-        setAdjustedWeight()
-        setSelectedWeight()
-        setAllowablePayload()
-    }
- 
-    @IBAction func extraWeightTextChanged(sender: AnyObject) {
+    func isAllowable(){
         acualPayload.text = extraWeightTextField.text
         
         if acualPayload.text?.toInt() < allowablePayloadHIGE.text?.toInt(){
@@ -512,8 +487,58 @@ class ViewController: UIViewController{
         else{
             exceedsHOGEJ.text = "Exceeds"
         }
+
+        if acualPayload.text?.toInt() < destinationAllowablePayloadHIGE.text?.toInt(){
+            destinationExceedsHIGE.text = "OK"
+        }
+        else{
+            destinationExceedsHIGE.text = "Exceeds"
+        }
         
+        if acualPayload.text?.toInt() < destinationAllowablePayloadHOGE.text?.toInt(){
+            destinationExceedsHOGE.text = "OK"
+        }
+        else{
+            destinationExceedsHOGE.text = "Exceeds"
+        }
         
+        if acualPayload.text?.toInt() < destinationAllowablePayloadHOGEJ.text?.toInt(){
+            destinationExceedsHOGEJ.text = "OK"
+        }
+        else{
+            destinationExceedsHOGEJ.text = "Exceeds"
+        }
+    }
+
+    func getMyHelo() -> LookUpTable? {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let context = appDelegate.managedObjectContext!
+
+        
+        let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+        let allHelos = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+        
+        if allHelos.count > 0 {
+            return allHelos.first!
+        } else {
+            return nil
+        }
+    }
+    @IBAction func weightReductionTextChanged(sender: AnyObject) {
+        setAdjustedWeight()
+        setSelectedWeight()
+        setAllowablePayload()
+        isAllowable()
+    }
+    @IBAction func destinationWeightReductionTextChanged(sender: AnyObject) {
+        setAdjustedWeight()
+        setSelectedWeight()
+        setAllowablePayload()
+        isAllowable()
+    }
+ 
+    @IBAction func extraWeightTextChanged(sender: AnyObject) {
+        isAllowable()
     }
 
     @IBAction func departureAltitudeButtonClick(sender: AnyObject) {
