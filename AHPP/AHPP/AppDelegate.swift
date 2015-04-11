@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: NSString?, annotation: AnyObject) -> Bool {
         
         // Prints the csv file url
-        parse(url)
+        Parsing.parse(url)
         
         return true
     }
