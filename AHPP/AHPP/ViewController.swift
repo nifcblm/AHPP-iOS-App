@@ -225,7 +225,7 @@ class ViewController: UIViewController{
         
         adjustedWeightHOGE.text = String(adjustedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!))
         
-        adjustedWeightHOGEJ.text = String(adjustedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!))
+        adjustedWeightHOGEJ.text = String(adjustedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!) - weightReductionTextField.text.toInt()!)
         
         var currentDestinationPressure = currentInputValues[2]
         var currentDestinationTemperature = currentInputValues[3]
@@ -234,7 +234,7 @@ class ViewController: UIViewController{
         
         destinationAdjustedWeightHOGE.text = String(adjustedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!))
         
-        destinationAdjustedWeightHOGEJ.text = String(adjustedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!) - 500)
+        destinationAdjustedWeightHOGEJ.text = String(adjustedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!) - destinationWeightReductionTextField.text.toInt()!)
     }
     
     func setSelectedWeight(){
