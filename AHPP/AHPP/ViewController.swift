@@ -145,31 +145,32 @@ class ViewController: UIViewController{
 //        // Save the test pilot
 //        ViewController.saveDataCell(40, temperature: 80, weight: 50, lookUpTable: savedLUT, isHige: false, isHoge: true)
         
-//        // Helicopter object
-//        var helicopter = getMyHelo();
-//        
-//        // Will set name to "John Smith"
-//        pilotName.text = helicopter.pilot_name
-//        helicopterModel.text = helicopter.make_model
-//        helicopterNumber.text = helicopter.n_number
+        // Helicopter object
+        var helicopter = getMyHelo();
         
-//        // NSInt to NSString example
-//        //line 3
-//        helicopterEquiptWeight.text = helicopter.helicopter_equipped_weight.stringValue
-//        //line 4
-//        flightCrewWeight.text = helicopter.flight_crew_weight.stringValue
-//        
-//        //line 10
-//        grossWeightLimitationHIGE.text = helicopter.gross_weight_limitation_hige.stringValue
-//        grossWeightLimitationHOGE.text = helicopter.gross_weight_limitation_hoge.stringValue
-//        grossWeightLimitationHOGEJ.text = helicopter.gross_weight_limitation_hoge_j.stringValue
-//        
-//        destinationGrossWeightLimitationHIGE.text = helicopter.gross_weight_limitation_hige.stringValue
-//        destinationGrossWeightLimitiationHOGE.text = helicopter.gross_weight_limitation_hoge.stringValue
-//        destinationGrossWeightLimitiationHOGEJ.text = helicopter.gross_weight_limitation_hoge_j.stringValue
-//        
-//        fuelWeightDeparture.text = String(format:"%.1f", Double(departureFuelWeightTotalInt) / 7.0)
-//        fuelWeightDestination.text = String(format:"%.1f", Double(destinationFuelWeightTotalInt) / 7.0)
+        
+        // Will set name to "John Smith"
+        pilotName.text = helicopter.pilot_name
+        helicopterModel.text = helicopter.make_model
+        helicopterNumber.text = helicopter.n_number
+        
+        // NSInt to NSString example
+        //line 3
+        helicopterEquiptWeight.text = helicopter.helicopter_equipped_weight.stringValue
+        //line 4
+        flightCrewWeight.text = helicopter.flight_crew_weight.stringValue
+        
+        //line 10
+        grossWeightLimitationHIGE.text = helicopter.gross_weight_limitation_hige.stringValue
+        grossWeightLimitationHOGE.text = helicopter.gross_weight_limitation_hoge.stringValue
+        grossWeightLimitationHOGEJ.text = helicopter.gross_weight_limitation_hoge_j.stringValue
+        
+        destinationGrossWeightLimitationHIGE.text = helicopter.gross_weight_limitation_hige.stringValue
+        destinationGrossWeightLimitiationHOGE.text = helicopter.gross_weight_limitation_hoge.stringValue
+        destinationGrossWeightLimitiationHOGEJ.text = helicopter.gross_weight_limitation_hoge_j.stringValue
+        
+        fuelWeightDeparture.text = String(format:"%.1f", Double(departureFuelWeightTotalInt) / 7.0)
+        fuelWeightDestination.text = String(format:"%.1f", Double(destinationFuelWeightTotalInt) / 7.0)
         
 //        setOperatingWeight()
     }
@@ -373,6 +374,7 @@ class ViewController: UIViewController{
         
         let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
         let allLoopUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+        
         return allLoopUpTables.first!
     }
  
