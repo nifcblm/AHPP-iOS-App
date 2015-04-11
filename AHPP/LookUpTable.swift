@@ -11,7 +11,7 @@ import CoreData
 
 @objc(LookUpTable)
 
-class LookUpTable: NSManagedObject {
+public class LookUpTable: NSManagedObject {
 
     @NSManaged var company_name: String
     @NSManaged var contact_number: String
