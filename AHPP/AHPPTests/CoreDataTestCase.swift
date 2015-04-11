@@ -17,6 +17,7 @@
 import Foundation
 import XCTest
 import CoreData
+import AHPP
 
 class CoreDataTestCase: XCTestCase {
     
@@ -31,7 +32,7 @@ class CoreDataTestCase: XCTestCase {
     }
     
     lazy var managedObjectModel: NSManagedObjectModel = {
-        let modelURL = NSBundle.mainBundle().URLForResource("Zoom", withExtension: "momd")!
+        let modelURL = NSBundle.mainBundle().URLForResource("AHPP", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
         }()
     
@@ -62,19 +63,6 @@ class CoreDataTestCase: XCTestCase {
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
         }()
-    
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
     
 }
 

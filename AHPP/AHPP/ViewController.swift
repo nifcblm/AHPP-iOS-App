@@ -113,8 +113,6 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        parse()
-        
         departurePA.setTitle(currentInputValues[0], forState: UIControlState.Normal)
         departureTemperature.setTitle(currentInputValues[1], forState: UIControlState.Normal)
         destinationPA.setTitle(currentInputValues[2], forState: UIControlState.Normal)
