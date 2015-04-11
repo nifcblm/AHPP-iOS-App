@@ -466,6 +466,10 @@ class ViewController: UIViewController{
             return nil
         }
     }
+    @IBAction func weightReductionTextChanged(sender: AnyObject) {
+    }
+    @IBAction func destinationWeightReductionTextChanged(sender: AnyObject) {
+    }
  
     @IBAction func departureAltitudeButtonClick(sender: AnyObject) {
         calculateType = "Departure Altitude"
