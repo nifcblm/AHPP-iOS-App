@@ -148,31 +148,35 @@ class ViewController: UIViewController{
         // Helicopter object
         var helicopter = getMyHelo();
         
+        if ((helicopter) != nil) {
+            var realHelicopter = helicopter as LookUpTable!
+            // Will set name to "John Smith"
+            pilotName.text = realHelicopter.pilot_name
+            helicopterModel.text = realHelicopter.make_model
+            helicopterNumber.text = realHelicopter.n_number
+            
+            // NSInt to NSString example
+            //line 3
+            helicopterEquiptWeight.text = realHelicopter.helicopter_equipped_weight.stringValue
+            //line 4
+            flightCrewWeight.text = realHelicopter.flight_crew_weight.stringValue
+            
+            //line 10
+            grossWeightLimitationHIGE.text = realHelicopter.gross_weight_limitation_hige.stringValue
+            grossWeightLimitationHOGE.text = realHelicopter.gross_weight_limitation_hoge.stringValue
+            grossWeightLimitationHOGEJ.text = realHelicopter.gross_weight_limitation_hoge_j.stringValue
+            
+            destinationGrossWeightLimitationHIGE.text = realHelicopter.gross_weight_limitation_hige.stringValue
+            destinationGrossWeightLimitiationHOGE.text = realHelicopter.gross_weight_limitation_hoge.stringValue
+            destinationGrossWeightLimitiationHOGEJ.text = realHelicopter.gross_weight_limitation_hoge_j.stringValue
+            
+            fuelWeightDeparture.text = String(format:"%.1f", Double(departureFuelWeightTotalInt) / 7.0)
+            fuelWeightDestination.text = String(format:"%.1f", Double(destinationFuelWeightTotalInt) / 7.0)
+  
+            setOperatingWeight()
+
+        }
         
-        // Will set name to "John Smith"
-        pilotName.text = helicopter.pilot_name
-        helicopterModel.text = helicopter.make_model
-        helicopterNumber.text = helicopter.n_number
-        
-        // NSInt to NSString example
-        //line 3
-        helicopterEquiptWeight.text = helicopter.helicopter_equipped_weight.stringValue
-        //line 4
-        flightCrewWeight.text = helicopter.flight_crew_weight.stringValue
-        
-        //line 10
-        grossWeightLimitationHIGE.text = helicopter.gross_weight_limitation_hige.stringValue
-        grossWeightLimitationHOGE.text = helicopter.gross_weight_limitation_hoge.stringValue
-        grossWeightLimitationHOGEJ.text = helicopter.gross_weight_limitation_hoge_j.stringValue
-        
-        destinationGrossWeightLimitationHIGE.text = helicopter.gross_weight_limitation_hige.stringValue
-        destinationGrossWeightLimitiationHOGE.text = helicopter.gross_weight_limitation_hoge.stringValue
-        destinationGrossWeightLimitiationHOGEJ.text = helicopter.gross_weight_limitation_hoge_j.stringValue
-        
-        fuelWeightDeparture.text = String(format:"%.1f", Double(departureFuelWeightTotalInt) / 7.0)
-        fuelWeightDestination.text = String(format:"%.1f", Double(destinationFuelWeightTotalInt) / 7.0)
-        
-//        setOperatingWeight()
     }
     
     func setOperatingWeight(){
@@ -248,12 +252,12 @@ class ViewController: UIViewController{
     }
     
     func operatingWeight(fuelWeight: NSInteger) -> NSInteger {
-        var myHelo = getMyHelo()
+        let myHelo = getMyHelo() as LookUpTable!
         return myHelo.helicopter_equipped_weight.integerValue + myHelo.flight_crew_weight.integerValue + fuelWeight
     }
     
     func adjustedWeight(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSNumber, temperature: NSNumber) -> NSInteger {
-        var myHelo = getMyHelo()
+        let myHelo = getMyHelo() as LookUpTable!
 
         if isHogeJ {
             return getHogeWeight(pressure, temperature: temperature) as NSInteger
@@ -314,7 +318,7 @@ class ViewController: UIViewController{
     }
     
     func getPressures() -> [String] {
-        let myHelo = getMyHelo()
+        let myHelo = getMyHelo() as LookUpTable!
 
         
         var pressures = [Int]()
@@ -342,7 +346,7 @@ class ViewController: UIViewController{
     }
     
     func getTemperatures() -> [String] {
-        let myHelo = getMyHelo()
+        let myHelo = getMyHelo() as LookUpTable!
         
         
         var temperatures = [Int]()
@@ -367,15 +371,19 @@ class ViewController: UIViewController{
         return temperatureStrings
     }
 
-    func getMyHelo() -> LookUpTable {
+    func getMyHelo() -> LookUpTable? {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let context = appDelegate.managedObjectContext!
 
         
         let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
-        let allLoopUpTables = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+        let allHelos = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
         
-        return allLoopUpTables.first!
+        if allHelos.count > 0 {
+            return allHelos.first!
+        } else {
+            return nil
+        }
     }
  
     @IBAction func departureAltitudeButtonClick(sender: AnyObject) {
