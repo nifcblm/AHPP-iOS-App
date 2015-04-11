@@ -109,6 +109,13 @@ class ViewController: UIViewController{
     @IBOutlet weak var destinationExceedsHIGE: UILabel!
     @IBOutlet weak var destinationExceedsHOGE: UILabel!
     @IBOutlet weak var destinationExceedsHOGEJ: UILabel!
+    
+    
+
+    @IBOutlet weak var extraWeightTextField: UITextField!
+    
+    @IBOutlet weak var acualPayload: UILabel!
+    
     /* --------------------- END OF LABELS --------------------- */
     
     
@@ -482,6 +489,33 @@ class ViewController: UIViewController{
         setAllowablePayload()
     }
  
+    @IBAction func extraWeightTextChanged(sender: AnyObject) {
+        acualPayload.text = extraWeightTextField.text
+        
+        if acualPayload.text?.toInt() < allowablePayloadHIGE.text?.toInt(){
+            exceedsHIGE.text = "OK"
+        }
+        else{
+            exceedsHIGE.text = "Exceeds"
+        }
+        
+        if acualPayload.text?.toInt() < allowablePayloadHOGE.text?.toInt(){
+            exceedsHOGE.text = "OK"
+        }
+        else{
+            exceedsHOGE.text = "Exceeds"
+        }
+        
+        if acualPayload.text?.toInt() < allowablePayloadHOGEJ.text?.toInt(){
+            exceedsHOGEJ.text = "OK"
+        }
+        else{
+            exceedsHOGEJ.text = "Exceeds"
+        }
+        
+        
+    }
+
     @IBAction func departureAltitudeButtonClick(sender: AnyObject) {
         calculateType = "Departure Altitude"
         myArray = getPressures()
