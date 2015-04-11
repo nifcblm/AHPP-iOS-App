@@ -77,18 +77,6 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TeM-cx-0BC">
-                                <rect key="frame" x="474" y="177" width="85" height="44"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jkJ-xY-s9y">
-                                <rect key="frame" x="474" y="221" width="85" height="44"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQT-o8-2fS">
                                 <rect key="frame" x="9" y="221" width="30" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -232,12 +220,6 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="niH-Jp-dTi">
-                                <rect key="frame" x="629" y="177" width="100" height="44"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OAT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKX-Hh-RbH">
                                 <rect key="frame" x="559" y="221" width="72" height="44"/>
                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -248,12 +230,6 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="99h-Yu-td4">
-                                <rect key="frame" x="629" y="221" width="100" height="44"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MB3-fF-Lg1">
                                 <rect key="frame" x="422" y="221" width="52" height="44"/>
                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -1437,6 +1413,66 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qS7-dt-NR1">
+                                <rect key="frame" x="474" y="177" width="85" height="44"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="0">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="departureAltitudeButtonClick:" destination="7ME-ma-Luj" eventType="touchDown" id="6Xb-Ye-i3a"/>
+                                    <segue destination="uhl-3X-q6d" kind="show" id="XMV-vr-5OG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UgY-AK-U5t">
+                                <rect key="frame" x="630" y="177" width="100" height="44"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="0">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="departureTemperatureClick:" destination="7ME-ma-Luj" eventType="touchUpInside" id="z5A-BG-pap"/>
+                                    <segue destination="uhl-3X-q6d" kind="show" id="waY-aK-pQK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ke2-zR-esr">
+                                <rect key="frame" x="630" y="221" width="100" height="44"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="0">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="destinationTemperatureClick:" destination="7ME-ma-Luj" eventType="touchUpInside" id="QuG-uy-JcK"/>
+                                    <segue destination="uhl-3X-q6d" kind="show" id="4g8-GG-HG3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2P-CG-PWN">
+                                <rect key="frame" x="474" y="221" width="85" height="44"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="0">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="destinationAltitudeClick:" destination="7ME-ma-Luj" eventType="touchUpInside" id="XaL-6r-fwO"/>
+                                    <segue destination="uhl-3X-q6d" kind="show" id="ddb-OI-WNs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1452,17 +1488,15 @@
                         <outlet property="computedGrossWeightHOGEJ" destination="tzk-Fn-Rbb" id="dvI-8W-Mjv"/>
                         <outlet property="computerGrossWeightHIGE" destination="J44-RJ-bc6" id="ayx-Pu-aNc"/>
                         <outlet property="computerGrossWeightHOGE" destination="ajg-Xa-EzR" id="0RI-Y2-TOj"/>
-                        <outlet property="departureAirTemperature" destination="niH-Jp-dTi" id="Spr-J5-qfp"/>
                         <outlet property="departureLocation" destination="SgQ-Js-4yG" id="hEn-5p-SaH"/>
+                        <outlet property="departurePA" destination="qS7-dt-NR1" id="cGf-uf-pYs"/>
                         <outlet property="departurePounds" destination="y3x-Ub-Otf" id="PLF-zB-cHH"/>
-                        <outlet property="depsrtureAltitude" destination="TeM-cx-0BC" id="9Xl-in-kOv"/>
+                        <outlet property="departureTemperature" destination="UgY-AK-U5t" id="1kX-cx-Wek"/>
                         <outlet property="destinationAdjustedWeightHOGE" destination="mcJ-PU-AZK" id="kds-64-2az"/>
                         <outlet property="destinationAdjustedWeightHOGEJ" destination="v95-9k-xvO" id="rbx-Nd-Uqr"/>
-                        <outlet property="destinationAirTemperature" destination="99h-Yu-td4" id="6nz-gH-TjK"/>
                         <outlet property="destinationAllowablePayloadHIGE" destination="WU0-PD-M9K" id="dD2-dw-Jhh"/>
                         <outlet property="destinationAllowablePayloadHOGE" destination="lWx-SX-elv" id="tUE-UN-11t"/>
                         <outlet property="destinationAllowablePayloadHOGEJ" destination="1tt-WD-bmG" id="brU-Q3-3Va"/>
-                        <outlet property="destinationAltitude" destination="jkJ-xY-s9y" id="2id-1F-B6C"/>
                         <outlet property="destinationComputedGrossWeightHIGE" destination="9jS-Bl-zpz" id="XDO-5A-EkA"/>
                         <outlet property="destinationComputedGrossWeightHOGE" destination="3IH-wA-F3B" id="rJ3-Mk-kqW"/>
                         <outlet property="destinationComputedGrossWeightHOGEJ" destination="XgJ-XS-tBL" id="DuC-Ts-4dP"/>
@@ -1475,9 +1509,11 @@
                         <outlet property="destinationOperatingWeightHIGE" destination="sR7-Z9-hNX" id="JAD-6e-61r"/>
                         <outlet property="destinationOperatingWeightHOGE" destination="BMo-IE-2hD" id="faU-ov-mvY"/>
                         <outlet property="destinationOperatingWeightHOGEJ" destination="s1Q-0W-T6X" id="Xum-M3-GHL"/>
+                        <outlet property="destinationPA" destination="X2P-CG-PWN" id="NPg-vJ-cVh"/>
                         <outlet property="destinationPounds" destination="Rhf-ix-9eS" id="2cn-Fh-kpx"/>
                         <outlet property="destinationSelectedWeightHOGE" destination="zah-fp-Tej" id="LZN-ZC-ePU"/>
                         <outlet property="destinationSelectedWeightHOGEJ" destination="cyG-Ww-xxO" id="xPG-sT-h5H"/>
+                        <outlet property="destinationTemperature" destination="ke2-zR-esr" id="Y3O-7q-k9R"/>
                         <outlet property="destinationWeightReductionHIGE" destination="oQa-Pb-f0Y" id="cDe-VJ-PMe"/>
                         <outlet property="destinationWeightReductionHOGE" destination="pHV-a9-SFZ" id="keD-1B-vLo"/>
                         <outlet property="destinationWeightReductionHOGEJ" destination="NEd-MS-FbA" id="Blv-OR-qwz"/>
@@ -1516,63 +1552,57 @@
             </objects>
             <point key="canvasLocation" x="-291" y="427"/>
         </scene>
-        <!--View Controller-->
+        <!--Scroll View Controller-->
         <scene sceneID="4U4-qV-Ccl">
             <objects>
-                <viewController id="uhl-3X-q6d" sceneMemberID="viewController">
+                <viewController id="uhl-3X-q6d" customClass="ScrollViewController" customModule="AHPP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zkl-Kx-OI6"/>
                         <viewControllerLayoutGuide type="bottom" id="PmW-dK-UcR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xVj-W0-BYi">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pa-mC-cBc">
-                                <rect key="frame" x="439" y="560" width="146" height="63"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Calculate">
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qjp-oQ-RKW">
+                                <rect key="frame" x="0.0" y="289" width="768" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="uhl-3X-q6d" id="zMg-dG-TQS"/>
+                                    <outlet property="delegate" destination="uhl-3X-q6d" id="Gx5-ZC-066"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sU-cw-Lkj">
+                                <rect key="frame" x="184" y="190" width="400" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEC-f5-6j6">
+                                <rect key="frame" x="184" y="600" width="400" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="Accept">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7ME-ma-Luj" kind="show" id="UaY-HT-rv9"/>
+                                    <segue destination="7ME-ma-Luj" kind="show" id="9JB-Kr-DaT"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLQ-vG-PT4">
-                                <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
-                                <items>
-                                    <navigationItem title="Select Weight" id="Hck-xL-rT5">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4cV-Hb-iqP">
-                                            <connections>
-                                                <segue destination="7ME-ma-Luj" kind="show" id="TAn-Hq-rg3"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L40-gq-HbH">
-                                <rect key="frame" x="204" y="151" width="53" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKq-rQ-Skx">
-                                <rect key="frame" x="265" y="147" width="487" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="calculateType" destination="2sU-cw-Lkj" id="kD2-xN-ICu"/>
+                        <outlet property="scrollWheel" destination="Qjp-oQ-RKW" id="dOR-Nw-jAR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIE-dH-gP6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="854" y="427"/>
+            <point key="canvasLocation" x="854" y="421"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UaY-HT-rv9"/>
+        <segue reference="waY-aK-pQK"/>
     </inferredMetricsTieBreakers>
 </document>
