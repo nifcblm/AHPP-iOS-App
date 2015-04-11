@@ -113,8 +113,6 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        parse()
-        
         departurePA.setTitle(currentInputValues[0], forState: UIControlState.Normal)
         departureTemperature.setTitle(currentInputValues[1], forState: UIControlState.Normal)
         destinationPA.setTitle(currentInputValues[2], forState: UIControlState.Normal)
@@ -123,32 +121,10 @@ class ViewController: UIViewController{
         destinationFuelTotal.setTitle(String(destinationFuelWeightTotalInt) , forState: UIControlState.Normal)
         fuelWeightPoundsPerGallon.text = "7"
         
-//        // Test pilot information
-//        var savedLUT = ViewController.saveLookUpTable(
-//            "ACME INC",
-//            contact_number: "208-999-9999",
-//            designated_base: "Podunk ID",
-//            fixed_weight_reduduction: 400,
-//            flight_crew_weight: 200,
-//            gross_weight_limitation_hige: 300,
-//            gross_weight_limitation_hoge: 100,
-//            gross_weight_limitation_hoge_j: 200,
-//            helicopter_equipped_weight: 100,
-//            is_hoge: 50,
-//            make_model: "Apache",
-//            n_number: "4",
-//            performance_reference_hige: "Great",
-//            performance_reference_hoge: "So Great",
-//            pilot_name: "John Smith",
-//            has_wat: false)
-//        
-//        // Save the test pilot
-//        ViewController.saveDataCell(40, temperature: 80, weight: 50, lookUpTable: savedLUT, isHige: false, isHoge: true)
-        
         // Helicopter object
         var helicopter = getMyHelo();
-        
-        if ((helicopter) != nil) {
+    
+        if (helicopter != nil) {
             var realHelicopter = helicopter as LookUpTable!
             // Will set name to "John Smith"
             pilotName.text = realHelicopter.pilot_name
@@ -175,7 +151,7 @@ class ViewController: UIViewController{
   
             setOperatingWeight()
             setComputedGrossWeight()
-
+            setWeightReduction()
         }
         
     }
@@ -183,6 +159,14 @@ class ViewController: UIViewController{
     func setOperatingWeight(){
         operatingWeightDeparture.text = String(operatingWeight(departureFuelWeightTotalInt))
         operatingWeightDestination.text = String(operatingWeight(destinationFuelWeightTotalInt))
+    }
+    
+    func setWeightReduction(){
+        let helo = getMyHelo() as LookUpTable!
+        weightReductionHIGE.text = helo.fixed_weight_reduduction.stringValue
+        weightReductionHOGE.text = helo.fixed_weight_reduduction.stringValue
+        destinationWeightReductionHIGE.text = helo.fixed_weight_reduduction.stringValue
+        destinationWeightReductionHOGE.text = helo.fixed_weight_reduduction.stringValue
     }
 
     func setComputedGrossWeight(){
@@ -358,9 +342,6 @@ class ViewController: UIViewController{
           pressureStrings.append(String(num))
         }
         
-        println(pressureStrings.count)
-
-        
         return pressureStrings
     }
     
@@ -383,7 +364,6 @@ class ViewController: UIViewController{
         
         var temperatureStrings = [String]()
         for num in temperatures {
-            println(num)
             temperatureStrings.append(String(num))
         }
         
@@ -465,11 +445,6 @@ class ViewController: UIViewController{
                 newDataCell.temperature = temperature
                 newDataCell.weight = weight
                 newDataCell.lookUpTable = lookUpTable
-                
-//                println("Pressure:")
-//                println(pressure)
-//                println("Temperature:")
-//                println(temperature)
                 
             } else if isHoge {
                 let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HogeDataCell", inManagedObjectContext: context) as HogeDataCell
