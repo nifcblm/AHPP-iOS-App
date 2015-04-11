@@ -11,7 +11,7 @@ import CoreData
 
 @objc(HogeDataCell)
 
-class HogeDataCell: NSManagedObject {
+public class HogeDataCell: NSManagedObject {
 
     @NSManaged var pressure: NSNumber
     @NSManaged var temperature: NSNumber
