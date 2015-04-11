@@ -14,7 +14,7 @@ class ViewController: UIViewController{
     var myArray = [String]()
     var newCalculateValue = ""
     var calculateType = ""
-    var currentInputValues = ["0","1","2","3"]
+    var currentInputValues = ["6000","20","7000","25"]
     var newDepartureAltitudeValue = ""
     var newDepartureTemperatureValue = ""
     var departureFuelWeightTotalInt = 1400 as Int
@@ -95,7 +95,7 @@ class ViewController: UIViewController{
     @IBOutlet weak var destinationGrossWeightLimitationHIGE: UILabel!
     @IBOutlet weak var destinationGrossWeightLimitiationHOGE: UILabel!
     @IBOutlet weak var destinationGrossWeightLimitiationHOGEJ: UILabel!
-    @IBOutlet weak var destinationSelectedWeightHIGE: UILabel!
+@IBOutlet weak var destinationSelectedWeightHIGE: UILabel!
     @IBOutlet weak var destinationSelectedWeightHOGE: UILabel!
     @IBOutlet weak var destinationSelectedWeightHOGEJ: UILabel!
     @IBOutlet weak var destinationOperatingWeightHIGE: UILabel!
@@ -140,12 +140,12 @@ class ViewController: UIViewController{
             fuelWeightDeparture.text = String(format:"%.1f", Double(departureFuelWeightTotalInt) / 7.0)
             fuelWeightDestination.text = String(format:"%.1f", Double(destinationFuelWeightTotalInt) / 7.0)
   
-            setOperatingWeight()
             setComputedGrossWeight()
             setWeightReduction()
             setGrossWeightLimitation()
             setAdjustedWeight()
-          //  setSelectedWeight()
+            setSelectedWeight()
+            setOperatingWeight()
             setAllowablePayload()
             
         }
@@ -245,7 +245,7 @@ class ViewController: UIViewController{
         
         var currentDestinationPressure = currentInputValues[2]
         var currentDestinationTemperature = currentInputValues[3]
-        
+ 
         destinationSelectedWeightHIGE.text = String(selectedWeight(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!))
         destinationSelectedWeightHOGE.text = String(selectedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!))
         destinationSelectedWeightHOGEJ.text = String(selectedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!))

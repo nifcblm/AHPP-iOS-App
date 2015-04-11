@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7ME-ma-Luj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7ME-ma-Luj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -1523,6 +1523,7 @@
                         <outlet property="destinationOperatingWeightHOGE" destination="BMo-IE-2hD" id="faU-ov-mvY"/>
                         <outlet property="destinationOperatingWeightHOGEJ" destination="s1Q-0W-T6X" id="Xum-M3-GHL"/>
                         <outlet property="destinationPA" destination="X2P-CG-PWN" id="NPg-vJ-cVh"/>
+                        <outlet property="destinationSelectedWeightHIGE" destination="rHQ-fb-Wvu" id="Wcu-Xc-diH"/>
                         <outlet property="destinationSelectedWeightHOGE" destination="zah-fp-Tej" id="LZN-ZC-ePU"/>
                         <outlet property="destinationSelectedWeightHOGEJ" destination="cyG-Ww-xxO" id="xPG-sT-h5H"/>
                         <outlet property="destinationTemperature" destination="ke2-zR-esr" id="Y3O-7q-k9R"/>
