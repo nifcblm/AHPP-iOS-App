@@ -271,9 +271,9 @@ class ViewController: UIViewController{
         var currentDestinationPressure = currentInputValues[2]
         var currentDestinationTemperature = currentInputValues[3]
         
-        destinationAllowablePayloadHIGE.text = String(allowablePayload(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt, isDeparture: false))
-        destinationAllowablePayloadHOGE.text =  String(allowablePayload(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt, isDeparture: false))
-        destinationAllowablePayloadHOGEJ.text =  String(allowablePayload(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt, isDeparture: false))
+        destinationAllowablePayloadHIGE.text = String(allowablePayload(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: destinationFuelWeightTotalInt, isDeparture: false))
+        destinationAllowablePayloadHOGE.text =  String(allowablePayload(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: destinationFuelWeightTotalInt, isDeparture: false))
+        destinationAllowablePayloadHOGEJ.text =  String(allowablePayload(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: destinationFuelWeightTotalInt, isDeparture: false))
     }
 
     override func didReceiveMemoryWarning() {
@@ -563,13 +563,13 @@ class ViewController: UIViewController{
     
     @IBAction func departureFuelTotalClick(sender: AnyObject) {
         calculateType = "Departure Fuel Weight"
-        myArray = ["1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900","2000"]
+        myArray = ["0", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900","2000"]
         
     }
     
     @IBAction func destinationFuelTotalClick(sender: AnyObject) {
         calculateType = "Destination Fuel Weight"
-        myArray = ["1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900","2000"]
+        myArray = ["0", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900","2000"]
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
