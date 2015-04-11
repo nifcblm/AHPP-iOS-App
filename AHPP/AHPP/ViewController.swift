@@ -300,7 +300,7 @@ class ViewController: UIViewController{
         operatingWeight(fuelWeight) - selectedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ,  pressure: pressure, temperature: temperature)
     }
     
-    func getPressures() -> [Int] {
+    func getPressures() -> [String] {
         let myHelo = getMyHelo()
 
         
@@ -317,13 +317,15 @@ class ViewController: UIViewController{
         
         pressures = sorted(pressures)
         
-        //testing
-        var testPressures = [1,2,3,4,5]
+        var pressureStrings = [String]()
+        for num in pressures {
+          pressureStrings.append(String(num))
+        }
         
-        return testPressures
+        return pressureStrings
     }
     
-    func getTemperatures() -> [Int] {
+    func getTemperatures() -> [String] {
         let myHelo = getMyHelo()
         
         
@@ -339,7 +341,13 @@ class ViewController: UIViewController{
         }
         
         temperatures = sorted(temperatures)
-        return temperatures
+        
+        var temperatureStrings = [String]()
+        for num in temperatures {
+            temperatureStrings.append(String(num))
+        }
+        
+        return temperatureStrings
     }
 
     func getMyHelo() -> LookUpTable {
@@ -354,22 +362,22 @@ class ViewController: UIViewController{
  
     @IBAction func departureAltitudeButtonClick(sender: AnyObject) {
         calculateType = "Departure Altitude"
-        myArray = ["departure altitude", "1", "2", "3", "4", "5"]
+        myArray = getPressures()
     }
     
     @IBAction func departureTemperatureClick(sender: AnyObject) {
         calculateType = "Departure Temperature"
-        myArray = ["departure temp", "1", "2", "3", "4", "5"]
+        myArray = getTemperatures()
     }
     
     @IBAction func destinationAltitudeClick(sender: AnyObject) {
         calculateType = "Destination Altitude"
-        myArray = ["destination altitude", "1", "2", "3", "4", "5"]
+        myArray = getPressures()
     }
     
     @IBAction func destinationTemperatureClick(sender: AnyObject) {
         calculateType = "Destination Temperature"
-        myArray = ["destination temperature", "1", "2", "3", "4", "5"]
+        myArray = getTemperatures()
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var DestViewController : ScrollViewController = segue.destinationViewController as ScrollViewController
