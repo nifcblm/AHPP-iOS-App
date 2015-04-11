@@ -1237,13 +1237,18 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="teW-tA-GAp">
                                 <rect key="frame" x="39" y="822" width="557" height="80"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oAZ-oH-T0D">
                                 <rect key="frame" x="596" y="822" width="164" height="80"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="extraWeightTextChanged:" destination="7ME-ma-Luj" eventType="editingDidEnd" id="37G-LV-f8U"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="14" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSe-Gf-oJP">
                                 <rect key="frame" x="9" y="822" width="30" height="80"/>
@@ -1256,7 +1261,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIk-Ah-0GC">
                                 <rect key="frame" x="39" y="902" width="559" height="40"/>
-                                <string key="text">ACTUAL PAYLOAD (Total of all weight listed in Item 14) Line 15 must not exceed Line 13 for the intended mission (HIGE, HOGE, HOGE - )J</string>
+                                <string key="text">ACTUAL PAYLOAD (Total of all weight listed in Item 14) Line 15 must not exceed Line 13 for the intended mission (HIGE, HOGE, HOGE-J)</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1264,7 +1269,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ui-nz-gz5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ui-nz-gz5">
                                 <rect key="frame" x="9" y="902" width="30" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1470,12 +1475,18 @@
                                 <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="weightReductionTextChanged:" destination="7ME-ma-Luj" eventType="editingDidEnd" id="v49-Kt-9sr"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="bezel" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qww-7m-r2C">
                                 <rect key="frame" x="678" y="562" width="82" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="destinationWeightReductionTextChanged:" destination="7ME-ma-Luj" eventType="editingDidEnd" id="cvp-Ko-KyD"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1483,6 +1494,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
+                        <outlet property="acualPayload" destination="fFw-Nv-S56" id="cGA-qZ-v1e"/>
                         <outlet property="adjustedWeightHIGE" destination="AEr-6g-YDh" id="ea0-fB-e8y"/>
                         <outlet property="adjustedWeightHOGE" destination="Khs-C4-Cw0" id="qj5-MV-y1Q"/>
                         <outlet property="adjustedWeightHOGEJ" destination="rjz-0y-2xh" id="WfM-g5-cWs"/>
@@ -1526,6 +1538,7 @@
                         <outlet property="exceedsHIGE" destination="mei-3s-Ddc" id="f3g-8f-MlL"/>
                         <outlet property="exceedsHOGE" destination="YHm-Qp-u2p" id="OcZ-Ow-RNe"/>
                         <outlet property="exceedsHOGEJ" destination="bHv-ZD-LFB" id="JEW-f1-q4Z"/>
+                        <outlet property="extraWeightTextField" destination="oAZ-oH-T0D" id="hir-yc-FTS"/>
                         <outlet property="flightCrewWeight" destination="UjQ-Y6-CFb" id="O1x-lT-2f0"/>
                         <outlet property="fuelWeightDeparture" destination="RFR-TS-KbT" id="oBf-bh-1s4"/>
                         <outlet property="fuelWeightDestination" destination="HdB-8J-KhW" id="mPK-Bg-oHz"/>

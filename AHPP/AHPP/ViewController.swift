@@ -109,6 +109,13 @@ class ViewController: UIViewController{
     @IBOutlet weak var destinationExceedsHIGE: UILabel!
     @IBOutlet weak var destinationExceedsHOGE: UILabel!
     @IBOutlet weak var destinationExceedsHOGEJ: UILabel!
+    
+    
+
+    @IBOutlet weak var extraWeightTextField: UITextField!
+    
+    @IBOutlet weak var acualPayload: UILabel!
+    
     /* --------------------- END OF LABELS --------------------- */
     
     
@@ -221,52 +228,52 @@ class ViewController: UIViewController{
         var currentDeparturePressure = currentInputValues[0]
         var currentDepartureTemperature = currentInputValues[1]
         
-        adjustedWeightHIGE.text = String(adjustedWeight(true, isHoge: false, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!))
+        adjustedWeightHIGE.text = String(adjustedWeight(true, isHoge: false, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, isDeparture: true))
         
-        adjustedWeightHOGE.text = String(adjustedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!))
+        adjustedWeightHOGE.text = String(adjustedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, isDeparture: true))
         
-        adjustedWeightHOGEJ.text = String(adjustedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!))
+        adjustedWeightHOGEJ.text = String(adjustedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, isDeparture: true))
         
         var currentDestinationPressure = currentInputValues[2]
         var currentDestinationTemperature = currentInputValues[3]
         
-        destinationadjustedWeightHIGE.text = String(adjustedWeight(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!))
+        destinationadjustedWeightHIGE.text = String(adjustedWeight(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, isDeparture: true))
         
-        destinationAdjustedWeightHOGE.text = String(adjustedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!))
+        destinationAdjustedWeightHOGE.text = String(adjustedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, isDeparture: true))
         
-        destinationAdjustedWeightHOGEJ.text = String(adjustedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!))
+        destinationAdjustedWeightHOGEJ.text = String(adjustedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, isDeparture: true))
     }
     
     func setSelectedWeight(){
         var currentDeparturePressure = currentInputValues[0]
         var currentDepartureTemperature = currentInputValues[1]
         
-        selectedWeightHIGE.text = String(selectedWeight(true, isHoge: false, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!))
-        selectedWeightHOGE.text = String(selectedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!))
-        selectedWeightHOGEJ.text = String(selectedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!))
+        selectedWeightHIGE.text = String(selectedWeight(true, isHoge: false, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, isDeparture: true))
+        selectedWeightHOGE.text = String(selectedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, isDeparture: true))
+        selectedWeightHOGEJ.text = String(selectedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, isDeparture: true))
         
         var currentDestinationPressure = currentInputValues[2]
         var currentDestinationTemperature = currentInputValues[3]
  
-        destinationSelectedWeightHIGE.text = String(selectedWeight(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!))
-        destinationSelectedWeightHOGE.text = String(selectedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!))
-        destinationSelectedWeightHOGEJ.text = String(selectedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!))
+        destinationSelectedWeightHIGE.text = String(selectedWeight(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, isDeparture: false))
+        destinationSelectedWeightHOGE.text = String(selectedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, isDeparture: false))
+        destinationSelectedWeightHOGEJ.text = String(selectedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, isDeparture: false))
     }
     
     func setAllowablePayload(){
         var currentDeparturePressure = currentInputValues[0]
         var currentDepartureTemperature = currentInputValues[1]
         
-        allowablePayloadHIGE.text = String(allowablePayload(true, isHoge: false, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt))
-        allowablePayloadHOGE.text =  String(allowablePayload(false, isHoge: true, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt))
-        allowablePayloadHOGEJ.text =  String(allowablePayload(false, isHoge: false, isHogeJ: true, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt))
+        allowablePayloadHIGE.text = String(allowablePayload(true, isHoge: false, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt, isDeparture: true))
+        allowablePayloadHOGE.text =  String(allowablePayload(false, isHoge: true, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt, isDeparture: true))
+        allowablePayloadHOGEJ.text =  String(allowablePayload(false, isHoge: false, isHogeJ: true, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt, isDeparture: true))
         
         var currentDestinationPressure = currentInputValues[2]
         var currentDestinationTemperature = currentInputValues[3]
         
-        destinationAllowablePayloadHIGE.text = String(allowablePayload(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt))
-        destinationAllowablePayloadHOGE.text =  String(allowablePayload(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt))
-        destinationAllowablePayloadHOGEJ.text =  String(allowablePayload(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt))
+        destinationAllowablePayloadHIGE.text = String(allowablePayload(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt, isDeparture: false))
+        destinationAllowablePayloadHOGE.text =  String(allowablePayload(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt, isDeparture: false))
+        destinationAllowablePayloadHOGEJ.text =  String(allowablePayload(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt, isDeparture: false))
     }
 
     override func didReceiveMemoryWarning() {
@@ -341,11 +348,16 @@ class ViewController: UIViewController{
         return myHelo.helicopter_equipped_weight.integerValue + myHelo.flight_crew_weight.integerValue + fuelWeight
     }
     
-    func adjustedWeight(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSNumber, temperature: NSNumber) -> NSInteger {
+    func adjustedWeight(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSNumber, temperature: NSNumber, isDeparture: Bool) -> NSInteger {
         let myHelo = getMyHelo() as LookUpTable!
 
         if isHogeJ {
-            return getHogeWeight(pressure, temperature: temperature) as NSInteger
+            if isDeparture {
+                return getHogeWeight(pressure, temperature: temperature).integerValue - weightReductionTextField.text.toInt()!
+            } else {
+                return getHogeWeight(pressure, temperature: temperature).integerValue - destinationWeightReductionTextField.text.toInt()!
+
+            }
         } else if isHoge {
             return getHogeWeight(pressure, temperature: temperature).integerValue - myHelo.fixed_weight_reduduction.integerValue
         }
@@ -387,8 +399,8 @@ class ViewController: UIViewController{
         return weight
     }
     
-    func selectedWeight(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature: NSInteger) -> NSInteger {
-        let adjustedWeightValue = adjustedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ, pressure: pressure, temperature: temperature)
+    func selectedWeight(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature: NSInteger, isDeparture: Bool) -> NSInteger {
+        let adjustedWeightValue = adjustedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ, pressure: pressure, temperature: temperature, isDeparture: isDeparture)
         let grossWeightLimitationValue = grossWeightLimitation(isHige, isHoge: isHoge, isHogeJ: isHogeJ, pressure: pressure, temperature: temperature)
         
         if adjustedWeightValue < grossWeightLimitationValue {
@@ -398,8 +410,8 @@ class ViewController: UIViewController{
         }
     }
     
-    func allowablePayload(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature:   NSInteger, fuelWeight: NSInteger){
-        operatingWeight(fuelWeight) - selectedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ,  pressure: pressure, temperature: temperature)
+    func allowablePayload(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature:   NSInteger, fuelWeight: NSInteger, isDeparture: Bool) -> NSInteger{
+        return selectedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ,  pressure: pressure, temperature: temperature, isDeparture: isDeparture) - operatingWeight(fuelWeight)
     }
     
     func getPressures() -> [String] {
@@ -466,7 +478,44 @@ class ViewController: UIViewController{
             return nil
         }
     }
+    @IBAction func weightReductionTextChanged(sender: AnyObject) {
+        setAdjustedWeight()
+        setSelectedWeight()
+        setAllowablePayload()
+    }
+    @IBAction func destinationWeightReductionTextChanged(sender: AnyObject) {
+        setAdjustedWeight()
+        setSelectedWeight()
+        setAllowablePayload()
+    }
  
+    @IBAction func extraWeightTextChanged(sender: AnyObject) {
+        acualPayload.text = extraWeightTextField.text
+        
+        if acualPayload.text?.toInt() < allowablePayloadHIGE.text?.toInt(){
+            exceedsHIGE.text = "OK"
+        }
+        else{
+            exceedsHIGE.text = "Exceeds"
+        }
+        
+        if acualPayload.text?.toInt() < allowablePayloadHOGE.text?.toInt(){
+            exceedsHOGE.text = "OK"
+        }
+        else{
+            exceedsHOGE.text = "Exceeds"
+        }
+        
+        if acualPayload.text?.toInt() < allowablePayloadHOGEJ.text?.toInt(){
+            exceedsHOGEJ.text = "OK"
+        }
+        else{
+            exceedsHOGEJ.text = "Exceeds"
+        }
+        
+        
+    }
+
     @IBAction func departureAltitudeButtonClick(sender: AnyObject) {
         calculateType = "Departure Altitude"
         myArray = getPressures()
