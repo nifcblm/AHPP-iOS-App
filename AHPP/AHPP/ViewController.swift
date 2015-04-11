@@ -291,7 +291,7 @@ class ViewController: UIViewController {
         operatingWeight(fuelWeight) - selectedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ,  pressure: pressure, temperature: temperature)
     }
     
-    func getPressures() -> NSArray {
+    func getPressures() -> [Int] {
         let myHelo = getMyHelo()
 
         
@@ -310,7 +310,7 @@ class ViewController: UIViewController {
         return pressures
     }
     
-    func getTemperatures() -> NSArray {
+    func getTemperatures() -> [Int] {
         let myHelo = getMyHelo()
         
         
