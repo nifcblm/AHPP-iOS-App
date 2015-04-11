@@ -62,7 +62,8 @@ class ViewController: UIViewController{
     @IBOutlet weak var computedGrossWeightHOGEJ: UILabel!
     @IBOutlet weak var weightReductionHIGE: UILabel!
     @IBOutlet weak var weightReductionHOGE: UILabel!
-    @IBOutlet weak var weightReductionHOGEJ: UILabel!
+  
+    @IBOutlet weak var weightReductionTextField: UITextField!
     @IBOutlet weak var adjustedWeightHIGE: UILabel!
     @IBOutlet weak var adjustedWeightHOGE: UILabel!
     @IBOutlet weak var adjustedWeightHOGEJ: UILabel!
@@ -88,7 +89,8 @@ class ViewController: UIViewController{
     @IBOutlet weak var destinationComputedGrossWeightHOGEJ: UILabel!
     @IBOutlet weak var destinationWeightReductionHIGE: UILabel!
     @IBOutlet weak var destinationWeightReductionHOGE: UILabel!
-    @IBOutlet weak var destinationWeightReductionHOGEJ: UILabel!
+ 
+    @IBOutlet weak var destinationWeightReductionTextField: UITextField!
     @IBOutlet weak var destinationadjustedWeightHIGE: UILabel!
     @IBOutlet weak var destinationAdjustedWeightHOGE: UILabel!
     @IBOutlet weak var destinationAdjustedWeightHOGEJ: UILabel!
