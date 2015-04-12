@@ -20,6 +20,7 @@
 		790BCFB91AD73A9700E262B2 /* HigeDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790BCFB81AD73A9700E262B2 /* HigeDataCell.swift */; };
 		790BCFBB1AD73A9700E262B2 /* LookUpTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790BCFBA1AD73A9700E262B2 /* LookUpTable.swift */; };
 		794AFDF21AB6228300513ADC /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794AFDF11AB6228300513ADC /* Parsing.swift */; };
+		A7A83E271AD9E52500770FBA /* DataModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A83E261AD9E52500770FBA /* DataModelTestCase.swift */; };
 		A7BEDA751AB621EB00DD245B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BEDA741AB621EB00DD245B /* libsqlite3.dylib */; };
 		A7D1AE7A1AD999E600C3A1F0 /* CoreDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D1AE791AD999E600C3A1F0 /* CoreDataTestCase.swift */; };
 		A7D1AE7C1AD99AF100C3A1F0 /* LookUpTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D1AE7B1AD99AF100C3A1F0 /* LookUpTestCase.swift */; };
@@ -55,6 +56,8 @@
 		790BCFB81AD73A9700E262B2 /* HigeDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HigeDataCell.swift; path = ../HigeDataCell.swift; sourceTree = "<group>"; };
 		790BCFBA1AD73A9700E262B2 /* LookUpTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LookUpTable.swift; path = ../LookUpTable.swift; sourceTree = "<group>"; };
 		794AFDF11AB6228300513ADC /* Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
+		A7A83E261AD9E52500770FBA /* DataModelTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModelTestCase.swift; sourceTree = "<group>"; };
+		A7A83E3C1AD9F09300770FBA /* AHPP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AHPP-Bridging-Header.h"; sourceTree = "<group>"; };
 		A7BEDA741AB621EB00DD245B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A7D1AE791AD999E600C3A1F0 /* CoreDataTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTestCase.swift; sourceTree = "<group>"; };
 		A7D1AE7B1AD99AF100C3A1F0 /* LookUpTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookUpTestCase.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 		49E6529A1AB602BC001E061D = {
 			isa = PBXGroup;
 			children = (
+				A7A83E3C1AD9F09300770FBA /* AHPP-Bridging-Header.h */,
 				A7BEDA741AB621EB00DD245B /* libsqlite3.dylib */,
 				49E652A51AB602BC001E061D /* AHPP */,
 				49E652BE1AB602BC001E061D /* AHPPTests */,
@@ -131,13 +135,14 @@
 		49E652BE1AB602BC001E061D /* AHPPTests */ = {
 			isa = PBXGroup;
 			children = (
+				A7A83E261AD9E52500770FBA /* DataModelTestCase.swift */,
 				A7D1AE7B1AD99AF100C3A1F0 /* LookUpTestCase.swift */,
 				A7D1AE791AD999E600C3A1F0 /* CoreDataTestCase.swift */,
 				49E652C11AB602BC001E061D /* AHPPTests.swift */,
 				49E652BF1AB602BC001E061D /* Supporting Files */,
 			);
 			path = AHPPTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		49E652BF1AB602BC001E061D /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -269,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7D1AE7A1AD999E600C3A1F0 /* CoreDataTestCase.swift in Sources */,
+				A7A83E271AD9E52500770FBA /* DataModelTestCase.swift in Sources */,
 				A7D1AE7C1AD99AF100C3A1F0 /* LookUpTestCase.swift in Sources */,
 				49E652C21AB602BC001E061D /* AHPPTests.swift in Sources */,
 			);
@@ -389,10 +395,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = helicopter;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = AHPP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "AHPP-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -403,10 +411,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = helicopter;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = AHPP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "AHPP-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
