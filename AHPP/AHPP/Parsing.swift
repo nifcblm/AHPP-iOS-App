@@ -579,6 +579,7 @@ public class LookupTableGeneratorTester
                 processing = false
             }
         }
+        aStreamReader.rewind()
         return cells
         
     }
