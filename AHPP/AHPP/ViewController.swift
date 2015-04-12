@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController{
+public class ViewController: UIViewController{
     
     var myArray = [String]()
     var newCalculateValue = ""
@@ -119,7 +119,7 @@ class ViewController: UIViewController{
     /* --------------------- END OF LABELS --------------------- */
     
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         departurePA.setTitle(currentInputValues[0], forState: UIControlState.Normal)
@@ -276,13 +276,13 @@ class ViewController: UIViewController{
         destinationAllowablePayloadHOGEJ.text =  String(allowablePayload(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: destinationFuelWeightTotalInt, isDeparture: false))
     }
 
-    override func didReceiveMemoryWarning() {
+    public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
-    func getHigeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
+    public func getHigeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let context = appDelegate.managedObjectContext!
         
@@ -303,7 +303,7 @@ class ViewController: UIViewController{
         return weight
     }
     
-    func getHogeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
+    public func getHogeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let context = appDelegate.managedObjectContext!
         
@@ -323,7 +323,7 @@ class ViewController: UIViewController{
         return weight
     }
     
-    func getWatWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
+    public func getWatWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let context = appDelegate.managedObjectContext!
         
@@ -343,12 +343,12 @@ class ViewController: UIViewController{
         return weight
     }
     
-    func operatingWeight(fuelWeight: NSInteger) -> NSInteger {
+    public func operatingWeight(fuelWeight: NSInteger) -> NSInteger {
         let myHelo = getMyHelo() as LookUpTable!
         return myHelo.helicopter_equipped_weight.integerValue + myHelo.flight_crew_weight.integerValue + fuelWeight
     }
     
-    func adjustedWeight(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSNumber, temperature: NSNumber, isDeparture: Bool) -> NSInteger {
+    public func adjustedWeight(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSNumber, temperature: NSNumber, isDeparture: Bool) -> NSInteger {
         let myHelo = getMyHelo() as LookUpTable!
 
         if isHogeJ {
@@ -367,7 +367,7 @@ class ViewController: UIViewController{
     }
     
     
-    func grossWeightLimitation(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature:NSInteger) -> NSInteger {
+    public func grossWeightLimitation(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature:NSInteger) -> NSInteger {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let context = appDelegate.managedObjectContext!
         
@@ -399,7 +399,7 @@ class ViewController: UIViewController{
         return weight
     }
     
-    func selectedWeight(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature: NSInteger, isDeparture: Bool) -> NSInteger {
+    public func selectedWeight(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature: NSInteger, isDeparture: Bool) -> NSInteger {
         let adjustedWeightValue = adjustedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ, pressure: pressure, temperature: temperature, isDeparture: isDeparture)
         let grossWeightLimitationValue = grossWeightLimitation(isHige, isHoge: isHoge, isHogeJ: isHogeJ, pressure: pressure, temperature: temperature)
         
@@ -410,11 +410,11 @@ class ViewController: UIViewController{
         }
     }
     
-    func allowablePayload(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature:   NSInteger, fuelWeight: NSInteger, isDeparture: Bool) -> NSInteger{
+    public func allowablePayload(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature:   NSInteger, fuelWeight: NSInteger, isDeparture: Bool) -> NSInteger{
         return selectedWeight(isHige, isHoge: isHoge, isHogeJ: isHogeJ,  pressure: pressure, temperature: temperature, isDeparture: isDeparture) - operatingWeight(fuelWeight)
     }
     
-    func getPressures() -> [String] {
+    public func getPressures() -> [String] {
         let myHelo = getMyHelo() as LookUpTable!
 
         
@@ -439,7 +439,7 @@ class ViewController: UIViewController{
         return pressureStrings
     }
     
-    func getTemperatures() -> [String] {
+    public func getTemperatures() -> [String] {
         let myHelo = getMyHelo() as LookUpTable!
         
         
@@ -510,7 +510,7 @@ class ViewController: UIViewController{
         }
     }
 
-    func getMyHelo() -> LookUpTable? {
+   public  func getMyHelo() -> LookUpTable? {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let context = appDelegate.managedObjectContext!
 
@@ -572,7 +572,7 @@ class ViewController: UIViewController{
         myArray = ["0", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900","2000"]
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var DestViewController : ScrollViewController = segue.destinationViewController as ScrollViewController
         
         DestViewController.labelText = calculateType
@@ -582,7 +582,7 @@ class ViewController: UIViewController{
         DestViewController.departureFuelWeightTotal = String(departureFuelWeightTotalInt)
     }
 
-    class func saveDataCell(
+   public class func saveDataCell(
         pressure: NSNumber,
         temperature: NSNumber,
         weight: NSNumber,
@@ -618,7 +618,7 @@ class ViewController: UIViewController{
     }
     
     
-    class func saveLookUpTable(
+    public class func saveLookUpTable(
         company_name: String,
         contact_number: String,
         designated_base: String,
