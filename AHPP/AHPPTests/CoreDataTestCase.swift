@@ -20,6 +20,9 @@ import CoreData
 import AHPP
 
 class CoreDataTestCase: XCTestCase {
+    
+    let lakeview = "LakeviewAHPP.csv"
+    let lasvegas = "LasVegasAHPP.csv"
         
     override func setUp() {
         super.setUp()
