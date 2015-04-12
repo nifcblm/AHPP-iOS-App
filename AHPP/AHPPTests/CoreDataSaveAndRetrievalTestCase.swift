@@ -27,24 +27,7 @@ class CoreDataSaveAndRetrievalTestCase: CoreDataTestCase {
     
     func testSaveLookUpTable(){
         let md = self.tableGenerator?.getMetaData()
-
-        let lookUp = ViewController.saveLookUpTable(
-            md![0] as String,
-            contact_number: md![1]as String,
-            designated_base: md![2]as String,
-            fixed_weight_reduduction: md![3]as NSNumber,
-            flight_crew_weight: md![4]as NSNumber,
-            gross_weight_limitation_hige: md![5]as NSNumber,
-            gross_weight_limitation_hoge: md![6]as NSNumber,
-            gross_weight_limitation_hoge_j: md![7]as NSNumber,
-            helicopter_equipped_weight: md![8]as NSNumber,
-            is_hoge: md![9]as NSNumber,
-            make_model: md![10]as String,
-            n_number: md![11]as String,
-            performance_reference_hige: md![12]as String,
-            performance_reference_hoge: md![13]as String,
-            pilot_name: md![14]as String,
-            has_wat: md![15]as Bool)
+        let lookUp = createTable(md!)
         
         let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
         let allHelos = lookUp.managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
@@ -70,6 +53,59 @@ class CoreDataSaveAndRetrievalTestCase: CoreDataTestCase {
         
     }
     
+    func testSaveDataCell(){
+        let md = self.tableGenerator?.getMetaData()
+        let lookUp = createTable(md!)
+        let higeCells = self.tableGenerator?.getDataCells()
+        let hogeCells = self.tableGenerator?.getDataCells()
+        let watCells = self.tableGenerator?.getDataCells()
+        
+        for var i = 0; i<higeCells?.count; i+=3
+        {
+            XCTAssertNotNil(higeCells![i], "nil in hige temperature")
+            XCTAssertNotNil(higeCells![i+1], "nil in hige pressure")
+            XCTAssertNotNil(higeCells![i+2], "nil in hige weight")
+            ViewController.saveDataCell(higeCells![i], temperature: higeCells![i+1], weight: higeCells![i+2], lookUpTable: lookUp, isHige: true, isHoge: false)
+        }
+        for var i = 0; i<hogeCells?.count; i+=3
+        {
+            XCTAssertNotNil(hogeCells![i], "nil in hoge temperature")
+            XCTAssertNotNil(hogeCells![i+1], "nil in hoge pressure")
+            XCTAssertNotNil(hogeCells![i+2], "nil in hoge weight")
+            ViewController.saveDataCell(hogeCells![i], temperature: hogeCells![i+1], weight: hogeCells![i+2], lookUpTable: lookUp, isHige: false, isHoge: true)
+        }
+        for var i = 0; i<watCells?.count; i+=3
+        {
+            XCTAssertNotNil(watCells![i], "nil in wat temperature")
+            XCTAssertNotNil(watCells![i+1], "nil in wat pressure")
+            XCTAssertNotNil(watCells![i+2], "nil in wat weight")
+            ViewController.saveDataCell(watCells![i], temperature: watCells![i+1], weight: watCells![i+2], lookUpTable: lookUp, isHige: false, isHoge: false)
+        }
+        
+    }
+    
+    private func createTable(metaData:[AnyObject]) -> LookUpTable{
+        let md = metaData
+        
+        let lookUp = ViewController.saveLookUpTable(
+            md[0] as String,
+            contact_number: md[1]as String,
+            designated_base: md[2]as String,
+            fixed_weight_reduduction: md[3]as NSNumber,
+            flight_crew_weight: md[4]as NSNumber,
+            gross_weight_limitation_hige: md[5]as NSNumber,
+            gross_weight_limitation_hoge: md[6]as NSNumber,
+            gross_weight_limitation_hoge_j: md[7]as NSNumber,
+            helicopter_equipped_weight: md[8]as NSNumber,
+            is_hoge: md[9]as NSNumber,
+            make_model: md[10]as String,
+            n_number: md[11]as String,
+            performance_reference_hige: md[12]as String,
+            performance_reference_hoge: md[13]as String,
+            pilot_name: md[14]as String,
+            has_wat: md[15]as Bool)
+        return lookUp
+    }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
