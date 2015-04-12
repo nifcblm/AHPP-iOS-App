@@ -13,9 +13,9 @@ import CoreData
 
 public class HogeDataCell: NSManagedObject {
 
-    @NSManaged var pressure: NSNumber
-    @NSManaged var temperature: NSNumber
-    @NSManaged var weight: NSNumber
-    @NSManaged var lookUpTable: LookUpTable
+    @NSManaged public var pressure: NSNumber
+    @NSManaged public var temperature: NSNumber
+    @NSManaged public var weight: NSNumber
+    @NSManaged public var lookUpTable: LookUpTable
 
 }
