@@ -660,5 +660,22 @@ public class ViewController: UIViewController{
         
         return newLookUpTable
     }
+    
+    func screenShotMethod() {
+        //Create the UIImage
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext())
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        //Save it to the camera roll
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    }
+    
+    @IBAction func ExportButtonClicked(sender: UIButton) {
+        screenShotMethod();
+    }
+    
+    
 }
 
