@@ -519,7 +519,7 @@ public class ViewController: UIViewController{
         let allHelos = context.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
         
         if allHelos.count > 0 {
-            return allHelos.first!
+            return allHelos.last!
         } else {
             return nil
         }
