@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -198,7 +198,7 @@
 		49E6529B1AB602BC001E061D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = boisestate;
 				TargetAttributes = {
 					49E652A21AB602BC001E061D = {
@@ -212,7 +212,7 @@
 				};
 			};
 			buildConfigurationList = 49E6529E1AB602BC001E061D /* Build configuration list for PBXProject "AHPP" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
