@@ -31,9 +31,10 @@ public class Parsing{
         let absolute: String = "/Users/rovery/Downloads/"
         let a: String = "LakeviewAHPP.csv"
         let b: String = "LasVegasAHPP.csv"
+        let c: String = "Lakeview 66HJ.V3.0 WAT.HOGE-J.csv"
         let i = 0
         let processing: Bool = true
-        return LookupTableGeneratorTester(path: absolute + filename)
+        return LookupTableGeneratorTester(path: absolute + c)
 
         
 //        let metaData = table_gen.getMetaData()
@@ -303,7 +304,7 @@ public class LookupTableGenerator
         
         while(processing)
         {
-            line = aStreamReader.nextLine()!
+            line = (aStreamReader.nextLine()!).stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet())
             //split line up and remove empty elements
             for cell in line.componentsSeparatedByString(",")
             {
@@ -594,7 +595,7 @@ public class LookupTableGeneratorTester
         
         while(processing)
         {
-            line = aStreamReader.nextLine()!
+            line = (aStreamReader.nextLine()!).stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet())
             //split line up and remove empty elements
             for cell in line.componentsSeparatedByString(",")
             {
@@ -673,13 +674,15 @@ class StreamReader  {
     let chunkSize : Int
     
     var fileHandle : NSFileHandle!
-    let buffer : NSMutableData!
-    let delimData : NSData!
+    var buffer : NSMutableData!
+    var delimData : NSData!
     var atEof : Bool = false
     
     init?(path: String, delimiter: String = "\n", encoding : UInt = NSUTF8StringEncoding, chunkSize : Int = 4096) {
         self.chunkSize = chunkSize
         self.encoding = encoding
+        self.buffer = nil
+        self.delimData = nil
         
         if let fileHandle = NSFileHandle(forReadingAtPath: path) {
             self.fileHandle = fileHandle
@@ -721,7 +724,7 @@ class StreamReader  {
                     // Buffer contains last line in file (not terminated by delimiter).
                     let line = NSString(data: buffer, encoding: encoding);
                     buffer.length = 0
-                    return line as! String
+                    return (line as! String)
                 }
                 // No more lines.
                 return nil
@@ -736,7 +739,7 @@ class StreamReader  {
         // Remove line (and the delimiter) from the buffer:
         buffer.replaceBytesInRange(NSMakeRange(0, range.location + range.length), withBytes: nil, length: 0)
         
-        return line as! String
+        return (line as! String)
     }
     
     /// Start reading from the beginning of file.

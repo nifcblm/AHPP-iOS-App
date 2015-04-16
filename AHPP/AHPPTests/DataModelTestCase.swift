@@ -20,13 +20,13 @@ class DataModelTestCase: CoreDataTestCase {
     override func setUp() {
         super.setUp()
         lookUpTable = (NSEntityDescription.insertNewObjectForEntityForName(
-            "LookUpTable", inManagedObjectContext: managedObjectContext!) as LookUpTable)
+            "LookUpTable", inManagedObjectContext: managedObjectContext!) as! LookUpTable)
         higeDataCell = (NSEntityDescription.insertNewObjectForEntityForName(
-            "HigeDataCell", inManagedObjectContext: managedObjectContext!) as HigeDataCell)
+            "HigeDataCell", inManagedObjectContext: managedObjectContext!) as! HigeDataCell)
         hogeDataCell = (NSEntityDescription.insertNewObjectForEntityForName(
-            "HogeDataCell", inManagedObjectContext: managedObjectContext!) as HogeDataCell)
+            "HogeDataCell", inManagedObjectContext: managedObjectContext!) as! HogeDataCell)
         watDataCell = (NSEntityDescription.insertNewObjectForEntityForName(
-            "WatDataCell", inManagedObjectContext: managedObjectContext!) as WatDataCell)
+            "WatDataCell", inManagedObjectContext: managedObjectContext!) as! WatDataCell)
     }
     
     func testThatWeCanCreateLookUpTable() {

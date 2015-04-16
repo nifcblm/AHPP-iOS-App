@@ -30,7 +30,7 @@ class CoreDataSaveAndRetrievalTestCase: CoreDataTestCase {
         let lookUp = createTable(md!)
         
         let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
-        let allHelos = lookUp.managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as [LookUpTable]
+        let allHelos = lookUp.managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as! [LookUpTable]
         
         XCTAssertTrue(allHelos.count > 0, "no LookUpTable's found in core data")
         let helo = allHelos.first
@@ -88,22 +88,22 @@ class CoreDataSaveAndRetrievalTestCase: CoreDataTestCase {
         let md = metaData
         
         let lookUp = ViewController.saveLookUpTable(
-            md[0] as String,
-            contact_number: md[1]as String,
-            designated_base: md[2]as String,
-            fixed_weight_reduduction: md[3]as NSNumber,
-            flight_crew_weight: md[4]as NSNumber,
-            gross_weight_limitation_hige: md[5]as NSNumber,
-            gross_weight_limitation_hoge: md[6]as NSNumber,
-            gross_weight_limitation_hoge_j: md[7]as NSNumber,
-            helicopter_equipped_weight: md[8]as NSNumber,
-            is_hoge: md[9]as NSNumber,
-            make_model: md[10]as String,
-            n_number: md[11]as String,
-            performance_reference_hige: md[12]as String,
-            performance_reference_hoge: md[13]as String,
-            pilot_name: md[14]as String,
-            has_wat: md[15]as Bool)
+            md[0] as! String,
+            contact_number: md[1]as! String,
+            designated_base: md[2]as! String,
+            fixed_weight_reduduction: md[3]as! NSNumber,
+            flight_crew_weight: md[4]as! NSNumber,
+            gross_weight_limitation_hige: md[5]as! NSNumber,
+            gross_weight_limitation_hoge: md[6]as! NSNumber,
+            gross_weight_limitation_hoge_j: md[7]as! NSNumber,
+            helicopter_equipped_weight: md[8]as! NSNumber,
+            is_hoge: md[9]as! NSNumber,
+            make_model: md[10]as! String,
+            n_number: md[11]as! String,
+            performance_reference_hige: md[12]as! String,
+            performance_reference_hoge: md[13]as! String,
+            pilot_name: md[14]as! String,
+            has_wat: md[15]as! Bool)
         return lookUp
     }
     
