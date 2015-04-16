@@ -721,7 +721,7 @@ class StreamReader  {
                     // Buffer contains last line in file (not terminated by delimiter).
                     let line = NSString(data: buffer, encoding: encoding);
                     buffer.length = 0
-                    return line
+                    return line as! String
                 }
                 // No more lines.
                 return nil
@@ -736,7 +736,7 @@ class StreamReader  {
         // Remove line (and the delimiter) from the buffer:
         buffer.replaceBytesInRange(NSMakeRange(0, range.location + range.length), withBytes: nil, length: 0)
         
-        return line
+        return line as! String
     }
     
     /// Start reading from the beginning of file.
