@@ -46,7 +46,7 @@ class ScrollViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var GoBackDestViewController : ViewController = segue.destinationViewController as ViewController
+        var GoBackDestViewController : ViewController = segue.destinationViewController as! ViewController
 
         if labelText == "Departure Altitude"{
             GoBackDestViewController.currentInputValues[0] = selectedValue
