@@ -634,14 +634,6 @@ public class ViewController: UIViewController{
         flightCrewWeight.text = newLookUpTable.flight_crew_weight.stringValue
         fuelWeightDeparture.text = String(format:"%.1f", Double(departureFuelWeightTotalInt) / 7.0)
         fuelWeightDestination.text = String(format:"%.1f", Double(destinationFuelWeightTotalInt) / 7.0)
-        
-        setComputedGrossWeight()
-        setWeightReduction()
-        setGrossWeightLimitation()
-        setAdjustedWeight()
-        setSelectedWeight()
-        setOperatingWeight()
-        setAllowablePayload()
             
         return newLookUpTable
     }
