@@ -159,8 +159,6 @@ public class ViewController: UIViewController{
         destinationGrossWeightLimitationHIGE.text = String(grossWeightLimitation(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!, temperature: currentDestinationTemperature.toInt()!))
         destinationGrossWeightLimitiationHOGE.text = String(grossWeightLimitation(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!, temperature: currentDestinationTemperature.toInt()!))
         destinationGrossWeightLimitiationHOGEJ.text = String(grossWeightLimitation(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!, temperature: currentDestinationTemperature.toInt()!))
-
-            
     }
     
     func setOperatingWeight(){
@@ -197,7 +195,6 @@ public class ViewController: UIViewController{
         destinationComputedGrossWeightHIGE.text = String(getHigeWeight(currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!).integerValue)
         destinationComputedGrossWeightHOGE.text = String(getHogeWeight(currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!).integerValue)
         destinationComputedGrossWeightHOGEJ.text = String(getHogeWeight(currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!).integerValue)
- 
     }
     
     func setAdjustedWeight(){
