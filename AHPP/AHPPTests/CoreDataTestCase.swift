@@ -21,8 +21,7 @@ import AHPP
 
 class CoreDataTestCase: XCTestCase {
     
-    let lakeview = "LakeviewAHPP.csv"
-    let lasvegas = "LasVegasAHPP.csv"
+    let test = "LasVegasAHPP.csv"
         
     override func setUp() {
         super.setUp()

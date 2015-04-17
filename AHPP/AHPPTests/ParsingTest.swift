@@ -7,25 +7,18 @@
 //
 
 import Foundation
+import AHPP
 
-public class Parsing{
+public class ParsingTest{
+    
+    
+    public class func parseTester(filename: String) -> LookupTableGeneratorTester
+    {
 
-    class func parse(path: NSURL) -> Bool {
-
-        var processing: Bool = true
-        var table_gen = LookupTableGenerator(path: path)
-        var lookUpTable: LookUpTable
-        var table1: Array2D
-        var table2: Array2D
+        let absolute = "/Users/rovery/CompSci/AHHP/AHPP-iOS-App/AHPP/AHPPTests/"
         
-        lookUpTable = table_gen.loadMetaData()
-        saveDataCells(table_gen.nextTable(), lookUpTable: lookUpTable, isHige: true, isHoge: false)
-        saveDataCells(table_gen.nextTable(), lookUpTable: lookUpTable, isHige: false, isHoge: true)
-        saveDataCells(table_gen.nextTable(), lookUpTable: lookUpTable, isHige: false, isHoge: false)
-
-        return true
+        return LookupTableGeneratorTester(path: absolute+filename)
     }
-
     
     private class func saveDataCells(table: Array2D, lookUpTable: LookUpTable, isHige: Bool, isHoge: Bool)
     {
@@ -51,7 +44,8 @@ public class Parsing{
     }
 }
 
-public class LookupTableGenerator
+
+public class LookupTableGeneratorTester
 {
     var company_name: String = ""
     var contact_number: String = ""
@@ -69,23 +63,24 @@ public class LookupTableGenerator
     var performance_reference_hoge: String = ""
     var pilot_name: String = ""
     var has_wat: Bool = false
-
+    
     var table_num: Int = 0
-    var path: NSURL
+    var path: String
     var atTable: Bool = false
     var aStreamReader: StreamReader
-//    
-    init(path: NSURL)
+    //
+    init(path: String)
     {
         self.path = path
-        self.aStreamReader = StreamReader(path: self.path.path!)!
+        self.aStreamReader = StreamReader(path: self.path)!
     }
-
     
-    func loadMetaData() -> LookUpTable
+    
+    public func getMetaData() -> [AnyObject]
     {
         var processing: Bool = true
         var strings: [String]
+        var array: [AnyObject] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
         
         strings = getMetaStrings()
         for var i = 0; i<strings.count; i++
@@ -93,71 +88,81 @@ public class LookupTableGenerator
             var temp = strings[i]
             switch temp
             {
-                case "Designated Base":
-                    self.designated_base = strings[i+1]
-                    i++
-                case "Contract #":
-                    self.contact_number = strings[i+1]
-                    i++
-                case "Company Name":
-                    self.company_name = strings[i+1]
-                    i++
-                case "Fixed Weight Reduction":
-                    self.fixed_weight_reduduction = strings[i+1].toInt()!
-                    i++
-                case "Make/Model":
-                    self.make_model = strings[i+1]
-                    i++
-                case "Performance Reference HIGE":
-                    self.performance_reference_hige = strings[i+1]
-                    i++
-                case "N#":
-                    self.n_number = strings[i+1]
-                    i++
-                case "Gross Weight Limitation HIGE":
-                    self.gross_weight_limitation_hige = strings[i+1].toInt()!
-                    i++
-                case "Helicopter Equipped Weight":
-                    self.helicopter_equipped_weight = strings[i+1].toInt()!
-                    i++
-                case "Performance Reference HOGE":
-                    self.performance_reference_hoge = strings[i+1]
-                    i++
-                case "Pilot Name":
-                    self.pilot_name = strings[i+1]
-                    i++
-                case "Gross Weight Limitation HOGE":
-                    self.gross_weight_limitation_hoge = strings[i+1].toInt()!
-                    i++
-                case "Flight Crew Weight":
-                    self.flight_crew_weight = strings[i+1].toInt()!
-                    i++
-                case "Gross Weight Limitation HOGE-J":
-                    self.gross_weight_limitation_hoge_j = strings[i+1].toInt()!
-                    i++
-                default:
-                    println()
+            case "Designated Base":
+                array[2] = strings[i+1]
+                i++
+            case "Contract #":
+                array[1] = strings[i+1]
+                i++
+            case "Company Name":
+                array[0] = strings[i+1]
+                i++
+            case "Fixed Weight Reduction":
+                array[3] = strings[i+1].toInt()!
+                i++
+            case "Make/Model":
+                array[10] = strings[i+1]
+                i++
+            case "Performance Reference HIGE":
+                array[12] = strings[i+1]
+                i++
+            case "N#":
+                array[11] = strings[i+1]
+                i++
+            case "Gross Weight Limitation HIGE":
+                array[5] = strings[i+1].toInt()!
+                i++
+            case "Helicopter Equipped Weight":
+                array[8] = strings[i+1].toInt()!
+                i++
+            case "Performance Reference HOGE":
+                array[13] = strings[i+1]
+                i++
+            case "Pilot Name":
+                array[14] = strings[i+1]
+                i++
+            case "Gross Weight Limitation HOGE":
+                array[6] = strings[i+1].toInt()!
+                i++
+            case "Flight Crew Weight":
+                array[4] = strings[i+1].toInt()!
+                i++
+            case "Gross Weight Limitation HOGE-J":
+                array[7] = strings[i+1].toInt()!
+                i++
+            default:
+                println()
             }
-            
+            array[9] = 0
+            array[15] = false
         }
-        return ViewController.saveLookUpTable(
-            self.company_name,
-            contact_number: self.contact_number,
-            designated_base: self.designated_base,
-            fixed_weight_reduduction: self.fixed_weight_reduduction,
-            flight_crew_weight: self.flight_crew_weight,
-            gross_weight_limitation_hige: self.gross_weight_limitation_hige,
-            gross_weight_limitation_hoge: self.gross_weight_limitation_hoge,
-            gross_weight_limitation_hoge_j: self.gross_weight_limitation_hoge_j,
-            helicopter_equipped_weight: self.helicopter_equipped_weight,
-            is_hoge: self.is_hoge,
-            make_model: self.make_model,
-            n_number: self.n_number,
-            performance_reference_hige: self.performance_reference_hige,
-            performance_reference_hoge: self.performance_reference_hoge,
-            pilot_name: self.pilot_name,
-            has_wat: hasWatTable())
+        return array
+    }
+    
+    public func getDataCells() -> [NSNumber]
+    {
         
+        var cells: [NSNumber] = []
+        var table: Array2D
+        table = nextTable()
+        if(table.colCount()>0 && table.rowCount()>0)
+        {
+            for var col=1; col<table.colCount(); col++
+            {
+                for var row = 1; row<table.rowCount(); row++
+                {
+                    if(table[col,row] != nil && table[col,row]>=0)
+                    {
+                        cells.append(table[0,row-1]!)
+                        cells.append(table[col, 0]!)
+                        cells.append(table[col,row]!)
+                        
+                    }
+                }
+            }
+        }
+        
+        return cells
     }
     
     func nextTable() -> Array2D
@@ -273,8 +278,9 @@ public class LookupTableGenerator
                 processing = false
             }
         }
+        aStreamReader.rewind()
         return cells
-    
+        
     }
     
     private func getNextLine() -> [Int]
