@@ -641,6 +641,12 @@ public class ViewController: UIViewController{
         return newLookUpTable
     }
     
+    func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo: UnsafePointer<()>) {
+        dispatch_async(dispatch_get_main_queue(), {
+            UIAlertView(title: "Export Successful", message: "The AHPP sheet has been exported to your Camera Roll successfully", delegate: nil, cancelButtonTitle: "Close").show()
+        })
+    }
+    
     func screenShotMethod() {
         //Create the UIImage
         UIGraphicsBeginImageContext(view.frame.size)
@@ -649,7 +655,7 @@ public class ViewController: UIViewController{
         UIGraphicsEndImageContext()
         
         //Save it to the camera roll
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        UIImageWriteToSavedPhotosAlbum(image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
     }
     
     @IBAction func ExportButtonClicked(sender: UIButton) {
