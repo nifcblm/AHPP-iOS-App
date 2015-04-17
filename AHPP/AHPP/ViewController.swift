@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 
 public class ViewController: UIViewController{
-    
     var myArray = [String]()
     var newCalculateValue = ""
     var calculateType = ""
@@ -19,7 +18,6 @@ public class ViewController: UIViewController{
     var newDepartureTemperatureValue = ""
     var departureFuelWeightTotalInt = 1400 as Int
     var destinationFuelWeightTotalInt = 1400 as Int
-
 
     /* --------------------- BEGINNING OF LABELS --------------------- */
     
@@ -49,7 +47,6 @@ public class ViewController: UIViewController{
     @IBOutlet weak var fuelWeightDeparture: UILabel!
     @IBOutlet weak var departureFuelTotal: UIButton!
     @IBOutlet weak var destinationFuelTotal: UIButton!
-
     
     /*------------------ row 6 ----------------*/
     @IBOutlet weak var operatingWeightDeparture: UILabel!
@@ -62,7 +59,6 @@ public class ViewController: UIViewController{
     @IBOutlet weak var computedGrossWeightHOGEJ: UILabel!
     @IBOutlet weak var weightReductionHIGE: UILabel!
     @IBOutlet weak var weightReductionHOGE: UILabel!
-  
     @IBOutlet weak var weightReductionTextField: UITextField!
     @IBOutlet weak var adjustedWeightHIGE: UILabel!
     @IBOutlet weak var adjustedWeightHOGE: UILabel!
@@ -89,7 +85,6 @@ public class ViewController: UIViewController{
     @IBOutlet weak var destinationComputedGrossWeightHOGEJ: UILabel!
     @IBOutlet weak var destinationWeightReductionHIGE: UILabel!
     @IBOutlet weak var destinationWeightReductionHOGE: UILabel!
- 
     @IBOutlet weak var destinationWeightReductionTextField: UITextField!
     @IBOutlet weak var destinationadjustedWeightHIGE: UILabel!
     @IBOutlet weak var destinationAdjustedWeightHOGE: UILabel!
@@ -97,7 +92,7 @@ public class ViewController: UIViewController{
     @IBOutlet weak var destinationGrossWeightLimitationHIGE: UILabel!
     @IBOutlet weak var destinationGrossWeightLimitiationHOGE: UILabel!
     @IBOutlet weak var destinationGrossWeightLimitiationHOGEJ: UILabel!
-@IBOutlet weak var destinationSelectedWeightHIGE: UILabel!
+    @IBOutlet weak var destinationSelectedWeightHIGE: UILabel!
     @IBOutlet weak var destinationSelectedWeightHOGE: UILabel!
     @IBOutlet weak var destinationSelectedWeightHOGEJ: UILabel!
     @IBOutlet weak var destinationOperatingWeightHIGE: UILabel!
@@ -110,10 +105,7 @@ public class ViewController: UIViewController{
     @IBOutlet weak var destinationExceedsHOGE: UILabel!
     @IBOutlet weak var destinationExceedsHOGEJ: UILabel!
     
-    
-
     @IBOutlet weak var extraWeightTextField: UITextField!
-    
     @IBOutlet weak var acualPayload: UILabel!
     
     /* --------------------- END OF LABELS --------------------- */
@@ -133,22 +125,15 @@ public class ViewController: UIViewController{
         destinationFuelTotal.setTitle(String(destinationFuelWeightTotalInt) , forState: UIControlState.Normal)
         fuelWeightPoundsPerGallon.text = "7"
         
-        // Helicopter object
         var helicopter = getMyHelo();
     
         if (helicopter != nil) {
             var realHelicopter = helicopter as LookUpTable!
-            // Will set name to "John Smith"
             pilotName.text = realHelicopter.pilot_name
             helicopterModel.text = realHelicopter.make_model
             helicopterNumber.text = realHelicopter.n_number
-            
-            // NSInt to NSString example
-            //line 3
             helicopterEquiptWeight.text = realHelicopter.helicopter_equipped_weight.stringValue
-            //line 4
             flightCrewWeight.text = realHelicopter.flight_crew_weight.stringValue
-            
             fuelWeightDeparture.text = String(format:"%.1f", Double(departureFuelWeightTotalInt) / 7.0)
             fuelWeightDestination.text = String(format:"%.1f", Double(destinationFuelWeightTotalInt) / 7.0)
   
@@ -159,9 +144,7 @@ public class ViewController: UIViewController{
             setSelectedWeight()
             setOperatingWeight()
             setAllowablePayload()
-            
         }
-        
     }
 
     func setGrossWeightLimitation(){
@@ -169,18 +152,12 @@ public class ViewController: UIViewController{
         var currentDepartureTemperature = currentInputValues[1]
         var currentDestinationPressure = currentInputValues[2]
         var currentDestinationTemperature = currentInputValues[3]
-        
 
         grossWeightLimitationHIGE.text = String(grossWeightLimitation(true, isHoge: false, isHogeJ: false, pressure: currentDeparturePressure.toInt()!, temperature: currentDepartureTemperature.toInt()!))
-
         grossWeightLimitationHOGE.text = String(grossWeightLimitation(false, isHoge: true, isHogeJ: false, pressure: currentDeparturePressure.toInt()!, temperature: currentDepartureTemperature.toInt()!))
-        
         grossWeightLimitationHOGEJ.text = String(grossWeightLimitation(false, isHoge: false, isHogeJ: true, pressure: currentDeparturePressure.toInt()!, temperature: currentDepartureTemperature.toInt()!))
-            
         destinationGrossWeightLimitationHIGE.text = String(grossWeightLimitation(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!, temperature: currentDestinationTemperature.toInt()!))
-        
         destinationGrossWeightLimitiationHOGE.text = String(grossWeightLimitation(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!, temperature: currentDestinationTemperature.toInt()!))
-        
         destinationGrossWeightLimitiationHOGEJ.text = String(grossWeightLimitation(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!, temperature: currentDestinationTemperature.toInt()!))
 
             
@@ -192,7 +169,6 @@ public class ViewController: UIViewController{
         
         operatingWeightDeparture.text = departureOperatingWeight
         operatingWeightDestination.text = destinationOperatingWeight
-        
         operatingWeightHIGE.text = departureOperatingWeight
         operatingWeightHOGE.text = departureOperatingWeight
         operatingWeightHOGEJ.text = departureOperatingWeight
@@ -210,17 +186,14 @@ public class ViewController: UIViewController{
     }
 
     func setComputedGrossWeight(){
-        
         var currentDeparturePressure = currentInputValues[0]
         var currentDepartureTemperature = currentInputValues[1]
+        var currentDestinationPressure = currentInputValues[2]
+        var currentDestinationTemperature = currentInputValues[3]
         
         computerGrossWeightHIGE.text = String(getHigeWeight(currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!).integerValue)
         computerGrossWeightHOGE.text = String(getHogeWeight(currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!).integerValue)
         computedGrossWeightHOGEJ.text = String(getHogeWeight(currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!).integerValue)
-        
-        var currentDestinationPressure = currentInputValues[2]
-        var currentDestinationTemperature = currentInputValues[3]
-        
         destinationComputedGrossWeightHIGE.text = String(getHigeWeight(currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!).integerValue)
         destinationComputedGrossWeightHOGE.text = String(getHogeWeight(currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!).integerValue)
         destinationComputedGrossWeightHOGEJ.text = String(getHogeWeight(currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!).integerValue)
@@ -230,34 +203,26 @@ public class ViewController: UIViewController{
     func setAdjustedWeight(){
         var currentDeparturePressure = currentInputValues[0]
         var currentDepartureTemperature = currentInputValues[1]
-        
-        adjustedWeightHIGE.text = String(adjustedWeight(true, isHoge: false, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, isDeparture: true))
-        
-        adjustedWeightHOGE.text = String(adjustedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, isDeparture: true))
-        
-        adjustedWeightHOGEJ.text = String(adjustedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, isDeparture: true))
-        
         var currentDestinationPressure = currentInputValues[2]
         var currentDestinationTemperature = currentInputValues[3]
         
+        adjustedWeightHIGE.text = String(adjustedWeight(true, isHoge: false, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, isDeparture: true))
+        adjustedWeightHOGE.text = String(adjustedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, isDeparture: true))
+        adjustedWeightHOGEJ.text = String(adjustedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, isDeparture: true))
         destinationadjustedWeightHIGE.text = String(adjustedWeight(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, isDeparture: true))
-        
         destinationAdjustedWeightHOGE.text = String(adjustedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, isDeparture: true))
-        
         destinationAdjustedWeightHOGEJ.text = String(adjustedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, isDeparture: true))
     }
     
     func setSelectedWeight(){
         var currentDeparturePressure = currentInputValues[0]
         var currentDepartureTemperature = currentInputValues[1]
-        
+        var currentDestinationPressure = currentInputValues[2]
+        var currentDestinationTemperature = currentInputValues[3]
+
         selectedWeightHIGE.text = String(selectedWeight(true, isHoge: false, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, isDeparture: true))
         selectedWeightHOGE.text = String(selectedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, isDeparture: true))
         selectedWeightHOGEJ.text = String(selectedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, isDeparture: true))
-        
-        var currentDestinationPressure = currentInputValues[2]
-        var currentDestinationTemperature = currentInputValues[3]
- 
         destinationSelectedWeightHIGE.text = String(selectedWeight(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, isDeparture: false))
         destinationSelectedWeightHOGE.text = String(selectedWeight(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, isDeparture: false))
         destinationSelectedWeightHOGEJ.text = String(selectedWeight(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, isDeparture: false))
@@ -266,14 +231,12 @@ public class ViewController: UIViewController{
     func setAllowablePayload(){
         var currentDeparturePressure = currentInputValues[0]
         var currentDepartureTemperature = currentInputValues[1]
-        
+        var currentDestinationPressure = currentInputValues[2]
+        var currentDestinationTemperature = currentInputValues[3]
+
         allowablePayloadHIGE.text = String(allowablePayload(true, isHoge: false, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt, isDeparture: true))
         allowablePayloadHOGE.text =  String(allowablePayload(false, isHoge: true, isHogeJ: false, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt, isDeparture: true))
         allowablePayloadHOGEJ.text =  String(allowablePayload(false, isHoge: false, isHogeJ: true, pressure: currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!, fuelWeight: departureFuelWeightTotalInt, isDeparture: true))
-        
-        var currentDestinationPressure = currentInputValues[2]
-        var currentDestinationTemperature = currentInputValues[3]
-        
         destinationAllowablePayloadHIGE.text = String(allowablePayload(true, isHoge: false, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: destinationFuelWeightTotalInt, isDeparture: false))
         destinationAllowablePayloadHOGE.text =  String(allowablePayload(false, isHoge: true, isHogeJ: false, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: destinationFuelWeightTotalInt, isDeparture: false))
         destinationAllowablePayloadHOGEJ.text =  String(allowablePayload(false, isHoge: false, isHogeJ: true, pressure: currentDestinationPressure.toInt()!,temperature: currentDestinationTemperature.toInt()!, fuelWeight: destinationFuelWeightTotalInt, isDeparture: false))
@@ -281,19 +244,15 @@ public class ViewController: UIViewController{
 
     public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
     public func getHigeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
         let myHelo = getMyHelo() as LookUpTable!
-        
         var weight: NSNumber = 0
-        
         var higeDataCells : NSSet = myHelo.higeDataCells
         
         for item in higeDataCells.allObjects as! [HigeDataCell] {
-            
             if (item.pressure == pressure && item.temperature == temperature) {
                 weight = item.weight
             }
@@ -303,9 +262,7 @@ public class ViewController: UIViewController{
     
     public func getHogeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
         let myHelo = getMyHelo() as LookUpTable!
-        
         var weight : NSNumber = 0
-        
         var hogeDataCells : NSSet = myHelo.hogeDataCells
         
         for item in hogeDataCells.allObjects as! [HogeDataCell] {
@@ -318,9 +275,7 @@ public class ViewController: UIViewController{
     
     public func getWatWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
         let myHelo = getMyHelo() as LookUpTable!
-        
         var weight : NSNumber = 0
-        
         var watDataCells : NSSet = myHelo.watDataCells
         
         for item in watDataCells.allObjects as! [WatDataCell] {
@@ -398,10 +353,7 @@ public class ViewController: UIViewController{
     
     public func getPressures() -> [String] {
         let myHelo = getMyHelo() as LookUpTable!
-
-        
         var pressures = [Int]()
-        
         var higeDataCells = myHelo.higeDataCells
         
         for item in higeDataCells.allObjects {
@@ -423,10 +375,7 @@ public class ViewController: UIViewController{
     
     public func getTemperatures() -> [String] {
         let myHelo = getMyHelo() as LookUpTable!
-        
-        
         var temperatures = [Int]()
-        
         var higeDataCells = myHelo.higeDataCells
         
         for item in higeDataCells.allObjects {
@@ -564,63 +513,37 @@ public class ViewController: UIViewController{
         DestViewController.departureFuelWeightTotal = String(departureFuelWeightTotalInt)
     }
 
-   public class func saveDataCell(
-        pressure: NSNumber,
-        temperature: NSNumber,
-        weight: NSNumber,
-        lookUpTable: LookUpTable,
-        isHige: Bool,
-        isHoge: Bool
-        ) {
+   public class func saveDataCell(pressure: NSNumber, temperature: NSNumber, weight: NSNumber, lookUpTable: LookUpTable, isHige: Bool, isHoge: Bool) {
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let context = appDelegate.managedObjectContext!
+    
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let context = appDelegate.managedObjectContext!
-        
+        if isHige {
+            let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HigeDataCell", inManagedObjectContext: context) as! HigeDataCell
+            newDataCell.pressure = pressure
+            newDataCell.temperature = temperature
+            newDataCell.weight = weight
+            newDataCell.lookUpTable = lookUpTable
             
-            if isHige {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HigeDataCell", inManagedObjectContext: context) as! HigeDataCell
-                newDataCell.pressure = pressure
-                newDataCell.temperature = temperature
-                newDataCell.weight = weight
-                newDataCell.lookUpTable = lookUpTable
-                
-            } else if isHoge {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HogeDataCell", inManagedObjectContext: context) as! HogeDataCell
-                newDataCell.pressure = pressure
-                newDataCell.temperature = temperature
-                newDataCell.weight = weight
-                newDataCell.lookUpTable = lookUpTable
-            } else {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("WatDataCell", inManagedObjectContext: context) as! WatDataCell
-                newDataCell.pressure = pressure
-                newDataCell.temperature = temperature
-                newDataCell.weight = weight
-                newDataCell.lookUpTable = lookUpTable
-            }
+        } else if isHoge {
+            let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HogeDataCell", inManagedObjectContext: context) as! HogeDataCell
+            newDataCell.pressure = pressure
+            newDataCell.temperature = temperature
+            newDataCell.weight = weight
+            newDataCell.lookUpTable = lookUpTable
+        } else {
+            let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("WatDataCell", inManagedObjectContext: context) as! WatDataCell
+            newDataCell.pressure = pressure
+            newDataCell.temperature = temperature
+            newDataCell.weight = weight
+            newDataCell.lookUpTable = lookUpTable
+        }
     }
     
-    
-    public class func saveLookUpTable(
-        company_name: String,
-        contact_number: String,
-        designated_base: String,
-        fixed_weight_reduduction: NSNumber,
-        flight_crew_weight: NSNumber,
-        gross_weight_limitation_hige: NSNumber,
-        gross_weight_limitation_hoge: NSNumber,
-        gross_weight_limitation_hoge_j: NSNumber,
-        helicopter_equipped_weight: NSNumber,
-        is_hoge: NSNumber,
-        make_model: String,
-        n_number: String,
-        performance_reference_hige: String,
-        performance_reference_hoge: String,
-        pilot_name: String,
-        has_wat: Bool) -> LookUpTable {
+    public class func saveLookUpTable(company_name: String, contact_number: String, designated_base: String, fixed_weight_reduduction: NSNumber, flight_crew_weight: NSNumber, gross_weight_limitation_hige: NSNumber, gross_weight_limitation_hoge: NSNumber, gross_weight_limitation_hoge_j: NSNumber,helicopter_equipped_weight: NSNumber, is_hoge: NSNumber, make_model: String, n_number: String, performance_reference_hige: String, performance_reference_hoge: String, pilot_name: String, has_wat: Bool) -> LookUpTable {
             
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = appDelegate.managedObjectContext!
-
         let newLookUpTable = NSEntityDescription.insertNewObjectForEntityForName("LookUpTable", inManagedObjectContext: context) as! LookUpTable
         
         newLookUpTable.company_name = company_name
@@ -671,4 +594,3 @@ public class ViewController: UIViewController{
         self.view.frame.origin.y += 150
     }
 }
-
