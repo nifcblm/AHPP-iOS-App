@@ -21,7 +21,7 @@ class CoreDataSaveAndRetrievalTestCase: CoreDataTestCase {
     override func setUp() {
         super.setUp()
         tableGenerator = ParsingTest.parseTester(test)
-        view = ViewController()g
+        view = ViewController()
 
     }
     
