@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		790BCFB91AD73A9700E262B2 /* HigeDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790BCFB81AD73A9700E262B2 /* HigeDataCell.swift */; };
 		790BCFBB1AD73A9700E262B2 /* LookUpTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790BCFBA1AD73A9700E262B2 /* LookUpTable.swift */; };
 		794AFDF21AB6228300513ADC /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794AFDF11AB6228300513ADC /* Parsing.swift */; };
+		A744E5A41AE0881800A8B877 /* ParsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A744E5A31AE0881800A8B877 /* ParsingTest.swift */; };
 		A7A83E271AD9E52500770FBA /* DataModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A83E261AD9E52500770FBA /* DataModelTestCase.swift */; };
 		A7A83E461ADA146A00770FBA /* CoreDataSaveAndRetrievalTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A83E451ADA146A00770FBA /* CoreDataSaveAndRetrievalTestCase.swift */; };
 		A7BEDA751AB621EB00DD245B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BEDA741AB621EB00DD245B /* libsqlite3.dylib */; };
@@ -56,6 +57,7 @@
 		790BCFB81AD73A9700E262B2 /* HigeDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HigeDataCell.swift; path = ../HigeDataCell.swift; sourceTree = "<group>"; };
 		790BCFBA1AD73A9700E262B2 /* LookUpTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LookUpTable.swift; path = ../LookUpTable.swift; sourceTree = "<group>"; };
 		794AFDF11AB6228300513ADC /* Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
+		A744E5A31AE0881800A8B877 /* ParsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingTest.swift; sourceTree = "<group>"; };
 		A7A83E261AD9E52500770FBA /* DataModelTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModelTestCase.swift; sourceTree = "<group>"; };
 		A7A83E3C1AD9F09300770FBA /* AHPP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AHPP-Bridging-Header.h"; sourceTree = "<group>"; };
 		A7A83E451ADA146A00770FBA /* CoreDataSaveAndRetrievalTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataSaveAndRetrievalTestCase.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		49E652BE1AB602BC001E061D /* AHPPTests */ = {
 			isa = PBXGroup;
 			children = (
+				A744E5A31AE0881800A8B877 /* ParsingTest.swift */,
 				A7A83E451ADA146A00770FBA /* CoreDataSaveAndRetrievalTestCase.swift */,
 				A7A83E261AD9E52500770FBA /* DataModelTestCase.swift */,
 				A7D1AE791AD999E600C3A1F0 /* CoreDataTestCase.swift */,
@@ -198,7 +201,7 @@
 		49E6529B1AB602BC001E061D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = boisestate;
 				TargetAttributes = {
 					49E652A21AB602BC001E061D = {
@@ -212,7 +215,7 @@
 				};
 			};
 			buildConfigurationList = 49E6529E1AB602BC001E061D /* Build configuration list for PBXProject "AHPP" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -275,6 +278,7 @@
 			files = (
 				A7A83E461ADA146A00770FBA /* CoreDataSaveAndRetrievalTestCase.swift in Sources */,
 				A7D1AE7A1AD999E600C3A1F0 /* CoreDataTestCase.swift in Sources */,
+				A744E5A41AE0881800A8B877 /* ParsingTest.swift in Sources */,
 				A7A83E271AD9E52500770FBA /* DataModelTestCase.swift in Sources */,
 				49E652C21AB602BC001E061D /* AHPPTests.swift in Sources */,
 			);
@@ -344,7 +348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -381,7 +385,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -397,6 +401,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = AHPP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -413,6 +418,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = AHPP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
