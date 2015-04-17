@@ -122,6 +122,9 @@ public class ViewController: UIViewController{
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
+        
         departurePA.setTitle(currentInputValues[0], forState: UIControlState.Normal)
         departureTemperature.setTitle(currentInputValues[1], forState: UIControlState.Normal)
         destinationPA.setTitle(currentInputValues[2], forState: UIControlState.Normal)
@@ -655,6 +658,11 @@ public class ViewController: UIViewController{
         screenShotMethod();
     }
     
-    
+    func keyboardWillShow(sender: NSNotification) {
+        self.view.frame.origin.y -= 150
+    }
+    func keyboardWillHide(sender: NSNotification) {
+        self.view.frame.origin.y += 150
+    }
 }
 
