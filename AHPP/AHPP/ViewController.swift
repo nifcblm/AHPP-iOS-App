@@ -89,7 +89,6 @@ public class ViewController: UIViewController{
     @IBOutlet weak var destinationComputedGrossWeightHOGEJ: UILabel!
     @IBOutlet weak var destinationWeightReductionHIGE: UILabel!
     @IBOutlet weak var destinationWeightReductionHOGE: UILabel!
- 
     @IBOutlet weak var destinationWeightReductionTextField: UITextField!
     @IBOutlet weak var destinationadjustedWeightHIGE: UILabel!
     @IBOutlet weak var destinationAdjustedWeightHOGE: UILabel!
@@ -97,7 +96,7 @@ public class ViewController: UIViewController{
     @IBOutlet weak var destinationGrossWeightLimitationHIGE: UILabel!
     @IBOutlet weak var destinationGrossWeightLimitiationHOGE: UILabel!
     @IBOutlet weak var destinationGrossWeightLimitiationHOGEJ: UILabel!
-@IBOutlet weak var destinationSelectedWeightHIGE: UILabel!
+    @IBOutlet weak var destinationSelectedWeightHIGE: UILabel!
     @IBOutlet weak var destinationSelectedWeightHOGE: UILabel!
     @IBOutlet weak var destinationSelectedWeightHOGEJ: UILabel!
     @IBOutlet weak var destinationOperatingWeightHIGE: UILabel!
@@ -130,22 +129,15 @@ public class ViewController: UIViewController{
         destinationFuelTotal.setTitle(String(destinationFuelWeightTotalInt) , forState: UIControlState.Normal)
         fuelWeightPoundsPerGallon.text = "7"
         
-        // Helicopter object
         var helicopter = getMyHelo();
     
         if (helicopter != nil) {
             var realHelicopter = helicopter as LookUpTable!
-            // Will set name to "John Smith"
             pilotName.text = realHelicopter.pilot_name
             helicopterModel.text = realHelicopter.make_model
             helicopterNumber.text = realHelicopter.n_number
-            
-            // NSInt to NSString example
-            //line 3
             helicopterEquiptWeight.text = realHelicopter.helicopter_equipped_weight.stringValue
-            //line 4
             flightCrewWeight.text = realHelicopter.flight_crew_weight.stringValue
-            
             fuelWeightDeparture.text = String(format:"%.1f", Double(departureFuelWeightTotalInt) / 7.0)
             fuelWeightDestination.text = String(format:"%.1f", Double(destinationFuelWeightTotalInt) / 7.0)
   
@@ -156,9 +148,7 @@ public class ViewController: UIViewController{
             setSelectedWeight()
             setOperatingWeight()
             setAllowablePayload()
-            
         }
-        
     }
 
     func setGrossWeightLimitation(){
@@ -561,7 +551,7 @@ public class ViewController: UIViewController{
         DestViewController.departureFuelWeightTotal = String(departureFuelWeightTotalInt)
     }
 
-   public class func saveDataCell(
+   public func saveDataCell(
         pressure: NSNumber,
         temperature: NSNumber,
         weight: NSNumber,
@@ -597,7 +587,7 @@ public class ViewController: UIViewController{
     }
     
     
-    public class func saveLookUpTable(
+    public func saveLookUpTable(
         company_name: String,
         contact_number: String,
         designated_base: String,
@@ -636,7 +626,23 @@ public class ViewController: UIViewController{
         newLookUpTable.performance_reference_hoge = performance_reference_hoge
         newLookUpTable.pilot_name = pilot_name
         newLookUpTable.has_wat = has_wat
+            
+        pilotName.text = newLookUpTable.pilot_name
+        helicopterModel.text = newLookUpTable.make_model
+        helicopterNumber.text = newLookUpTable.n_number
+        helicopterEquiptWeight.text = newLookUpTable.helicopter_equipped_weight.stringValue
+        flightCrewWeight.text = newLookUpTable.flight_crew_weight.stringValue
+        fuelWeightDeparture.text = String(format:"%.1f", Double(departureFuelWeightTotalInt) / 7.0)
+        fuelWeightDestination.text = String(format:"%.1f", Double(destinationFuelWeightTotalInt) / 7.0)
         
+        setComputedGrossWeight()
+        setWeightReduction()
+        setGrossWeightLimitation()
+        setAdjustedWeight()
+        setSelectedWeight()
+        setOperatingWeight()
+        setAllowablePayload()
+            
         return newLookUpTable
     }
     
@@ -654,7 +660,4 @@ public class ViewController: UIViewController{
     @IBAction func ExportButtonClicked(sender: UIButton) {
         screenShotMethod();
     }
-    
-    
 }
-

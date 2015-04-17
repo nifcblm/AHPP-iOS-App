@@ -37,7 +37,7 @@ public class Parsing{
                 {
                     if(table[col,row] != nil && table[col,row]>=0)
                     {
-                        ViewController.saveDataCell(
+                        ViewController().saveDataCell(
                             table[0,row-1]!,
                             temperature: table[col, 0]!,
                             weight: table[col,row]!,
@@ -140,7 +140,7 @@ public class LookupTableGenerator
             }
             
         }
-        return ViewController.saveLookUpTable(
+        return ViewController().saveLookUpTable(
             self.company_name,
             contact_number: self.contact_number,
             designated_base: self.designated_base,
