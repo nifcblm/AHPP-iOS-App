@@ -22,21 +22,16 @@ public class Parsing{
         saveDataCells(table_gen.nextTable(), lookUpTable: lookUpTable, isHige: true, isHoge: false)
         saveDataCells(table_gen.nextTable(), lookUpTable: lookUpTable, isHige: false, isHoge: true)
         saveDataCells(table_gen.nextTable(), lookUpTable: lookUpTable, isHige: false, isHoge: false)
-
+        
         return true
     }
 
     
-    private class func saveDataCells(table: Array2D, lookUpTable: LookUpTable, isHige: Bool, isHoge: Bool)
-    {
-        if(table.colCount()>0 && table.rowCount()>0)
-        {
-            for col in 1..<table.colCount()
-            {
-                for row in 1..<table.rowCount()
-                {
-                    if(table[col,row] != nil && table[col,row]>=0)
-                    {
+    private class func saveDataCells(table: Array2D, lookUpTable: LookUpTable, isHige: Bool, isHoge: Bool) {
+        if(table.colCount()>0 && table.rowCount()>0) {
+            for col in 1..<table.colCount() {
+                for row in 1..<table.rowCount() {
+                    if(table[col,row] != nil && table[col,row]>=0) {
                         ViewController().saveDataCell(
                             table[0,row-1]!,
                             temperature: table[col, 0]!,
@@ -51,8 +46,7 @@ public class Parsing{
     }
 }
 
-public class LookupTableGenerator
-{
+public class LookupTableGenerator {
     var company_name: String = ""
     var contact_number: String = ""
     var designated_base: String = ""
@@ -69,30 +63,25 @@ public class LookupTableGenerator
     var performance_reference_hoge: String = ""
     var pilot_name: String = ""
     var has_wat: Bool = false
-
     var table_num: Int = 0
     var path: NSURL
     var atTable: Bool = false
     var aStreamReader: StreamReader
-//    
-    init(path: NSURL)
-    {
+
+    init(path: NSURL) {
         self.path = path
         self.aStreamReader = StreamReader(path: self.path.path!)!
     }
 
     
-    func loadMetaData() -> LookUpTable
-    {
+    func loadMetaData() -> LookUpTable {
         var processing: Bool = true
         var strings: [String]
         
         strings = getMetaStrings()
-        for var i = 0; i<strings.count; i++
-        {
+        for var i = 0; i<strings.count; i++ {
             var temp = strings[i]
-            switch temp
-            {
+            switch temp {
                 case "Designated Base":
                     self.designated_base = strings[i+1]
                     i++
@@ -138,8 +127,8 @@ public class LookupTableGenerator
                 default:
                     println()
             }
-            
         }
+        
         return ViewController().saveLookUpTable(
             self.company_name,
             contact_number: self.contact_number,
@@ -157,24 +146,20 @@ public class LookupTableGenerator
             performance_reference_hoge: self.performance_reference_hoge,
             pilot_name: self.pilot_name,
             has_wat: hasWatTable())
-        
     }
     
-    func nextTable() -> Array2D
-    {
+    func nextTable() -> Array2D {
         var line: String
         var table: Array2D = Array2D(cols: 0, rows: 0)
         var dim: [Int]
-        if(findTable())
-        {
+
+        if(findTable()) {
             self.table_num++
             dim = getTableDimensions()
             table = Array2D(cols: dim[0], rows: dim[1])
-            for i in 0..<table.colCount()
-            {
+            for i in 0..<table.colCount() {
                 let parsedline = getNextLine()
-                for (j, cell) in enumerate(parsedline)
-                {
+                for (j, cell) in enumerate(parsedline) {
                     table[i,j] = cell
                 }
             }
@@ -184,34 +169,31 @@ public class LookupTableGenerator
         return table
     }
     
-    func hasWatTable() -> Bool
-    {
+    func hasWatTable() -> Bool {
         var has_wat = false
         var i = 0;
-        while(findTable())
-        {
+        while(findTable()) {
             i++
         }
-        if i == 3
-        {
+        
+        if i == 3 {
             has_wat = true
         }
+        
         self.aStreamReader.rewind()
         return has_wat
     }
     
     
-    private func findTable() -> Bool
-    {
+    private func findTable() -> Bool {
         var table_found = false
-        while let line = aStreamReader.nextLine()
-        {
-            if line.rangeOfString("Lookup Table") != nil
-            {
+        
+        while let line = aStreamReader.nextLine() {
+            if line.rangeOfString("Lookup Table") != nil {
                 table_found = true
             }
-            if(table_found)
-            {
+            
+            if(table_found) {
                 self.atTable = true
                 break
             }
