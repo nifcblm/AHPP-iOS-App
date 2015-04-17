@@ -21,7 +21,7 @@ class CoreDataSaveAndRetrievalTestCase: CoreDataTestCase {
     override func setUp() {
         super.setUp()
         tableGenerator = ParsingTest.parseTester(test)
-        view = ViewController()g
+        view = ViewController()
 
     }
     
@@ -101,21 +101,21 @@ class CoreDataSaveAndRetrievalTestCase: CoreDataTestCase {
             XCTAssertNotNil(higeCells![i], "nil in hige temperature")
             XCTAssertNotNil(higeCells![i+1], "nil in hige pressure")
             XCTAssertNotNil(higeCells![i+2], "nil in hige weight")
-            ViewController.saveDataCell(higeCells![i], temperature: higeCells![i+1], weight: higeCells![i+2], lookUpTable: lookUp, isHige: true, isHoge: false)
+            ViewController().saveDataCell(higeCells![i], temperature: higeCells![i+1], weight: higeCells![i+2], lookUpTable: lookUp, isHige: true, isHoge: false)
         }
         for var i = 0; i<hogeCells?.count; i+=3
         {
             XCTAssertNotNil(hogeCells![i], "nil in hoge temperature")
             XCTAssertNotNil(hogeCells![i+1], "nil in hoge pressure")
             XCTAssertNotNil(hogeCells![i+2], "nil in hoge weight")
-            ViewController.saveDataCell(hogeCells![i], temperature: hogeCells![i+1], weight: hogeCells![i+2], lookUpTable: lookUp, isHige: false, isHoge: true)
+            ViewController().saveDataCell(hogeCells![i], temperature: hogeCells![i+1], weight: hogeCells![i+2], lookUpTable: lookUp, isHige: false, isHoge: true)
         }
         for var i = 0; i<watCells?.count; i+=3
         {
             XCTAssertNotNil(watCells![i], "nil in wat temperature")
             XCTAssertNotNil(watCells![i+1], "nil in wat pressure")
             XCTAssertNotNil(watCells![i+2], "nil in wat weight")
-            ViewController.saveDataCell(watCells![i], temperature: watCells![i+1], weight: watCells![i+2], lookUpTable: lookUp, isHige: false, isHoge: false)
+            ViewController().saveDataCell(watCells![i], temperature: watCells![i+1], weight: watCells![i+2], lookUpTable: lookUp, isHige: false, isHoge: false)
         }
         
     }
@@ -126,7 +126,7 @@ class CoreDataSaveAndRetrievalTestCase: CoreDataTestCase {
         let hogeCells = self.tableGenerator?.getDataCells()
         let watCells = self.tableGenerator?.getDataCells()
         
-        let lookUp = ViewController.saveLookUpTable(
+        let lookUp = ViewController().saveLookUpTable(
             md[0] as! String,
             contact_number: md[1]as! String,
             designated_base: md[2]as! String,
@@ -149,7 +149,7 @@ class CoreDataSaveAndRetrievalTestCase: CoreDataTestCase {
     private func createAndLoadTable(metaData:[AnyObject]) -> LookUpTable{
         let md = metaData
         
-        let lookUp = ViewController.saveLookUpTable(
+        let lookUp = ViewController().saveLookUpTable(
             md[0] as! String,
             contact_number: md[1]as! String,
             designated_base: md[2]as! String,

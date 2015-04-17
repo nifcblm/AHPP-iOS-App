@@ -30,7 +30,7 @@ public class ParsingTest{
                 {
                     if(table[col,row] != nil && table[col,row]>=0)
                     {
-                        ViewController.saveDataCell(
+                        ViewController().saveDataCell(
                             table[0,row-1]!,
                             temperature: table[col, 0]!,
                             weight: table[col,row]!,
