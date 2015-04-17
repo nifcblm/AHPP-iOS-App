@@ -630,11 +630,11 @@ public class ViewController: UIViewController{
         newLookUpTable.pilot_name = pilot_name
         newLookUpTable.has_wat = has_wat
             
-        pilotName.text = newLookUpTable.pilot_name
-        helicopterModel.text = newLookUpTable.make_model
-        helicopterNumber.text = newLookUpTable.n_number
-        helicopterEquiptWeight.text = newLookUpTable.helicopter_equipped_weight.stringValue
-        flightCrewWeight.text = newLookUpTable.flight_crew_weight.stringValue
+        pilotName.text = pilot_name
+        helicopterModel.text = make_model
+        helicopterNumber.text = n_number
+        helicopterEquiptWeight.text = helicopter_equipped_weight.stringValue
+        flightCrewWeight.text = flight_crew_weight.stringValue
         fuelWeightDeparture.text = String(format:"%.1f", Double(departureFuelWeightTotalInt) / 7.0)
         fuelWeightDestination.text = String(format:"%.1f", Double(destinationFuelWeightTotalInt) / 7.0)
             
