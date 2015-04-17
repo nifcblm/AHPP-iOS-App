@@ -108,11 +108,7 @@ public class ViewController: UIViewController{
     @IBOutlet weak var destinationExceedsHIGE: UILabel!
     @IBOutlet weak var destinationExceedsHOGE: UILabel!
     @IBOutlet weak var destinationExceedsHOGEJ: UILabel!
-    
-    
-
     @IBOutlet weak var extraWeightTextField: UITextField!
-    
     @IBOutlet weak var acualPayload: UILabel!
     
     /* --------------------- END OF LABELS --------------------- */
@@ -567,28 +563,27 @@ public class ViewController: UIViewController{
         let context = appDelegate.managedObjectContext!
         
             
-            if isHige {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HigeDataCell", inManagedObjectContext: context) as! HigeDataCell
-                newDataCell.pressure = pressure
-                newDataCell.temperature = temperature
-                newDataCell.weight = weight
-                newDataCell.lookUpTable = lookUpTable
-                
-            } else if isHoge {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HogeDataCell", inManagedObjectContext: context) as! HogeDataCell
-                newDataCell.pressure = pressure
-                newDataCell.temperature = temperature
-                newDataCell.weight = weight
-                newDataCell.lookUpTable = lookUpTable
-            } else {
-                let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("WatDataCell", inManagedObjectContext: context) as! WatDataCell
-                newDataCell.pressure = pressure
-                newDataCell.temperature = temperature
-                newDataCell.weight = weight
-                newDataCell.lookUpTable = lookUpTable
-            }
+        if isHige {
+            let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HigeDataCell", inManagedObjectContext: context) as! HigeDataCell
+            newDataCell.pressure = pressure
+            newDataCell.temperature = temperature
+            newDataCell.weight = weight
+            newDataCell.lookUpTable = lookUpTable
+            
+        } else if isHoge {
+            let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("HogeDataCell", inManagedObjectContext: context) as! HogeDataCell
+            newDataCell.pressure = pressure
+            newDataCell.temperature = temperature
+            newDataCell.weight = weight
+            newDataCell.lookUpTable = lookUpTable
+        } else {
+            let newDataCell = NSEntityDescription.insertNewObjectForEntityForName("WatDataCell", inManagedObjectContext: context) as! WatDataCell
+            newDataCell.pressure = pressure
+            newDataCell.temperature = temperature
+            newDataCell.weight = weight
+            newDataCell.lookUpTable = lookUpTable
+        }
     }
-    
     
     public func saveLookUpTable(
         company_name: String,
@@ -629,7 +624,11 @@ public class ViewController: UIViewController{
         newLookUpTable.performance_reference_hoge = performance_reference_hoge
         newLookUpTable.pilot_name = pilot_name
         newLookUpTable.has_wat = has_wat
-            
+        
+        println("HERE I AM")
+        println(pilot_name)
+        println("HERE I AM")
+
         pilotName.text = pilot_name
         helicopterModel.text = make_model
         helicopterNumber.text = n_number
