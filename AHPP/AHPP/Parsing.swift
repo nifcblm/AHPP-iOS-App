@@ -8,10 +8,8 @@
 
 import Foundation
 
-public class Parsing{
-
+public class Parsing {
     class func parse(path: NSURL) -> Bool {
-
         var processing: Bool = true
         var table_gen = LookupTableGenerator(path: path)
         var lookUpTable: LookUpTable
@@ -27,16 +25,11 @@ public class Parsing{
     }
 
     
-    private class func saveDataCells(table: Array2D, lookUpTable: LookUpTable, isHige: Bool, isHoge: Bool)
-    {
-        if(table.colCount()>0 && table.rowCount()>0)
-        {
-            for col in 1..<table.colCount()
-            {
-                for row in 1..<table.rowCount()
-                {
-                    if(table[col,row] != nil && table[col,row]>=0)
-                    {
+    private class func saveDataCells(table: Array2D, lookUpTable: LookUpTable, isHige: Bool, isHoge: Bool) {
+        if(table.colCount() > 0 && table.rowCount() > 0) {
+            for col in 1..<table.colCount() {
+                for row in 1..<table.rowCount() {
+                    if(table[col,row] != nil && table[col,row] >= 0) {
                         ViewController.saveDataCell(
                             table[0,row-1]!,
                             temperature: table[col, 0]!,
@@ -51,8 +44,7 @@ public class Parsing{
     }
 }
 
-public class LookupTableGenerator
-{
+public class LookupTableGenerator {
     var company_name: String = ""
     var contact_number: String = ""
     var designated_base: String = ""
@@ -69,30 +61,25 @@ public class LookupTableGenerator
     var performance_reference_hoge: String = ""
     var pilot_name: String = ""
     var has_wat: Bool = false
-
     var table_num: Int = 0
     var path: NSURL
     var atTable: Bool = false
     var aStreamReader: StreamReader
-//    
-    init(path: NSURL)
-    {
+    
+    init(path: NSURL) {
         self.path = path
         self.aStreamReader = StreamReader(path: self.path.path!)!
     }
 
     
-    func loadMetaData() -> LookUpTable
-    {
+    func loadMetaData() -> LookUpTable {
         var processing: Bool = true
         var strings: [String]
         
         strings = getMetaStrings()
-        for var i = 0; i<strings.count; i++
-        {
+        for var i = 0; i<strings.count; i++ {
             var temp = strings[i]
-            switch temp
-            {
+            switch temp {
                 case "Designated Base":
                     self.designated_base = strings[i+1]
                     i++
@@ -138,8 +125,8 @@ public class LookupTableGenerator
                 default:
                     println()
             }
-            
         }
+        
         return ViewController.saveLookUpTable(
             self.company_name,
             contact_number: self.contact_number,
@@ -160,58 +147,45 @@ public class LookupTableGenerator
         
     }
     
-    func nextTable() -> Array2D
-    {
+    func nextTable() -> Array2D {
         var line: String
         var table: Array2D = Array2D(cols: 0, rows: 0)
         var dim: [Int]
-        if(findTable())
-        {
+        if(findTable()) {
             self.table_num++
             dim = getTableDimensions()
             table = Array2D(cols: dim[0], rows: dim[1])
-            for i in 0..<table.colCount()
-            {
+            for i in 0..<table.colCount() {
                 let parsedline = getNextLine()
-                for (j, cell) in enumerate(parsedline)
-                {
+                for (j, cell) in enumerate(parsedline) {
                     table[i,j] = cell
                 }
             }
             self.atTable = false
         }
-        
         return table
     }
     
-    func hasWatTable() -> Bool
-    {
+    func hasWatTable() -> Bool {
         var has_wat = false
         var i = 0;
-        while(findTable())
-        {
+        while(findTable()) {
             i++
         }
-        if i == 3
-        {
+        if i == 3 {
             has_wat = true
         }
         self.aStreamReader.rewind()
         return has_wat
     }
     
-    
-    private func findTable() -> Bool
-    {
+    private func findTable() -> Bool {
         var table_found = false
-        while let line = aStreamReader.nextLine()
-        {
-            if line.rangeOfString("Lookup Table") != nil
-            {
+        while let line = aStreamReader.nextLine() {
+            if line.rangeOfString("Lookup Table") != nil {
                 table_found = true
             }
-            if(table_found)
-            {
+            if(table_found) {
                 self.atTable = true
                 break
             }
@@ -224,19 +198,15 @@ public class LookupTableGenerator
         var processing: Bool = true
         var colsrows: [Int] = [0,0]
         if(!self.atTable){findTable()}
-        while(processing)
-        {
+        while(processing) {
             let parsedLine = getNextLine()
-            if(!parsedLine.isEmpty)
-            {
-                if(parsedLine[0]<(0))
-                {
+            if(!parsedLine.isEmpty) {
+                if(parsedLine[0]<(0)) {
                     processing = false
                 } else {
                     colsrows[0]++
                 }
-                if(colsrows[1] < parsedLine.count)
-                {
+                if(colsrows[1] < parsedLine.count) {
                     colsrows[1]=parsedLine.count
                 }
             } else {
@@ -246,68 +216,54 @@ public class LookupTableGenerator
         
         //return back to beginning of the table you were at
         aStreamReader.rewind()
-        for i in 0..<self.table_num
-        {
+        for i in 0..<self.table_num {
             findTable()
         }
         return colsrows
     }
     
-    private func getMetaStrings() -> [String]
-    {
+    private func getMetaStrings() -> [String] {
         var processing: Bool = true
         var line: String
         var cells: [String] = Array<String>()
-        while(processing)
-        {
+        while(processing) {
             line = aStreamReader.nextLine()!
-            for cell in line.componentsSeparatedByString(",")
-            {
-                if (!cell.isEmpty)
-                {
+            for cell in line.componentsSeparatedByString(",") {
+                if (!cell.isEmpty) {
                     cells.append(cell)
                 }
             }
-            if line.rangeOfString("Flight Crew Weight") != nil
-            {//found last line of meta data stop consuming more
+            if line.rangeOfString("Flight Crew Weight") != nil {
+                //found last line of meta data stop consuming more
                 processing = false
             }
         }
         return cells
-    
     }
     
-    private func getNextLine() -> [Int]
-    {
+    private func getNextLine() -> [Int] {
         var line: String
         var cells: [String] = Array<String>()
         var parsed_cells: [Int] = Array<Int>()
         var atEnd: Bool = false
         var processing = true
         
-        while(processing)
-        {
+        while(processing) {
             line = (aStreamReader.nextLine()!).stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet())
             //split line up and remove empty elements
-            for cell in line.componentsSeparatedByString(",")
-            {
-                if (!cell.isEmpty)
-                {
+            for cell in line.componentsSeparatedByString(",") {
+                if (!cell.isEmpty) {
                     cells.append(cell)
                 }
             }
             let x = line.componentsSeparatedByString(",").count
             
             //if all cells is empty we have reached the end of our table
-            if(cells.isEmpty)
-            {
+            if(cells.isEmpty) {
                 atEnd = true
             } else {
-                
-                for cell in cells
-                {
-                    if((cell.toInt()) != nil)
-                    {
+                for cell in cells {
+                    if((cell.toInt()) != nil){
                         parsed_cells.append(cell.toInt()!)
                     }
                 }
@@ -318,8 +274,7 @@ public class LookupTableGenerator
             * This would happend because the row and col titles take up their
             * own line with no Integer elements on the line, causing a false empty
             */
-            if(parsed_cells.isEmpty && atEnd)
-            {
+            if(parsed_cells.isEmpty && atEnd) {
                 parsed_cells.append(-1)
                 processing = false
             } else if(!parsed_cells.isEmpty) {
@@ -330,12 +285,10 @@ public class LookupTableGenerator
     }
 }
 
-
 class Array2D {
     var cols:Int, rows:Int
     var matrix: [Int?]
-    
-    
+
     init(cols:Int, rows:Int) {
         self.cols = cols
         self.rows = rows
@@ -449,5 +402,3 @@ class StreamReader  {
         }
     }
 }
-
-
