@@ -127,24 +127,7 @@ public class LookupTableGenerator {
             }
         }
         
-        return ViewController.saveLookUpTable(
-            self.company_name,
-            contact_number: self.contact_number,
-            designated_base: self.designated_base,
-            fixed_weight_reduduction: self.fixed_weight_reduduction,
-            flight_crew_weight: self.flight_crew_weight,
-            gross_weight_limitation_hige: self.gross_weight_limitation_hige,
-            gross_weight_limitation_hoge: self.gross_weight_limitation_hoge,
-            gross_weight_limitation_hoge_j: self.gross_weight_limitation_hoge_j,
-            helicopter_equipped_weight: self.helicopter_equipped_weight,
-            is_hoge: self.is_hoge,
-            make_model: self.make_model,
-            n_number: self.n_number,
-            performance_reference_hige: self.performance_reference_hige,
-            performance_reference_hoge: self.performance_reference_hoge,
-            pilot_name: self.pilot_name,
-            has_wat: hasWatTable())
-        
+        return ViewController.saveLookUpTable(self.company_name, contact_number: self.contact_number, designated_base: self.designated_base, fixed_weight_reduduction: self.fixed_weight_reduduction, flight_crew_weight: self.flight_crew_weight, gross_weight_limitation_hige: self.gross_weight_limitation_hige,gross_weight_limitation_hoge: self.gross_weight_limitation_hoge, gross_weight_limitation_hoge_j: self.gross_weight_limitation_hoge_j, helicopter_equipped_weight: self.helicopter_equipped_weight, is_hoge: self.is_hoge, make_model: self.make_model, n_number: self.n_number, performance_reference_hige: self.performance_reference_hige, performance_reference_hoge: self.performance_reference_hoge, pilot_name: self.pilot_name, has_wat: hasWatTable())
     }
     
     func nextTable() -> Array2D {
