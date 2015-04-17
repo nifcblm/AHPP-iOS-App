@@ -10,11 +10,7 @@ import Foundation
 
 public class Parsing {
     class func parse(path: NSURL) -> Bool {
-        var processing: Bool = true
-        var table_gen = LookupTableGenerator(path: path)
-        var lookUpTable: LookUpTable
-        var table1: Array2D
-        var table2: Array2D
+        var processing: Bool = true, table_gen = LookupTableGenerator(path: path), lookUpTable: LookUpTable, table1: Array2D, table2: Array2D
         
         lookUpTable = table_gen.loadMetaData()
         saveDataCells(table_gen.nextTable(), lookUpTable: lookUpTable, isHige: true, isHoge: false)
@@ -24,7 +20,6 @@ public class Parsing {
         return true
     }
 
-    
     private class func saveDataCells(table: Array2D, lookUpTable: LookUpTable, isHige: Bool, isHoge: Bool) {
         if(table.colCount() > 0 && table.rowCount() > 0) {
             for col in 1..<table.colCount() {
@@ -45,26 +40,7 @@ public class Parsing {
 }
 
 public class LookupTableGenerator {
-    var company_name: String = ""
-    var contact_number: String = ""
-    var designated_base: String = ""
-    var fixed_weight_reduduction: NSNumber = 0
-    var flight_crew_weight: NSNumber = 0
-    var gross_weight_limitation_hige: NSNumber = 0
-    var gross_weight_limitation_hoge: NSNumber = 0
-    var gross_weight_limitation_hoge_j: NSNumber = 0
-    var helicopter_equipped_weight: NSNumber = 0
-    var is_hoge: NSNumber = 0
-    var make_model: String = ""
-    var n_number: String = ""
-    var performance_reference_hige: String = ""
-    var performance_reference_hoge: String = ""
-    var pilot_name: String = ""
-    var has_wat: Bool = false
-    var table_num: Int = 0
-    var path: NSURL
-    var atTable: Bool = false
-    var aStreamReader: StreamReader
+    var company_name: String = "", contact_number: String = "", designated_base: String = "", fixed_weight_reduduction: NSNumber = 0, flight_crew_weight: NSNumber = 0, gross_weight_limitation_hige: NSNumber = 0, gross_weight_limitation_hoge: NSNumber = 0, gross_weight_limitation_hoge_j: NSNumber = 0, helicopter_equipped_weight: NSNumber = 0, is_hoge: NSNumber = 0, make_model: String = "", n_number: String = "", performance_reference_hige: String = "", performance_reference_hoge: String = "", pilot_name: String = "", has_wat: Bool = false, table_num: Int = 0, path: NSURL, atTable: Bool = false, aStreamReader: StreamReader
     
     init(path: NSURL) {
         self.path = path
@@ -73,8 +49,7 @@ public class LookupTableGenerator {
 
     
     func loadMetaData() -> LookUpTable {
-        var processing: Bool = true
-        var strings: [String]
+        var processing: Bool = true, strings: [String]
         
         strings = getMetaStrings()
         for var i = 0; i<strings.count; i++ {
@@ -131,9 +106,8 @@ public class LookupTableGenerator {
     }
     
     func nextTable() -> Array2D {
-        var line: String
-        var table: Array2D = Array2D(cols: 0, rows: 0)
-        var dim: [Int]
+        var line: String, table: Array2D = Array2D(cols: 0, rows: 0), dim: [Int]
+        
         if(findTable()) {
             self.table_num++
             dim = getTableDimensions()
@@ -150,11 +124,9 @@ public class LookupTableGenerator {
     }
     
     func hasWatTable() -> Bool {
-        var has_wat = false
-        var i = 0;
-        while(findTable()) {
-            i++
-        }
+        var has_wat = false, i = 0;
+        
+        while(findTable()) { i++ }
         if i == 3 {
             has_wat = true
         }
@@ -176,11 +148,10 @@ public class LookupTableGenerator {
         return table_found
     }
     
-    private func getTableDimensions() ->[Int]
-    {
-        var processing: Bool = true
-        var colsrows: [Int] = [0,0]
-        if(!self.atTable){findTable()}
+    private func getTableDimensions() ->[Int] {
+        var processing: Bool = true, colsrows: [Int] = [0,0]
+        
+        if(!self.atTable) { findTable() }
         while(processing) {
             let parsedLine = getNextLine()
             if(!parsedLine.isEmpty) {
@@ -206,15 +177,12 @@ public class LookupTableGenerator {
     }
     
     private func getMetaStrings() -> [String] {
-        var processing: Bool = true
-        var line: String
-        var cells: [String] = Array<String>()
+        var processing: Bool = true, line: String, cells: [String] = Array<String>()
+        
         while(processing) {
             line = aStreamReader.nextLine()!
             for cell in line.componentsSeparatedByString(",") {
-                if (!cell.isEmpty) {
-                    cells.append(cell)
-                }
+                if (!cell.isEmpty) { cells.append(cell) }
             }
             if line.rangeOfString("Flight Crew Weight") != nil {
                 //found last line of meta data stop consuming more
@@ -225,11 +193,7 @@ public class LookupTableGenerator {
     }
     
     private func getNextLine() -> [Int] {
-        var line: String
-        var cells: [String] = Array<String>()
-        var parsed_cells: [Int] = Array<Int>()
-        var atEnd: Bool = false
-        var processing = true
+        var line: String, cells: [String] = Array<String>(), parsed_cells: [Int] = Array<Int>(), atEnd: Bool = false, processing = true
         
         while(processing) {
             line = (aStreamReader.nextLine()!).stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet())
@@ -269,8 +233,7 @@ public class LookupTableGenerator {
 }
 
 class Array2D {
-    var cols:Int, rows:Int
-    var matrix: [Int?]
+    var cols:Int, rows:Int, matrix: [Int?]
 
     init(cols:Int, rows:Int) {
         self.cols = cols
@@ -297,14 +260,10 @@ class Array2D {
 }
 
 class StreamReader  {
-    
     let encoding : UInt
     let chunkSize : Int
     
-    var fileHandle : NSFileHandle!
-    var buffer : NSMutableData!
-    var delimData : NSData!
-    var atEof : Bool = false
+    var fileHandle : NSFileHandle!, buffer : NSMutableData!, delimData : NSData!, atEof : Bool = false
     
     init?(path: String, delimiter: String = "\n", encoding : UInt = NSUTF8StringEncoding, chunkSize : Int = 4096) {
         self.chunkSize = chunkSize
@@ -330,16 +289,12 @@ class StreamReader  {
         }
     }
     
-    deinit {
-        self.close()
-    }
+    deinit { self.close() }
     
     /// Return next line, or nil on EOF.
     func nextLine() -> String? {
         
-        if atEof {
-            return nil
-        }
+        if atEof { return nil }
         
         // Read data chunks from file until a line delimiter is found:
         var range = buffer.rangeOfData(delimData, options: nil, range: NSMakeRange(0, buffer.length))
