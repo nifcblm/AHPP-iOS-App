@@ -572,8 +572,8 @@ public class ViewController: UIViewController{
             DestViewController.time = missionTime.text
             DestViewController.departure = departureLocation.text
             DestViewController.destination = destinationLocation.text
-            DestViewController.comment = extraWeightTextField.text
-            DestViewController.payload = commentsTextField.text
+            DestViewController.comment = commentsTextField.text
+            DestViewController.payload = extraWeightTextField.text
             DestViewController.weightReductionOne = weightReductionTextField.text.toInt()!
             DestViewController.weightReductionTwo = destinationWeightReductionTextField.text.toInt()!
         }
