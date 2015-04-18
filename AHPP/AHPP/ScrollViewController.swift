@@ -29,6 +29,9 @@ class ScrollViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     var comment = ""
     var payload = ""
     
+    var weightReductionOne = 0 as Int
+    var weightReductionTwo = 0 as Int
+    
     override func viewDidLoad() {
         calculateType.text = labelText
     }
@@ -116,5 +119,7 @@ class ScrollViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         GoBackDestViewController.destinationText = destination
         GoBackDestViewController.commentText = comment
         GoBackDestViewController.payloadText = payload
+        GoBackDestViewController.weightReductionOneText = weightReductionOne
+        GoBackDestViewController.weightReductionTwoText = weightReductionTwo
     }
 }
