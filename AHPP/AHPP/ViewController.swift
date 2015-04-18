@@ -461,6 +461,13 @@ public class ViewController: UIViewController{
             weightReductionTextField.text = "0"
         }
         
+        let weightString = weightReductionTextField.text
+        let matches = matchesForRegexInText("[0-9]", text: weightString)
+        
+        if matches.count != count(weightString){
+            weightReductionTextField.text = "0"
+        }
+        
         if getMyHelo() != nil{
             setAdjustedWeight()
             setSelectedWeight()
@@ -474,12 +481,30 @@ public class ViewController: UIViewController{
             destinationWeightReductionTextField.text = "0"
         }
         
+        let weightDestString = destinationWeightReductionTextField.text
+        let matches = matchesForRegexInText("[0-9]", text: weightDestString)
+        
+        if matches.count != count(weightDestString){
+            destinationWeightReductionTextField.text = "0"
+        }
+        
         if getMyHelo() != nil{
             setAdjustedWeight()
             setSelectedWeight()
             setAllowablePayload()
             isAllowable()
         }
+    }
+    
+    func matchesForRegexInText(regex: String!, text: String!) -> [String] {
+        
+        let regex = NSRegularExpression(pattern: regex,
+            options: nil, error: nil)!
+        let nsString = text as NSString
+        let results = regex.matchesInString(text,
+            options: nil, range: NSMakeRange(0, nsString.length))
+            as! [NSTextCheckingResult]
+        return map(results) { nsString.substringWithRange($0.range)}
     }
  
     @IBAction func extraWeightTextChanged(sender: AnyObject) {
