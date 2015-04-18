@@ -206,9 +206,7 @@ public class ViewController: UIViewController{
 
     func setComputedGrossWeight(){
         var currentDeparturePressure = currentInputValues[0], currentDepartureTemperature = currentInputValues[1], currentDestinationPressure = currentInputValues[2], currentDestinationTemperature = currentInputValues[3]
-        print("pressure" + currentDeparturePressure)
-        print("temp" + currentDepartureTemperature)
-        print("\n")
+
         computerGrossWeightHIGE.text = String(getHigeWeight(currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!).integerValue)
         computerGrossWeightHOGE.text = String(getHogeWeight(currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!).integerValue)
         computedGrossWeightHOGEJ.text = String(getHogeWeight(currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!).integerValue)
@@ -598,6 +596,7 @@ public class ViewController: UIViewController{
         newLookUpTable.performance_reference_hoge = performance_reference_hoge
         newLookUpTable.pilot_name = pilot_name
         newLookUpTable.has_wat = has_wat
+        newLookUpTable.created_at = NSDate()
         
         return newLookUpTable
     }
