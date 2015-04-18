@@ -145,7 +145,7 @@ public class ViewController: UIViewController{
         commentsTextField.text = commentText
         extraWeightTextField.text = payloadText
         
-        var helicopter = getMyHelo();
+        var helicopter = getMyHelo(INDEX_OF_SELECTED_PILOT_HERE);
         
         if (helicopter != nil) {
             var realHelicopter = helicopter as LookUpTable!
@@ -197,7 +197,7 @@ public class ViewController: UIViewController{
     }
     
     func setWeightReduction(){
-        let helo = getMyHelo() as LookUpTable!
+        let helo = getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) as LookUpTable!
         weightReductionHIGE.text = helo.fixed_weight_reduduction.stringValue
         weightReductionHOGE.text = helo.fixed_weight_reduduction.stringValue
         destinationWeightReductionHIGE.text = helo.fixed_weight_reduduction.stringValue
@@ -252,9 +252,19 @@ public class ViewController: UIViewController{
         super.didReceiveMemoryWarning()
     }
     
+    public func getPilotNames() -> [NSString] {
+        let myHelos = getMyHelos()
     
+        var names = [String]()
+        
+        for helo in myHelos {
+            names.append(helo.pilot_name)
+        }
+        return names
+    }
+
     public func getHigeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
-        let myHelo = getMyHelo() as LookUpTable!
+        let myHelo = getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) as LookUpTable!
         var weight: NSNumber = 0, higeDataCells : NSSet = myHelo.higeDataCells
         
         for item in higeDataCells.allObjects as! [HigeDataCell] {
@@ -266,7 +276,7 @@ public class ViewController: UIViewController{
     }
     
     public func getHogeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
-        let myHelo = getMyHelo() as LookUpTable!
+        let myHelo = getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) as LookUpTable!
         var weight : NSNumber = 0, hogeDataCells : NSSet = myHelo.hogeDataCells
         
         for item in hogeDataCells.allObjects as! [HogeDataCell] {
@@ -278,7 +288,7 @@ public class ViewController: UIViewController{
     }
     
     public func getWatWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
-        let myHelo = getMyHelo() as LookUpTable!
+        let myHelo = getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) as LookUpTable!
         var weight : NSNumber = 0, watDataCells : NSSet = myHelo.watDataCells
         
         for item in watDataCells.allObjects as! [WatDataCell] {
@@ -290,12 +300,12 @@ public class ViewController: UIViewController{
     }
     
     public func operatingWeight(fuelWeight: NSInteger) -> NSInteger {
-        let myHelo = getMyHelo() as LookUpTable!
+        let myHelo = getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) as LookUpTable!
         return myHelo.helicopter_equipped_weight.integerValue + myHelo.flight_crew_weight.integerValue + fuelWeight
     }
     
     public func adjustedWeight(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSNumber, temperature: NSNumber, isDeparture: Bool) -> NSInteger {
-        let myHelo = getMyHelo() as LookUpTable!
+        let myHelo = getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) as LookUpTable!
 
         if isHogeJ {
             if isDeparture {
@@ -314,7 +324,7 @@ public class ViewController: UIViewController{
     
     
     public func grossWeightLimitation(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature:NSInteger) -> NSInteger {
-        let myHelo = getMyHelo() as LookUpTable!
+        let myHelo = getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) as LookUpTable!
         
         var weight : NSInteger = 0
         if isHige {
@@ -355,7 +365,7 @@ public class ViewController: UIViewController{
     }
     
     public func getPressures() -> [String] {
-        let myHelo = getMyHelo() as LookUpTable!
+        let myHelo = getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) as LookUpTable!
         var pressures = [Int](), higeDataCells = myHelo.higeDataCells
         
         for item in higeDataCells.allObjects {
@@ -376,7 +386,7 @@ public class ViewController: UIViewController{
     }
     
     public func getTemperatures() -> [String] {
-        let myHelo = getMyHelo() as LookUpTable!
+        let myHelo = getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) as LookUpTable!
         var temperatures = [Int](), higeDataCells = myHelo.higeDataCells
         
         for item in higeDataCells.allObjects {
@@ -441,16 +451,20 @@ public class ViewController: UIViewController{
             destinationExceedsHOGEJ.text = "Exceeds"
         }
     }
-
-   public  func getMyHelo() -> LookUpTable? {
+    
+    public  func getMyHelos() -> [LookUpTable] {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = appDelegate.managedObjectContext!
         let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "created_at", ascending: false)]
-        let allHelos = context.executeFetchRequest(fetchRequest, error: nil) as! [LookUpTable]
+        return context.executeFetchRequest(fetchRequest, error: nil) as! [LookUpTable]
+    }
+
+    public  func getMyHelo(index: Int) -> LookUpTable? {
+        let allHelos = getMyHelos()
         
         if allHelos.count > 0 {
-            return allHelos.first!
+            return allHelos[index]
         } else {
             return nil
         }
@@ -468,7 +482,7 @@ public class ViewController: UIViewController{
             weightReductionTextField.text = "0"
         }
         
-        if getMyHelo() != nil{
+        if getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) != nil{
             setAdjustedWeight()
             setSelectedWeight()
             setAllowablePayload()
@@ -488,7 +502,7 @@ public class ViewController: UIViewController{
             destinationWeightReductionTextField.text = "0"
         }
         
-        if getMyHelo() != nil{
+        if getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) != nil{
             setAdjustedWeight()
             setSelectedWeight()
             setAllowablePayload()
@@ -514,14 +528,14 @@ public class ViewController: UIViewController{
     @IBAction func departureAltitudeButtonClick(sender: AnyObject) {
         calculateType = "Departure Altitude"
         
-        if getMyHelo() != nil{
+        if getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) != nil{
             myArray = getPressures()
         }
     }
     
     @IBAction func departureTemperatureClick(sender: AnyObject) {
         calculateType = "Departure Temperature"
-        if getMyHelo() != nil{
+        if getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) != nil{
             myArray = getTemperatures()
         }
     }
@@ -529,14 +543,14 @@ public class ViewController: UIViewController{
     @IBAction func destinationAltitudeClick(sender: AnyObject) {
         calculateType = "Destination Altitude"
         
-        if getMyHelo() != nil{
+        if getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) != nil{
             myArray = getPressures()
         }
     }
     
     @IBAction func destinationTemperatureClick(sender: AnyObject) {
         calculateType = "Destination Temperature"
-        if getMyHelo() != nil{
+        if getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) != nil{
             myArray = getTemperatures()
         }
     }
@@ -554,7 +568,7 @@ public class ViewController: UIViewController{
     
     public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if getMyHelo() != nil{
+        if getMyHelo(INDEX_OF_SELECTED_PILOT_HERE) != nil{
             var DestViewController : ScrollViewController = segue.destinationViewController as! ScrollViewController
         
             DestViewController.labelText = calculateType
