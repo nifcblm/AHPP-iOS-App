@@ -430,14 +430,16 @@ public class ViewController: UIViewController{
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = appDelegate.managedObjectContext!
         let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "created_at", ascending: false)]
         let allHelos = context.executeFetchRequest(fetchRequest, error: nil) as! [LookUpTable]
         
         if allHelos.count > 0 {
-            return allHelos.last!
+            return allHelos.first!
         } else {
             return nil
         }
     }
+    
     @IBAction func weightReductionTextChanged(sender: AnyObject) {
         if weightReductionTextField.text == ""{
             weightReductionTextField.text = "0"
