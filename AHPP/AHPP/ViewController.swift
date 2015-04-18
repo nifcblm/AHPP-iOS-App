@@ -26,6 +26,9 @@ public class ViewController: UIViewController{
     var destinationText = ""
     var commentText = ""
     var payloadText = ""
+    
+    var weightReductionOneText = 0 as Int
+    var weightReductionTwoText = 0 as Int
 
     /* --------------------- BEGINNING OF LABELS --------------------- */
     
@@ -144,6 +147,8 @@ public class ViewController: UIViewController{
         destinationLocation.text = destinationText
         commentsTextField.text = commentText
         extraWeightTextField.text = payloadText
+        weightReductionTextField.text = String(weightReductionOneText)
+        destinationWeightReductionTextField.text = String(weightReductionTwoText)
         
         var helicopter = getMyHelo();
         
@@ -569,6 +574,8 @@ public class ViewController: UIViewController{
             DestViewController.destination = destinationLocation.text
             DestViewController.comment = extraWeightTextField.text
             DestViewController.payload = commentsTextField.text
+            DestViewController.weightReductionOne = weightReductionTextField.text.toInt()!
+            DestViewController.weightReductionTwo = destinationWeightReductionTextField.text.toInt()!
         }
     }
 
