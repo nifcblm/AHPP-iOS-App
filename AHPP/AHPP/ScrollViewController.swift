@@ -43,10 +43,15 @@ class ScrollViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         selectedValue = myArray[row]
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var GoBackDestViewController : ViewController = segue.destinationViewController as! ViewController
+        
+        if selectedValue.isEmpty{
+            selectedValue = myArray[0]
+        }
 
         if labelText == "Departure Altitude"{
             GoBackDestViewController.currentInputValues[0] = selectedValue
