@@ -18,6 +18,14 @@ public class ViewController: UIViewController{
     var newDepartureTemperatureValue = ""
     var departureFuelWeightTotalInt = 1400 as Int
     var destinationFuelWeightTotalInt = 1400 as Int
+    
+    var missionText = ""
+    var dateText = ""
+    var timeText = ""
+    var departureText = ""
+    var destinationText = ""
+    var commentText = ""
+    var payloadText = ""
 
     /* --------------------- BEGINNING OF LABELS --------------------- */
     
@@ -107,6 +115,7 @@ public class ViewController: UIViewController{
     
     @IBOutlet weak var extraWeightTextField: UITextField!
     @IBOutlet weak var acualPayload: UILabel!
+    @IBOutlet weak var commentsTextField: UITextField!
     
     /* --------------------- END OF LABELS --------------------- */
     
@@ -128,6 +137,13 @@ public class ViewController: UIViewController{
         departureFuelTotal.setTitle(String(departureFuelWeightTotalInt) , forState: UIControlState.Normal)
         destinationFuelTotal.setTitle(String(destinationFuelWeightTotalInt) , forState: UIControlState.Normal)
         fuelWeightPoundsPerGallon.text = "7"
+        mission.text = missionText
+        missionDate.text = dateText
+        missionTime.text = timeText
+        departureLocation.text = departureText
+        destinationLocation.text = destinationText
+        commentsTextField.text = commentText
+        extraWeightTextField.text = payloadText
         
         var helicopter = getMyHelo();
         
@@ -190,7 +206,9 @@ public class ViewController: UIViewController{
 
     func setComputedGrossWeight(){
         var currentDeparturePressure = currentInputValues[0], currentDepartureTemperature = currentInputValues[1], currentDestinationPressure = currentInputValues[2], currentDestinationTemperature = currentInputValues[3]
-        
+        print("pressure" + currentDeparturePressure)
+        print("temp" + currentDepartureTemperature)
+        print("\n")
         computerGrossWeightHIGE.text = String(getHigeWeight(currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!).integerValue)
         computerGrossWeightHOGE.text = String(getHogeWeight(currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!).integerValue)
         computedGrossWeightHOGEJ.text = String(getHogeWeight(currentDeparturePressure.toInt()!,temperature: currentDepartureTemperature.toInt()!).integerValue)
@@ -521,6 +539,13 @@ public class ViewController: UIViewController{
             DestViewController.myArray = myArray
             DestViewController.destinationFuelWeightTotal = String(destinationFuelWeightTotalInt)
             DestViewController.departureFuelWeightTotal = String(departureFuelWeightTotalInt)
+            DestViewController.mission = mission.text
+            DestViewController.date = missionDate.text
+            DestViewController.time = missionTime.text
+            DestViewController.departure = departureLocation.text
+            DestViewController.destination = destinationLocation.text
+            DestViewController.comment = extraWeightTextField.text
+            DestViewController.payload = commentsTextField.text
         }
     }
 

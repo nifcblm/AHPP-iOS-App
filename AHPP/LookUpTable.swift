@@ -12,7 +12,7 @@ import CoreData
 @objc(LookUpTable)
 
 public class LookUpTable: NSManagedObject {
-
+    
     @NSManaged public var company_name: String
     @NSManaged public var contact_number: String
     @NSManaged public var designated_base: String
@@ -29,8 +29,9 @@ public class LookUpTable: NSManagedObject {
     @NSManaged public var performance_reference_hoge: String
     @NSManaged public var pilot_name: String
     @NSManaged public var has_wat: Bool
+    @NSManaged public var created_at: NSDate
     @NSManaged public var watDataCells: NSSet
     @NSManaged public var higeDataCells: NSSet
     @NSManaged public var hogeDataCells: NSSet
-
+    
 }

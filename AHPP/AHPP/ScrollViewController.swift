@@ -21,6 +21,14 @@ class ScrollViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     var destinationFuelWeightTotal = ""
     var labelText = ""
     
+    var mission = ""
+    var date = ""
+    var time = ""
+    var departure = ""
+    var destination = ""
+    var comment = ""
+    var payload = ""
+    
     override func viewDidLoad() {
         calculateType.text = labelText
     }
@@ -43,10 +51,15 @@ class ScrollViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         selectedValue = myArray[row]
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var GoBackDestViewController : ViewController = segue.destinationViewController as! ViewController
+        
+        if selectedValue.isEmpty{
+            selectedValue = myArray[0]
+        }
 
         if labelText == "Departure Altitude"{
             GoBackDestViewController.currentInputValues[0] = selectedValue
@@ -95,5 +108,13 @@ class ScrollViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             GoBackDestViewController.departureFuelWeightTotalInt = departureFuelWeightTotal.toInt()!
             GoBackDestViewController.destinationFuelWeightTotalInt = selectedValue.toInt()!
         }
+        
+        GoBackDestViewController.missionText = mission
+        GoBackDestViewController.dateText = date
+        GoBackDestViewController.timeText = time
+        GoBackDestViewController.departureText = departure
+        GoBackDestViewController.destinationText = destination
+        GoBackDestViewController.commentText = comment
+        GoBackDestViewController.payloadText = payload
     }
 }
