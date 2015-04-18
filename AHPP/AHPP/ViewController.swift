@@ -146,6 +146,7 @@ public class ViewController: UIViewController{
         destinationLocation.text = destinationText
         commentsTextField.text = commentText
         extraWeightTextField.text = payloadText
+        acualPayload.text = extraWeightTextField.text
         weightReductionTextField.text = String(weightReductionOneText)
         destinationWeightReductionTextField.text = String(weightReductionTwoText)
         
