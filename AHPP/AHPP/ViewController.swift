@@ -439,12 +439,19 @@ public class ViewController: UIViewController{
         }
     }
     @IBAction func weightReductionTextChanged(sender: AnyObject) {
+        if weightReductionTextField.text == ""{
+            weightReductionTextField.text = "0"
+        }
+        
         setAdjustedWeight()
         setSelectedWeight()
         setAllowablePayload()
         isAllowable()
     }
     @IBAction func destinationWeightReductionTextChanged(sender: AnyObject) {
+        if destinationWeightReductionTextField.text == ""{
+            destinationWeightReductionTextField.text = "0"
+        }
         setAdjustedWeight()
         setSelectedWeight()
         setAllowablePayload()
