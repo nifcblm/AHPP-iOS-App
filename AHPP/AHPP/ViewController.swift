@@ -115,7 +115,6 @@ public class ViewController: UIViewController{
     @IBOutlet weak var destinationExceedsHIGE: UILabel!
     @IBOutlet weak var destinationExceedsHOGE: UILabel!
     @IBOutlet weak var destinationExceedsHOGEJ: UILabel!
-    
     @IBOutlet weak var extraWeightTextField: UITextField!
     @IBOutlet weak var acualPayload: UILabel!
     @IBOutlet weak var commentsTextField: UITextField!
@@ -175,7 +174,6 @@ public class ViewController: UIViewController{
             UIAlertView(title: "Please Import Information", message: "The AHPP sheet needs to be imported", delegate: nil, cancelButtonTitle: "Close").show()
         }
     }
-
 
     func setGrossWeightLimitation(){
         var currentDeparturePressure = currentInputValues[0], currentDepartureTemperature = currentInputValues[1], currentDestinationPressure = currentInputValues[2], currentDestinationTemperature = currentInputValues[3]
@@ -257,7 +255,6 @@ public class ViewController: UIViewController{
         super.didReceiveMemoryWarning()
     }
     
-    
     public func getHigeWeight(pressure: NSNumber, temperature: NSNumber) -> NSNumber {
         let myHelo = getMyHelo() as LookUpTable!
         var weight: NSNumber = 0, higeDataCells : NSSet = myHelo.higeDataCells
@@ -317,7 +314,6 @@ public class ViewController: UIViewController{
         }
     }
     
-    
     public func grossWeightLimitation(isHige: Bool, isHoge: Bool, isHogeJ: Bool, pressure: NSInteger, temperature:NSInteger) -> NSInteger {
         let myHelo = getMyHelo() as LookUpTable!
         
@@ -339,7 +335,6 @@ public class ViewController: UIViewController{
                 y = self.getWatWeight(pressure, temperature: temperature) as NSInteger
                 weight = (x < y) ? x : y
             }
-  
         }
         return weight
     }
@@ -533,7 +528,6 @@ public class ViewController: UIViewController{
     
     @IBAction func destinationAltitudeClick(sender: AnyObject) {
         calculateType = "Destination Altitude"
-        
         if getMyHelo() != nil{
             myArray = getPressures()
         }
@@ -549,7 +543,6 @@ public class ViewController: UIViewController{
     @IBAction func departureFuelTotalClick(sender: AnyObject) {
         calculateType = "Departure Fuel Weight"
         myArray = ["0", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900","2000"]
-        
     }
     
     @IBAction func destinationFuelTotalClick(sender: AnyObject) {
@@ -653,9 +646,11 @@ public class ViewController: UIViewController{
     @IBAction func ExportButtonClicked(sender: UIButton) {
         screenShotMethod();
     }
+    
     @IBAction func actualPayloadInfoEditBegin(sender: AnyObject) {
         self.view.frame.origin.y -= 170
     }
+    
     @IBAction func actualPayloadInfoEditingEnd(sender: AnyObject) {
         self.view.frame.origin.y += 170
     }
@@ -663,7 +658,14 @@ public class ViewController: UIViewController{
     @IBAction func actualPayloadEditBegin(sender: AnyObject) {
         self.view.frame.origin.y -= 170
     }
+    
     @IBAction func acualPayloadEditEnd(sender: AnyObject) {
         self.view.frame.origin.y += 170
+        let weightDestString = extraWeightTextField.text
+        let matches = matchesForRegexInText("[0-9]", text: weightDestString)
+        
+        if matches.count != count(weightDestString){
+            extraWeightTextField.text = "0"
+        }
     }
 }
