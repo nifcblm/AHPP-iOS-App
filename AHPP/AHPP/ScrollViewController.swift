@@ -57,7 +57,7 @@ class ScrollViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var GoBackDestViewController : ViewController = segue.destinationViewController as! ViewController
         
-        if selectedValue.isEmpty{
+        if selectedValue.isEmpty && !labelText.isEmpty{
             selectedValue = myArray[0]
         }
 
