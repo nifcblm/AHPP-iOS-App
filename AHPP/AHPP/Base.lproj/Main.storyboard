@@ -1514,6 +1514,7 @@
                         <outlet property="allowablePayloadHIGE" destination="3oo-SV-FqU" id="vFh-eE-CPM"/>
                         <outlet property="allowablePayloadHOGE" destination="fBz-R6-TcH" id="Oco-ff-2P7"/>
                         <outlet property="allowablePayloadHOGEJ" destination="pSr-Be-Qd1" id="jrE-mB-i83"/>
+                        <outlet property="commentsTextField" destination="teW-tA-GAp" id="e10-MH-6VY"/>
                         <outlet property="computedGrossWeightHOGEJ" destination="tzk-Fn-Rbb" id="dvI-8W-Mjv"/>
                         <outlet property="computerGrossWeightHIGE" destination="J44-RJ-bc6" id="ayx-Pu-aNc"/>
                         <outlet property="computerGrossWeightHOGE" destination="ajg-Xa-EzR" id="0RI-Y2-TOj"/>
@@ -1536,6 +1537,7 @@
                         <outlet property="destinationGrossWeightLimitationHIGE" destination="oKx-ki-1MM" id="4d2-6V-Mgj"/>
                         <outlet property="destinationGrossWeightLimitiationHOGE" destination="6Ud-5e-jrr" id="1pY-dQ-pTO"/>
                         <outlet property="destinationGrossWeightLimitiationHOGEJ" destination="ilR-Yt-xlv" id="R5b-gg-SIg"/>
+                        <outlet property="destinationLocation" destination="gMW-AH-G6n" id="E9h-Hp-dhS"/>
                         <outlet property="destinationOperatingWeightHIGE" destination="sR7-Z9-hNX" id="JAD-6e-61r"/>
                         <outlet property="destinationOperatingWeightHOGE" destination="BMo-IE-2hD" id="faU-ov-mvY"/>
                         <outlet property="destinationOperatingWeightHOGEJ" destination="s1Q-0W-T6X" id="Xum-M3-GHL"/>
