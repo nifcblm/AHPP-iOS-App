@@ -152,7 +152,10 @@ public class ViewController: UIViewController{
             setOperatingWeight()
             setAllowablePayload()
         }
-
+        
+        else {
+            UIAlertView(title: "Please Import Information", message: "The AHPP sheet needs to be imported", delegate: nil, cancelButtonTitle: "Close").show()
+        }
     }
 
 
@@ -443,19 +446,25 @@ public class ViewController: UIViewController{
             weightReductionTextField.text = "0"
         }
         
-        setAdjustedWeight()
-        setSelectedWeight()
-        setAllowablePayload()
-        isAllowable()
+        if getMyHelo() != nil{
+            setAdjustedWeight()
+            setSelectedWeight()
+            setAllowablePayload()
+            isAllowable()
+        }
+        
     }
     @IBAction func destinationWeightReductionTextChanged(sender: AnyObject) {
         if destinationWeightReductionTextField.text == ""{
             destinationWeightReductionTextField.text = "0"
         }
-        setAdjustedWeight()
-        setSelectedWeight()
-        setAllowablePayload()
-        isAllowable()
+        
+        if getMyHelo() != nil{
+            setAdjustedWeight()
+            setSelectedWeight()
+            setAllowablePayload()
+            isAllowable()
+        }
     }
  
     @IBAction func extraWeightTextChanged(sender: AnyObject) {
@@ -464,22 +473,32 @@ public class ViewController: UIViewController{
 
     @IBAction func departureAltitudeButtonClick(sender: AnyObject) {
         calculateType = "Departure Altitude"
-        myArray = getPressures()
+        
+        if getMyHelo() != nil{
+            myArray = getPressures()
+        }
     }
     
     @IBAction func departureTemperatureClick(sender: AnyObject) {
         calculateType = "Departure Temperature"
-        myArray = getTemperatures()
+        if getMyHelo() != nil{
+            myArray = getTemperatures()
+        }
     }
     
     @IBAction func destinationAltitudeClick(sender: AnyObject) {
         calculateType = "Destination Altitude"
-        myArray = getPressures()
+        
+        if getMyHelo() != nil{
+            myArray = getPressures()
+        }
     }
     
     @IBAction func destinationTemperatureClick(sender: AnyObject) {
         calculateType = "Destination Temperature"
-        myArray = getTemperatures()
+        if getMyHelo() != nil{
+            myArray = getTemperatures()
+        }
     }
     
     @IBAction func departureFuelTotalClick(sender: AnyObject) {
@@ -494,13 +513,16 @@ public class ViewController: UIViewController{
     }
     
     public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var DestViewController : ScrollViewController = segue.destinationViewController as! ScrollViewController
         
-        DestViewController.labelText = calculateType
-        DestViewController.secondCurrentInputValues = currentInputValues
-        DestViewController.myArray = myArray
-        DestViewController.destinationFuelWeightTotal = String(destinationFuelWeightTotalInt)
-        DestViewController.departureFuelWeightTotal = String(departureFuelWeightTotalInt)
+        if getMyHelo() != nil{
+            var DestViewController : ScrollViewController = segue.destinationViewController as! ScrollViewController
+        
+            DestViewController.labelText = calculateType
+            DestViewController.secondCurrentInputValues = currentInputValues
+            DestViewController.myArray = myArray
+            DestViewController.destinationFuelWeightTotal = String(destinationFuelWeightTotalInt)
+            DestViewController.departureFuelWeightTotal = String(departureFuelWeightTotalInt)
+        }
     }
 
    public class func saveDataCell(pressure: NSNumber, temperature: NSNumber, weight: NSNumber, lookUpTable: LookUpTable, isHige: Bool, isHoge: Bool) {
