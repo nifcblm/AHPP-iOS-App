@@ -18,9 +18,9 @@
 		790BCFB51AD73A9600E262B2 /* WatDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790BCFB41AD73A9600E262B2 /* WatDataCell.swift */; };
 		790BCFB71AD73A9700E262B2 /* HogeDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790BCFB61AD73A9700E262B2 /* HogeDataCell.swift */; };
 		790BCFB91AD73A9700E262B2 /* HigeDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790BCFB81AD73A9700E262B2 /* HigeDataCell.swift */; };
-		790BCFBB1AD73A9700E262B2 /* LookUpTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790BCFBA1AD73A9700E262B2 /* LookUpTable.swift */; };
 		794AFDF21AB6228300513ADC /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794AFDF11AB6228300513ADC /* Parsing.swift */; };
 		A744E5A41AE0881800A8B877 /* ParsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A744E5A31AE0881800A8B877 /* ParsingTest.swift */; };
+		A7980CDB1AE2F24A00098C6E /* LookUpTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7980CDA1AE2F24A00098C6E /* LookUpTable.swift */; };
 		A7A83E271AD9E52500770FBA /* DataModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A83E261AD9E52500770FBA /* DataModelTestCase.swift */; };
 		A7A83E461ADA146A00770FBA /* CoreDataSaveAndRetrievalTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A83E451ADA146A00770FBA /* CoreDataSaveAndRetrievalTestCase.swift */; };
 		A7BEDA751AB621EB00DD245B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BEDA741AB621EB00DD245B /* libsqlite3.dylib */; };
@@ -55,9 +55,9 @@
 		790BCFB41AD73A9600E262B2 /* WatDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatDataCell.swift; path = ../WatDataCell.swift; sourceTree = "<group>"; };
 		790BCFB61AD73A9700E262B2 /* HogeDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HogeDataCell.swift; path = ../HogeDataCell.swift; sourceTree = "<group>"; };
 		790BCFB81AD73A9700E262B2 /* HigeDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HigeDataCell.swift; path = ../HigeDataCell.swift; sourceTree = "<group>"; };
-		790BCFBA1AD73A9700E262B2 /* LookUpTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LookUpTable.swift; path = ../LookUpTable.swift; sourceTree = "<group>"; };
 		794AFDF11AB6228300513ADC /* Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
 		A744E5A31AE0881800A8B877 /* ParsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingTest.swift; sourceTree = "<group>"; };
+		A7980CDA1AE2F24A00098C6E /* LookUpTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LookUpTable.swift; path = ../LookUpTable.swift; sourceTree = "<group>"; };
 		A7A83E261AD9E52500770FBA /* DataModelTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModelTestCase.swift; sourceTree = "<group>"; };
 		A7A83E3C1AD9F09300770FBA /* AHPP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AHPP-Bridging-Header.h"; sourceTree = "<group>"; };
 		A7A83E451ADA146A00770FBA /* CoreDataSaveAndRetrievalTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataSaveAndRetrievalTestCase.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 		49E652A51AB602BC001E061D /* AHPP */ = {
 			isa = PBXGroup;
 			children = (
-				790BCFBA1AD73A9700E262B2 /* LookUpTable.swift */,
+				A7980CDA1AE2F24A00098C6E /* LookUpTable.swift */,
 				790BCFB81AD73A9700E262B2 /* HigeDataCell.swift */,
 				790BCFB61AD73A9700E262B2 /* HogeDataCell.swift */,
 				790BCFB41AD73A9600E262B2 /* WatDataCell.swift */,
@@ -260,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7980CDB1AE2F24A00098C6E /* LookUpTable.swift in Sources */,
 				794AFDF21AB6228300513ADC /* Parsing.swift in Sources */,
 				790BCFB51AD73A9600E262B2 /* WatDataCell.swift in Sources */,
 				790BCFB91AD73A9700E262B2 /* HigeDataCell.swift in Sources */,
@@ -267,7 +268,6 @@
 				36A44E6B1AD8DA1D00EE7FC1 /* ScrollViewController.swift in Sources */,
 				49E652AE1AB602BC001E061D /* ViewController.swift in Sources */,
 				49E652AC1AB602BC001E061D /* AHPP.xcdatamodeld in Sources */,
-				790BCFBB1AD73A9700E262B2 /* LookUpTable.swift in Sources */,
 				49E652A91AB602BC001E061D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
