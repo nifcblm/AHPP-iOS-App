@@ -114,6 +114,13 @@ public class ViewController: UIViewController{
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate! as! AppDelegate
+        appDelegate.myViewController = self
+        
+        self.setViewController()
+    }
+    
+    func setViewController() {        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
         
@@ -126,7 +133,7 @@ public class ViewController: UIViewController{
         fuelWeightPoundsPerGallon.text = "7"
         
         var helicopter = getMyHelo();
-    
+        
         if (helicopter != nil) {
             var realHelicopter = helicopter as LookUpTable!
             pilotName.text = realHelicopter.pilot_name
@@ -136,7 +143,7 @@ public class ViewController: UIViewController{
             flightCrewWeight.text = realHelicopter.flight_crew_weight.stringValue
             fuelWeightDeparture.text = String(format:"%.1f", Double(departureFuelWeightTotalInt) / 7.0)
             fuelWeightDestination.text = String(format:"%.1f", Double(destinationFuelWeightTotalInt) / 7.0)
-  
+            
             setComputedGrossWeight()
             setWeightReduction()
             setGrossWeightLimitation()
@@ -145,7 +152,9 @@ public class ViewController: UIViewController{
             setOperatingWeight()
             setAllowablePayload()
         }
+
     }
+
 
     func setGrossWeightLimitation(){
         var currentDeparturePressure = currentInputValues[0], currentDepartureTemperature = currentInputValues[1], currentDestinationPressure = currentInputValues[2], currentDestinationTemperature = currentInputValues[3]
