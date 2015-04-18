@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7ME-ma-Luj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7ME-ma-Luj">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -1231,6 +1231,10 @@
                                 <color key="backgroundColor" red="1" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="actualPayloadInfoEditBegin:" destination="7ME-ma-Luj" eventType="editingDidBegin" id="xyj-Jr-2Ej"/>
+                                    <action selector="actualPayloadInfoEditingEnd:" destination="7ME-ma-Luj" eventType="editingDidEnd" id="2ol-qF-nkz"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oAZ-oH-T0D">
                                 <rect key="frame" x="596" y="822" width="164" height="80"/>
@@ -1238,6 +1242,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
+                                    <action selector="actualPayloadEditBegin:" destination="7ME-ma-Luj" eventType="editingDidBegin" id="eiQ-se-ehd"/>
+                                    <action selector="acualPayloadEditEnd:" destination="7ME-ma-Luj" eventType="editingDidEnd" id="3N7-S2-bGL"/>
                                     <action selector="extraWeightTextChanged:" destination="7ME-ma-Luj" eventType="editingDidEnd" id="37G-LV-f8U"/>
                                 </connections>
                             </textField>
@@ -1628,6 +1634,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="waY-aK-pQK"/>
+        <segue reference="ddb-OI-WNs"/>
     </inferredMetricsTieBreakers>
 </document>
