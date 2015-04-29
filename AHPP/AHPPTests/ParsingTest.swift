@@ -20,6 +20,8 @@ public class ParsingTest{
         return LookupTableGeneratorTester(path: absolute+filename)
     }
     
+    
+    
     private class func saveDataCells(table: Array2D, lookUpTable: LookUpTable, isHige: Bool, isHoge: Bool)
     {
         if(table.colCount()>0 && table.rowCount()>0)
@@ -163,6 +165,11 @@ public class LookupTableGeneratorTester
         }
         
         return cells
+    }
+    
+    public func getArray2DDataCells() -> Array2D
+    {
+        return nextTable()
     }
     
     func nextTable() -> Array2D
@@ -337,7 +344,7 @@ public class LookupTableGeneratorTester
 }
 
 
-class Array2D {
+public class Array2D {
     var cols:Int, rows:Int
     var matrix: [Int?]
     

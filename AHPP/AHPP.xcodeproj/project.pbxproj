@@ -23,6 +23,8 @@
 		A7980CDB1AE2F24A00098C6E /* LookUpTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7980CDA1AE2F24A00098C6E /* LookUpTable.swift */; };
 		A7A83E271AD9E52500770FBA /* DataModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A83E261AD9E52500770FBA /* DataModelTestCase.swift */; };
 		A7A83E461ADA146A00770FBA /* CoreDataSaveAndRetrievalTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A83E451ADA146A00770FBA /* CoreDataSaveAndRetrievalTestCase.swift */; };
+		A7A9E9E01AEF66EA00D834A8 /* CalculationsTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A9E9DF1AEF66EA00D834A8 /* CalculationsTester.swift */; };
+		A7A9E9E21AEF775000D834A8 /* CalculationsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A9E9E11AEF775000D834A8 /* CalculationsTestCase.swift */; };
 		A7BEDA751AB621EB00DD245B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BEDA741AB621EB00DD245B /* libsqlite3.dylib */; };
 		A7D1AE7A1AD999E600C3A1F0 /* CoreDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D1AE791AD999E600C3A1F0 /* CoreDataTestCase.swift */; };
 		A7D1AE841AD9B8AD00C3A1F0 /* LakeviewAHPP.csv in Resources */ = {isa = PBXBuildFile; fileRef = A7D1AE821AD9B8AD00C3A1F0 /* LakeviewAHPP.csv */; };
@@ -61,6 +63,8 @@
 		A7A83E261AD9E52500770FBA /* DataModelTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModelTestCase.swift; sourceTree = "<group>"; };
 		A7A83E3C1AD9F09300770FBA /* AHPP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AHPP-Bridging-Header.h"; sourceTree = "<group>"; };
 		A7A83E451ADA146A00770FBA /* CoreDataSaveAndRetrievalTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataSaveAndRetrievalTestCase.swift; sourceTree = "<group>"; };
+		A7A9E9DF1AEF66EA00D834A8 /* CalculationsTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculationsTester.swift; sourceTree = "<group>"; };
+		A7A9E9E11AEF775000D834A8 /* CalculationsTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculationsTestCase.swift; sourceTree = "<group>"; };
 		A7BEDA741AB621EB00DD245B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A7D1AE791AD999E600C3A1F0 /* CoreDataTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTestCase.swift; sourceTree = "<group>"; };
 		A7D1AE821AD9B8AD00C3A1F0 /* LakeviewAHPP.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LakeviewAHPP.csv; sourceTree = "<group>"; };
@@ -137,7 +141,9 @@
 		49E652BE1AB602BC001E061D /* AHPPTests */ = {
 			isa = PBXGroup;
 			children = (
+				A7A9E9DF1AEF66EA00D834A8 /* CalculationsTester.swift */,
 				A744E5A31AE0881800A8B877 /* ParsingTest.swift */,
+				A7A9E9E11AEF775000D834A8 /* CalculationsTestCase.swift */,
 				A7A83E451ADA146A00770FBA /* CoreDataSaveAndRetrievalTestCase.swift */,
 				A7A83E261AD9E52500770FBA /* DataModelTestCase.swift */,
 				A7D1AE791AD999E600C3A1F0 /* CoreDataTestCase.swift */,
@@ -276,7 +282,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7A9E9E21AEF775000D834A8 /* CalculationsTestCase.swift in Sources */,
 				A7A83E461ADA146A00770FBA /* CoreDataSaveAndRetrievalTestCase.swift in Sources */,
+				A7A9E9E01AEF66EA00D834A8 /* CalculationsTester.swift in Sources */,
 				A7D1AE7A1AD999E600C3A1F0 /* CoreDataTestCase.swift in Sources */,
 				A744E5A41AE0881800A8B877 /* ParsingTest.swift in Sources */,
 				A7A83E271AD9E52500770FBA /* DataModelTestCase.swift in Sources */,
