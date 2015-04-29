@@ -18,9 +18,9 @@ class CoreDataSaveAndRetrievalTestCase: CoreDataTestCase {
     var view:ViewController?
 
     
-    override func setUp() {
+    override func setUp(){
         super.setUp()
-        tableGenerator = ParsingTest.parseTester(test)
+        tableGenerator = ParsingTest.parseTester("LasVegasAHPP.csv")
         view = ViewController()
 
     }
@@ -36,6 +36,8 @@ class CoreDataSaveAndRetrievalTestCase: CoreDataTestCase {
         let lookUp = createTable(md!)
         
         let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "created_at", ascending: false)]
+
         let allHelos = lookUp.managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as! [LookUpTable]
         
         XCTAssertTrue(allHelos.count > 0, "no LookUpTable's found in core data")
@@ -63,6 +65,8 @@ class CoreDataSaveAndRetrievalTestCase: CoreDataTestCase {
         let lookUp = createTable(md!)
         
         let fetchRequest = NSFetchRequest(entityName: "LookUpTable")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "created_at", ascending: false)]
+
         let allHelos = lookUp.managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as! [LookUpTable]
         
         XCTAssertTrue(allHelos.count > 0, "no LookUpTable's found in core data")
